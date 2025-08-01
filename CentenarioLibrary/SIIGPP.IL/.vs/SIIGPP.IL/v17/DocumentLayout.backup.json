@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Monserrat PM\\Desktop\\centenario_microservices\\centenario_microservices\\SIIGPP.IL\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D4E4470D-6185-0BDF-4060-72D06AA172BC}|SIIGPP.IL.csproj|c:\\users\\monserrat pm\\desktop\\centenario_microservices\\centenario_microservices\\siigpp.il\\controllers\\poderjudicialcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D4E4470D-6185-0BDF-4060-72D06AA172BC}|SIIGPP.IL.csproj|solutionrelative:controllers\\poderjudicialcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PoderJudicialController.cs",
+              "DocumentMoniker": "C:\\Users\\Monserrat PM\\Desktop\\centenario_microservices\\centenario_microservices\\SIIGPP.IL\\Controllers\\PoderJudicialController.cs",
+              "RelativeDocumentMoniker": "Controllers\\PoderJudicialController.cs",
+              "ToolTip": "C:\\Users\\Monserrat PM\\Desktop\\centenario_microservices\\centenario_microservices\\SIIGPP.IL\\Controllers\\PoderJudicialController.cs",
+              "RelativeToolTip": "Controllers\\PoderJudicialController.cs",
+              "ViewState": "AgIAALcAAAAAAAAAAAAowNcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-30T16:03:32.328Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

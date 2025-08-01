@@ -1,0 +1,36 @@
+﻿using SIIGPP.Entidades.M_Cat.Orientacion;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using SIIGPP.Entidades.M_Configuracion.Cat_Estructura;
+
+namespace SIIGPP.Entidades.M_Cat.RemisionesUI
+{
+    public class RemisionUI
+    {
+        public Guid IdRemisionUI { get; set; }
+        public Guid RHechoId { get; set; }
+        public RHecho RHecho { get; set; }
+        public ModuloServicio ModuloServicio { get; set; }
+        public Guid ModuloServicioId { get; set; }
+        public string Fecha { get; set; }
+        public string DirigidoA { get; set; }
+        public string PuestoA { get; set; }
+        public Guid Moduloqueenvia { get; set; }
+        public Guid AgenciaQueenvia { get; set; }
+        public string UDistrito { get; set; }
+        public string USubproc { get; set; }
+        public string Status { get; set; }
+        public string UAgencia { get; set; }
+        public string Usuario { get; set; }
+        public string UPuesto { get; set; }
+        public string UModulo { get; set; }
+        public DateTime Fechasys { get; set; }
+        public string Rechazo { get; set; }
+        public DateTime FechaRechazo { get; set; }
+        public string NumeroOficio { get; set; }
+        public string Nuc { get; set; }
+        public Boolean EnvioExitosoTF { get; set; }
+
+    }
+}

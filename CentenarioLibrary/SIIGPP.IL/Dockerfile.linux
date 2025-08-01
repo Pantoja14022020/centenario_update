@@ -1,0 +1,16 @@
+FROM mcr.microsoft.com/dotnet/sdk:9.0 AS linux-build
+WORKDIR /app
+COPY SIIGPP.IL.csproj .
+RUN dotnet restore "SIIGPP.IL.csproj"
+COPY . .
+RUN mkdir -p /app/Carpetas
+RUN dotnet clean "SIIGPP.IL.csproj" -c Release && \
+    dotnet build "SIIGPP.IL.csproj" -c Release && \
+    dotnet publish "SIIGPP.IL.csproj" -c Release -o /app/publish
+
+FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS linux-runtime
+WORKDIR /app
+COPY --from=linux-build /app/publish .
+RUN mkdir -p /app/Carpetas
+EXPOSE 44312
+ENTRYPOINT ["dotnet", "SIIGPP.IL.dll"]

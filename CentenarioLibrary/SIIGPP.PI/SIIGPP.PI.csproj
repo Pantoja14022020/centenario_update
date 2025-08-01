@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <UserSecretsId>20068e05-ae3b-4e94-9e82-71188c566a65</UserSecretsId>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Models\InformacionJuridico\TrasladosCustodias\**" />
+    <Content Remove="Models\InformacionJuridico\TrasladosCustodias\**" />
+    <EmbeddedResource Remove="Models\InformacionJuridico\TrasladosCustodias\**" />
+    <None Remove="Models\InformacionJuridico\TrasladosCustodias\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.2"/>
+    <PackageReference Include="Microsoft.AspNetCore.DataProtection" Version="9.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.2" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Analyzers" Version="8.0.2" />
+    <PackageReference Include="prometheus-net.AspNetCore" Version="8.2.1" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\CentenarioLibrary\CentenarioLibrary.csproj" />
+	</ItemGroup>
+	
+</Project>

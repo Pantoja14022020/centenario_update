@@ -1,0 +1,68 @@
+stages:
+  - upload-changes-into-gitlab-and-github
+  - deploy-to-aws-cloud
+
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+  GITLAB_REPO_NAME: "centro-atmp-cent-microservice"
+  GITHUB_REPO_URL: "https://github.com/procutics24/centenario-backend.git"
+  GITHUB_BRANCH: "main"
+  GITHUB_SUBFOLDER: "SIIGPP.CAT"
+
+before_script:
+  - apk add --no-cache curl jq python3 py3-pip aws-cli
+  - aws --version
+
+upload-changes-into-gitlab-and-github:
+  stage: upload-changes-into-gitlab-and-github
+  image: ubuntu:22.04
+  before_script:
+    - apt-get update && apt-get install -y git bash openssh-client
+  script:
+    - echo "== Clonando monorepo de GitHub =="
+    - git config --global user.name "${USUARIO_CUENTA_GITHUB}"
+    - git config --global user.email "${EMAIL_GITHUB}"
+    - git clone "https://${GITHUB_TOKEN}@${GITHUB_REPO_URL#https://}" centenario-backend
+    - cd centenario-backend
+
+    - echo "== Agregando remoto GitLab (siigpp_cat) =="
+    - git remote add siigpp_cat "$CI_REPOSITORY_URL"
+    - git fetch siigpp_cat
+
+    - echo "== Validando variables =="
+    - echo "CI_COMMIT_REF_NAME=$CI_COMMIT_REF_NAME"
+    - echo "GITHUB_SUBFOLDER=$GITHUB_SUBFOLDER"
+    - echo "GITHUB_BRANCH=$GITHUB_BRANCH"
+
+    - echo "== Haciendo pull con git subtree =="
+    - git subtree pull --prefix=SIIGPP.CAT siigpp_cat main --squash
+
+    - echo "== Pusheando al repositorio GitHub =="
+    - git push origin "$GITHUB_BRANCH"
+  only:
+    - main
+
+deploy-to-aws-cloud:
+  stage: deploy-to-aws-cloud
+  image: docker
+  services:
+    - name: docker:dind
+      alias: docker
+  variables:
+    ECR_URI: "$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$ECR_CEN_AT_TEMP"
+    SERVICE_NAME: $SERVICE_NAME_CEN_AT_TEMP
+    TASK_DEFINITION: $TASK_DEFINITION_CEN_AT_TEMP
+    DOCKER_TARGET: linux-runtime
+    TARGET_ENV: linux
+  script:
+    - echo "Building Docker image"
+    - docker --version
+    - docker build -f Dockerfile.linux -t $ECR_URI:latest .
+    - docker images
+    - echo "Logging into Amazon ECR"
+    - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $ECR_URI
+    - docker push $ECR_URI:latest
+    - aws ecs describe-services --cluster $CLUSTER_NAME --services $SERVICE_NAME
+    - aws ecs update-service --cluster $CLUSTER_NAME --service $SERVICE_NAME --task-definition $TASK_DEFINITION --force-new-deployment
+  only:
+    - main

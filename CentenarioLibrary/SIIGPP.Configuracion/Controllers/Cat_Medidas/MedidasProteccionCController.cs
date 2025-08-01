@@ -1,0 +1,111 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using SIIGPP.Configuracion.Models.Cat_Medidas.MedidasProteccion;
+using SIIGPP.Datos;
+using SIIGPP.Entidades.M_Configuracion.Cat_Medidas;
+
+namespace SIIGPP.Configuracion.Controllers.Cat_Medidas
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class MedidasProteccionCController : ControllerBase
+    {
+        private readonly DbContextSIIGPP _context;
+
+        public MedidasProteccionCController(DbContextSIIGPP context)
+        {
+            _context = context;
+        }
+
+        // GET: api/MedidasProteccionC/Listar
+        [HttpGet("[action]")]
+        public async Task<IEnumerable<MedidasProteccionViewModel>> Listar()
+        {
+            var db = await _context.MedidasProteccionCs.ToListAsync();
+
+            return db.Select(a => new MedidasProteccionViewModel
+            {
+                IdMedidasProteccionC = a.IdMedidasProteccionC,
+                Clasificacion = a.Clasificacion,
+                Clave = a.Clave,
+                Descripcion = a.Descripcion
+            });
+
+        }
+
+
+        // PUT: api/MedidasProteccionC/Actualizar
+        [Authorize(Roles = " Administrador")]
+        [HttpPut("[action]")]
+        public async Task<IActionResult> Actualizar([FromBody] ActualizarViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+
+            var db = await _context.MedidasProteccionCs.FirstOrDefaultAsync(a => a.IdMedidasProteccionC == model.IdMedidasProteccionC);
+
+            if (db == null)
+            {
+                return NotFound();
+            }
+
+            db.Clave = model.Clave;
+            db.Clasificacion = model.Clasificacion;
+            db.Descripcion = model.Descripcion;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                // Guardar Excepción
+                return BadRequest();
+            }
+
+            return Ok();
+        }
+
+        // POST: api/MedidasProteccionC/Crear
+        [Authorize(Roles = " Administrador")]
+        [HttpPost("[action]")]
+        public async Task<IActionResult> Crear([FromBody] CrearViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            MedidasProteccionC dato = new MedidasProteccionC
+            {
+                Clave = model.Clave,
+                Clasificacion = model.Clasificacion,
+                Descripcion = model.Descripcion
+
+            };
+
+            _context.MedidasProteccionCs.Add(dato);
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+            catch (Exception ex)
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+            {
+                return BadRequest();
+            }
+
+            return Ok();
+        }
+    }
+}

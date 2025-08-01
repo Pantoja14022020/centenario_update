@@ -1,0 +1,20 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace SIIGPP.SP.ModelsSP.PeritoAsignadoForaneas
+{
+    public class EstadisticasFechaViewModel
+    {
+        public string Fechas { get; set; }
+        public int Fecha { get; set; }
+        public int Finalizado { get; set; }
+        public int Asignado { get; set; }
+        public int Enproceso { get; set; }
+        public int Suspendido { get; set; }
+        public int Pospuesto { get; set; }
+        public int Entregado { get; set; }
+        public int Total { get; set; }
+    }
+}

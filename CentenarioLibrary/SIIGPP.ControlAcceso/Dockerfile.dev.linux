@@ -1,0 +1,21 @@
+# Dockerfile.dev
+FROM mcr.microsoft.com/dotnet/sdk:9.0
+
+WORKDIR /app
+
+# Copiar primero el archivo de proyecto y restaurar dependencias
+COPY SIIGPP.ControlAcceso.csproj ./
+RUN dotnet restore
+
+# Copiar el resto del código fuente
+COPY . .
+
+# Crear carpeta si tu app la necesita
+RUN mkdir -p /app/Carpetas
+RUN mkdir -p /app/Responsivas
+
+# Exponer el puerto usado por tu app
+EXPOSE 44321
+
+# Ejecutar la aplicación en modo desarrollo con hot reload para detectar changes
+CMD ["dotnet", "watch", "run", "--urls=http://0.0.0.0:44321"]

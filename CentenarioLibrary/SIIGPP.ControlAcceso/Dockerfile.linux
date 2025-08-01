@@ -1,0 +1,18 @@
+FROM mcr.microsoft.com/dotnet/sdk:9.0 AS linux-build
+WORKDIR /app
+COPY SIIGPP.ControlAcceso.csproj .
+RUN dotnet restore "SIIGPP.ControlAcceso.csproj"
+COPY . .
+RUN mkdir -p /app/Carpetas
+RUN mkdir -p /app/Responsivas
+RUN dotnet clean "SIIGPP.ControlAcceso.csproj" -c Release && \
+    dotnet build "SIIGPP.ControlAcceso.csproj" -c Release && \
+    dotnet publish "SIIGPP.ControlAcceso.csproj" -c Release -o /app/publish
+
+FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS linux-runtime
+WORKDIR /app
+COPY --from=linux-build /app/publish .
+RUN mkdir -p /app/Carpetas
+RUN mkdir -p /app/Responsivas
+EXPOSE 44321
+ENTRYPOINT ["dotnet", "SIIGPP.ControlAcceso.dll"]

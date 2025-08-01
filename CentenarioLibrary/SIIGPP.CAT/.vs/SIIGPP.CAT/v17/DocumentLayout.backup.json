@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Monserrat PM\\Desktop\\CentenarioProject\\CentenarioLibrary\\SIIGPP.CAT\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{41F814FF-4F0B-9906-6322-D6FD0E39B154}|SIIGPP.CAT.csproj|c:\\users\\monserrat pm\\desktop\\centenarioproject\\centenariolibrary\\siigpp.cat\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{41F814FF-4F0B-9906-6322-D6FD0E39B154}|SIIGPP.CAT.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Monserrat PM\\Desktop\\CentenarioProject\\CentenarioLibrary\\SIIGPP.CAT\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\Monserrat PM\\Desktop\\CentenarioProject\\CentenarioLibrary\\SIIGPP.CAT\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-07-31T21:58:01.389Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
