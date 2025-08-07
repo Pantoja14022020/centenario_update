@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SIIGPP.FEDC")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f5bcbfc029606ee98eda69f94e7254df478763fa")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+517c03c0cecae025b66610842df85f8eaf5d3ead")]
 [assembly: System.Reflection.AssemblyProductAttribute("SIIGPP.FEDC")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SIIGPP.FEDC")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
