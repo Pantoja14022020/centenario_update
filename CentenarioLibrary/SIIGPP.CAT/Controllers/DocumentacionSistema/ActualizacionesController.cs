@@ -41,7 +41,8 @@ namespace SIIGPP.Configuracion.Controllers.DocumentacionSistema
         [HttpGet("[action]")]
         public async Task<IEnumerable<ActualizacionesViewModel>> Listar()
         {
-            var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-7F662EC1-6705-406E-BCD0-F56ADE7BCAE2".ToUpper())).Options;
+            //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-7F662EC1-6705-406E-BCD0-F56ADE7BCAE2".ToUpper())).Options;
+            var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion".ToUpper())).Options;
             using (var ctx = new DbContextSIIGPP(options))
             {
                 var ao = await ctx.Actualizaciones
@@ -80,7 +81,9 @@ namespace SIIGPP.Configuracion.Controllers.DocumentacionSistema
         [HttpGet("[action]/{modulo}")]
         public async Task<IEnumerable<ActualizacionesViewModel>> ListarUsuarios(string modulo)
         {
-            var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-7F662EC1-6705-406E-BCD0-F56ADE7BCAE2".ToUpper())).Options;
+            //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-7F662EC1-6705-406E-BCD0-F56ADE7BCAE2".ToUpper())).Options;
+            var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion".ToUpper())).Options;
+
             using (var ctx = new DbContextSIIGPP(options))
             {
                 var ao = await ctx.Actualizaciones.
@@ -120,7 +123,9 @@ namespace SIIGPP.Configuracion.Controllers.DocumentacionSistema
         [HttpGet("[action]")]
         public async Task<IActionResult> ComprobarAvisos()
         {
-            var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-7F662EC1-6705-406E-BCD0-F56ADE7BCAE2".ToUpper())).Options;
+            //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-7F662EC1-6705-406E-BCD0-F56ADE7BCAE2".ToUpper())).Options;
+            var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion".ToUpper())).Options;
+
             using (var ctx = new DbContextSIIGPP(options))
             {
                 var ao = await ctx.Actualizaciones

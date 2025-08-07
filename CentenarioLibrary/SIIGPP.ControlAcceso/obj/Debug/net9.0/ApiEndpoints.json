@@ -1,0 +1,907 @@
+[
+  {
+    "ContainingType": "SIIGPP.ControlAcceso.Controllers.AlmacenamientoesController",
+    "Method": "Listar",
+    "RelativePath": "api/Almacenamientoes/Listar",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.ControlAcceso.Models.ControlAcceso.Almacenamineto.AlmacenamientoViewModel, SIIGPP.ControlAcceso, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.ControlAcceso.Controllers.AlmacenamientoesController",
+    "Method": "ListarActivo",
+    "RelativePath": "api/Almacenamientoes/ListarActivo",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.ControlAcceso.Controllers.DriveInfosController",
+    "Method": "Get",
+    "RelativePath": "api/DriveInfos/{nombreUnidad}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "nombreUnidad",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.ControlAcceso.Controllers.PanelUsuariosController",
+    "Method": "GetPanelUsuarios",
+    "RelativePath": "api/PanelUsuarios",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.Entidades.M_ControlAcceso.PanelUsuarios.PanelUsuario, CentenarioLibrary, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.ControlAcceso.Controllers.PanelUsuariosController",
+    "Method": "ClonarPanel",
+    "RelativePath": "api/PanelUsuarios/ClonarPanel",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.ControlAcceso.Models.ControlAcceso.PanelUsuario.ClonarPanelUsuarioViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.ControlAcceso.Controllers.PanelUsuariosController",
+    "Method": "ClonarSoloPanel",
+    "RelativePath": "api/PanelUsuarios/ClonarSoloPanel",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.ControlAcceso.Models.ControlAcceso.PanelUsuario.ClonarSoloPanelUsuarioViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.ControlAcceso.Controllers.PanelUsuariosController",
+    "Method": "Crear",
+    "RelativePath": "api/PanelUsuarios/Crear",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.ControlAcceso.Models.ControlAcceso.PanelUsuario.POST_CrearViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.ControlAcceso.Controllers.PanelUsuariosController",
+    "Method": "Eliminar",
+    "RelativePath": "api/PanelUsuarios/Eliminar/{idUsuario}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idUsuario",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.ControlAcceso.Controllers.PanelUsuariosController",
+    "Method": "ListarAsignados",
+    "RelativePath": "api/PanelUsuarios/ListarAsignados/{idUsuario}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idUsuario",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.ControlAcceso.Models.ControlAcceso.PanelUsuario.PanelUsuarioViewModel, SIIGPP.ControlAcceso, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.ControlAcceso.Controllers.RolsController",
+    "Method": "Actualizar",
+    "RelativePath": "api/Rols/Actualizar",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.ControlAcceso.Models.ControlAcceso.Roles.ActualizarViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.ControlAcceso.Controllers.RolsController",
+    "Method": "Crear",
+    "RelativePath": "api/Rols/Crear",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.ControlAcceso.Models.ControlAcceso.Roles.CrearViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.ControlAcceso.Controllers.RolsController",
+    "Method": "Listar",
+    "RelativePath": "api/Rols/Listar",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.ControlAcceso.Models.ControlAcceso.Roles.RolViewModel, SIIGPP.ControlAcceso, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.ControlAcceso.Controllers.RolsController",
+    "Method": "Select",
+    "RelativePath": "api/Rols/Select",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.ControlAcceso.Models.ControlAcceso.Roles.SelectViewModel, SIIGPP.ControlAcceso, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.ControlAcceso.Controllers.SeccionesRolPanelController",
+    "Method": "GetSeccionesporPanelRol",
+    "RelativePath": "api/SeccionesRolPanel/GetSeccionesporPanelRol/{idpc}/{idrol}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idpc",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "idrol",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.ControlAcceso.Controllers.UsuariosController",
+    "Method": "EsTokenValido",
+    "RelativePath": "api/Usuarios",
+    "HttpMethod": "",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "token",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Boolean",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.ControlAcceso.Controllers.UsuariosController",
+    "Method": "Activar",
+    "RelativePath": "api/Usuarios/Activar/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.ControlAcceso.Controllers.UsuariosController",
+    "Method": "Actualizar",
+    "RelativePath": "api/Usuarios/Actualizar",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.ControlAcceso.Models.ControlAcceso.Usuarios.ActualizarViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.ControlAcceso.Controllers.UsuariosController",
+    "Method": "ClonarUsuario",
+    "RelativePath": "api/Usuarios/ClonarUsuario",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.ControlAcceso.Models.ControlAcceso.Usuarios.ClonarUsuarioViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.ControlAcceso.Controllers.UsuariosController",
+    "Method": "ClonarUsuarioCA",
+    "RelativePath": "api/Usuarios/ClonarUsuarioCA",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.ControlAcceso.Models.ControlAcceso.Usuarios.ClonarUsuarioViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.ControlAcceso.Controllers.UsuariosController",
+    "Method": "Crear",
+    "RelativePath": "api/Usuarios/Crear",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.ControlAcceso.Models.ControlAcceso.Usuarios.CrearViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.ControlAcceso.Controllers.UsuariosController",
+    "Method": "CrearBitacoraUsuario",
+    "RelativePath": "api/Usuarios/CrearBitacoraUsuario",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.ControlAcceso.Models.ControlAcceso.Usuarios.BitacoraUsuariosViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.ControlAcceso.Controllers.UsuariosController",
+    "Method": "Desactivar",
+    "RelativePath": "api/Usuarios/Desactivar/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.ControlAcceso.Controllers.UsuariosController",
+    "Method": "DirectorFEDC",
+    "RelativePath": "api/Usuarios/DirectorFEDC/{iddistrito}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "iddistrito",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.ControlAcceso.Controllers.UsuariosController",
+    "Method": "DirectorPI",
+    "RelativePath": "api/Usuarios/DirectorPI/{iddistrito}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "iddistrito",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.ControlAcceso.Controllers.UsuariosController",
+    "Method": "DirectorUECS",
+    "RelativePath": "api/Usuarios/DirectorUECS/{iddistrito}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "iddistrito",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.ControlAcceso.Controllers.UsuariosController",
+    "Method": "DistrictUser",
+    "RelativePath": "api/Usuarios/DistrictUser",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.ControlAcceso.Controllers.UsuariosController",
+    "Method": "EditarBitacoraUsuario",
+    "RelativePath": "api/Usuarios/EditarBitacoraUsuario",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.ControlAcceso.Models.ControlAcceso.Usuarios.EditarBitacoraUsuariosViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.ControlAcceso.Controllers.UsuariosController",
+    "Method": "GuardarRsponsiva",
+    "RelativePath": "api/Usuarios/GuardarRsponsiva/{nombreCarpeta}/{nombreArchivo}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "file",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "nombreCarpeta",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "nombreArchivo",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.ControlAcceso.Controllers.UsuariosController",
+    "Method": "Listar",
+    "RelativePath": "api/Usuarios/Listar",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.ControlAcceso.Models.ControlAcceso.Usuarios.UsuarioViewModel, SIIGPP.ControlAcceso, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.ControlAcceso.Controllers.UsuariosController",
+    "Method": "Listar2",
+    "RelativePath": "api/Usuarios/Listar2/{idModuloServicio}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idModuloServicio",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.ControlAcceso.Models.ControlAcceso.Usuarios.UsuarioViewModel, SIIGPP.ControlAcceso, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.ControlAcceso.Controllers.UsuariosController",
+    "Method": "ListarClaves",
+    "RelativePath": "api/Usuarios/ListarClaves",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.ControlAcceso.Models.ControlAcceso.Usuarios.ClavesAgenciaViewModel, SIIGPP.ControlAcceso, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.ControlAcceso.Controllers.UsuariosController",
+    "Method": "ListarClonacionesUsuariosFallidos",
+    "RelativePath": "api/Usuarios/ListarClonacionesUsuariosFallidos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.ControlAcceso.Controllers.UsuariosController",
+    "Method": "ListarClonacionesUsuariosFallidosPorModulo",
+    "RelativePath": "api/Usuarios/ListarClonacionesUsuariosFallidosPorModulo/{idModulo}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idModulo",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.ControlAcceso.Controllers.UsuariosController",
+    "Method": "ListarEnvio",
+    "RelativePath": "api/Usuarios/ListarEnvio/{idModuloServicio}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idModuloServicio",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.ControlAcceso.Controllers.UsuariosController",
+    "Method": "ListarHistorialUsuario",
+    "RelativePath": "api/Usuarios/ListarHistorialUsuario/{idusuario}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idusuario",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.ControlAcceso.Controllers.UsuariosController",
+    "Method": "ListarModulo",
+    "RelativePath": "api/Usuarios/ListarModulo/{moduloServicioId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "moduloServicioId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.ControlAcceso.Controllers.UsuariosController",
+    "Method": "ListarModuloConId",
+    "RelativePath": "api/Usuarios/ListarModuloConId/{moduloServicioId}/{facinoti}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "moduloServicioId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "facinoti",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.ControlAcceso.Controllers.UsuariosController",
+    "Method": "ListarPorClaveDSP",
+    "RelativePath": "api/Usuarios/ListarPorClaveDSP/{clave}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "clave",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.ControlAcceso.Models.ControlAcceso.Usuarios.UsuarioViewModel, SIIGPP.ControlAcceso, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.ControlAcceso.Controllers.UsuariosController",
+    "Method": "ListarPorDistrito",
+    "RelativePath": "api/Usuarios/ListarPorDistrito/{idDistrito}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idDistrito",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.ControlAcceso.Models.ControlAcceso.Usuarios.UsuarioViewModel, SIIGPP.ControlAcceso, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.ControlAcceso.Controllers.UsuariosController",
+    "Method": "Login",
+    "RelativePath": "api/Usuarios/Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.ControlAcceso.Models.ControlAcceso.Usuarios.LoginViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.ControlAcceso.Controllers.UsuariosController",
+    "Method": "Modulointerno",
+    "RelativePath": "api/Usuarios/Modulointerno/{idusuario}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idusuario",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.ControlAcceso.Controllers.UsuariosController",
+    "Method": "mostrarModuloUsuario",
+    "RelativePath": "api/Usuarios/mostrarModuloUsuario/{ClaveA}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ClaveA",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.ControlAcceso.Controllers.UsuariosController",
+    "Method": "TiempoCSesion",
+    "RelativePath": "api/Usuarios/TiempoCSesion",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.ControlAcceso.Controllers.UsuariosController",
+    "Method": "ValidarToken",
+    "RelativePath": "api/Usuarios/ValidarToken",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.ControlAcceso.Controllers.UsuariosController",
+    "Method": "ValidarToken2",
+    "RelativePath": "api/Usuarios/ValidarToken2",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.ControlAcceso.Controllers.ValuesController",
+    "Method": "Get",
+    "RelativePath": "api/Values",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.ControlAcceso.Controllers.ValuesController",
+    "Method": "Post",
+    "RelativePath": "api/Values",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "value",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.ControlAcceso.Controllers.ValuesController",
+    "Method": "Get",
+    "RelativePath": "api/Values/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.ControlAcceso.Controllers.ValuesController",
+    "Method": "Put",
+    "RelativePath": "api/Values/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "value",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.ControlAcceso.Controllers.ValuesController",
+    "Method": "Delete",
+    "RelativePath": "api/Values/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  }
+]

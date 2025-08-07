@@ -1,0 +1,1222 @@
+[
+  {
+    "ContainingType": "SIIGPP.SP.Controllers.DiligenciaIndicioController",
+    "Method": "Crear",
+    "RelativePath": "api/DiligenciaIndicio/Crear",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.SP.ModelsSP.DiligenciaIndicos.CrearViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.SP.Controllers.DiligenciaIndicioController",
+    "Method": "ListarIndicios",
+    "RelativePath": "api/DiligenciaIndicio/ListarIndicios/{idRdiligencia}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idRdiligencia",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.SP.ModelsSP.DiligenciaIndicos.DiligenciaIndicioDetalleinViewModel, SIIGPP.SP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.SP.Controllers.DiligenciaIndicioController",
+    "Method": "Listarporiddili",
+    "RelativePath": "api/DiligenciaIndicio/Listarporiddili/{idRDiligencias}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idRDiligencias",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.SP.Controllers.DocsDiligenciasController",
+    "Method": "Crear",
+    "RelativePath": "api/DocsDiligencias/Crear",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.SP.ModelsSP.DocsDiligencias.CrearViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.SP.Controllers.DocsDiligenciasController",
+    "Method": "Listar",
+    "RelativePath": "api/DocsDiligencias/Listar/{idrdiligencias}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idrdiligencias",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.SP.ModelsSP.DocsDiligencias.DocsDiligenciasViewModel, SIIGPP.SP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.SP.Controllers.DocsDiligenciasController",
+    "Method": "Post",
+    "RelativePath": "api/DocsDiligencias/Post/{nombreCarpeta}/{nombreArchivo}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "file",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "nombreCarpeta",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "nombreArchivo",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.SP.Controllers.DocsDiligenciasForaneasController",
+    "Method": "Crear",
+    "RelativePath": "api/DocsDiligenciasForaneas/Crear",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.SP.ModelsSP.DocsDiligenciasForaneas.CrearForaneasViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.SP.Controllers.DocsDiligenciasForaneasController",
+    "Method": "Listar",
+    "RelativePath": "api/DocsDiligenciasForaneas/Listar/{idrdiligencias}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idrdiligencias",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.SP.ModelsSP.DocsDiligenciasForaneas.DocsDiligenciaForaneasViewModel, SIIGPP.SP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.SP.Controllers.DocsDiligenciasForaneasController",
+    "Method": "Post",
+    "RelativePath": "api/DocsDiligenciasForaneas/Post/{nombreCarpeta}/{nombreArchivo}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "file",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "nombreCarpeta",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "nombreArchivo",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.SP.Controllers.PeritoAsignadoController",
+    "Method": "mes",
+    "RelativePath": "api/PeritoAsignado",
+    "HttpMethod": "",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "a",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.SP.Controllers.PeritoAsignadoController",
+    "Method": "Get",
+    "RelativePath": "api/PeritoAsignado/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "pwdfirma",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "hashregistro",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "curp",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "rutarchivofirma",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "rutarchivo",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.SP.Controllers.PeritoAsignadoController",
+    "Method": "Actualizar",
+    "RelativePath": "api/PeritoAsignado/Actualizar",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.SP.ModelsSP.PeritoAsignado.ActualizarViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.SP.Controllers.PeritoAsignadoController",
+    "Method": "ActualizarConclu",
+    "RelativePath": "api/PeritoAsignado/ActualizarConclu",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.SP.ModelsSP.PeritoAsignado.ActualizarViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.SP.Controllers.PeritoAsignadoController",
+    "Method": "ActualizarFechaEntregado",
+    "RelativePath": "api/PeritoAsignado/ActualizarFechaEntregado",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.SP.ModelsSP.PeritoAsignado.ActualizarViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.SP.Controllers.PeritoAsignadoController",
+    "Method": "Actualizarmodulo",
+    "RelativePath": "api/PeritoAsignado/Actualizarmodulo",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.SP.ModelsSP.PeritoAsignado.ActualizarViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.SP.Controllers.PeritoAsignadoController",
+    "Method": "Actualizarultimostatus",
+    "RelativePath": "api/PeritoAsignado/Actualizarultimostatus",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.SP.ModelsSP.PeritoAsignado.ActualizarViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.SP.Controllers.PeritoAsignadoController",
+    "Method": "Crear",
+    "RelativePath": "api/PeritoAsignado/Crear",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.SP.ModelsSP.PeritoAsignado.CrearViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.SP.Controllers.PeritoAsignadoController",
+    "Method": "Listar",
+    "RelativePath": "api/PeritoAsignado/Listar",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.SP.ModelsSP.PeritoAsignado.PeritoAsigandoViewModel, SIIGPP.SP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.SP.Controllers.PeritoAsignadoController",
+    "Method": "Listarporagencia",
+    "RelativePath": "api/PeritoAsignado/Listarporagencia/{idagencia}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idagencia",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.SP.ModelsSP.PeritoAsignado.PeritoAsigandoViewModel, SIIGPP.SP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.SP.Controllers.PeritoAsignadoController",
+    "Method": "Listarporid",
+    "RelativePath": "api/PeritoAsignado/Listarporid/{idmoduloservicio}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idmoduloservicio",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.SP.ModelsSP.PeritoAsignado.PeritoAsigandoViewModel, SIIGPP.SP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.SP.Controllers.PeritoAsignadoController",
+    "Method": "Listarporid2",
+    "RelativePath": "api/PeritoAsignado/Listarporid2/{idmoduloservicio}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idmoduloservicio",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.SP.ModelsSP.PeritoAsignado.PeritoAsigandoViewModel, SIIGPP.SP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.SP.Controllers.PeritoAsignadoController",
+    "Method": "Listarporidfecha",
+    "RelativePath": "api/PeritoAsignado/Listarporidfecha/{iddsp}/{fechai}/{fechaf}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "iddsp",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "fechai",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      },
+      {
+        "Name": "fechaf",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.SP.ModelsSP.PeritoAsignado.PeritoAsigandoViewModel, SIIGPP.SP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.SP.Controllers.PeritoAsignadoController",
+    "Method": "Listarporrdiligencias",
+    "RelativePath": "api/PeritoAsignado/Listarporrdiligencias/{idrdiligencias}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idrdiligencias",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.SP.ModelsSP.PeritoAsignado.PeritoAsigandoViewModel, SIIGPP.SP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.SP.Controllers.PeritoAsignadoController",
+    "Method": "Listarporstatus",
+    "RelativePath": "api/PeritoAsignado/Listarporstatus/{idagencia}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idagencia",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.SP.ModelsSP.PeritoAsignado.PeritoAsigandoViewModel, SIIGPP.SP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.SP.Controllers.PeritoAsignadoController",
+    "Method": "PorA\u00F1o",
+    "RelativePath": "api/PeritoAsignado/PorA\u00F1o/{iddsp}/{fechai}/{fechaf}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "iddsp",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "fechai",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      },
+      {
+        "Name": "fechaf",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.SP.ModelsSP.PeritoAsignado.EstadisticasFechaViewModel, SIIGPP.SP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.SP.Controllers.PeritoAsignadoController",
+    "Method": "PorMes",
+    "RelativePath": "api/PeritoAsignado/PorMes/{iddsp}/{fechai}/{fechaf}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "iddsp",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "fechai",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      },
+      {
+        "Name": "fechaf",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.SP.ModelsSP.PeritoAsignado.EstadisticasFechaViewModel, SIIGPP.SP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.SP.Controllers.PeritoAsignadoController",
+    "Method": "PorModulo",
+    "RelativePath": "api/PeritoAsignado/PorModulo/{iddsp}/{fechai}/{fechaf}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "iddsp",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "fechai",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      },
+      {
+        "Name": "fechaf",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.SP.ModelsSP.PeritoAsignado.EstadisticasModuloViewModel, SIIGPP.SP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.SP.Controllers.PeritoAsignadoForaneasController",
+    "Method": "mes",
+    "RelativePath": "api/PeritoAsignadoForaneas",
+    "HttpMethod": "",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "a",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.SP.Controllers.PeritoAsignadoForaneasController",
+    "Method": "Actualizar",
+    "RelativePath": "api/PeritoAsignadoForaneas/Actualizar",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.SP.ModelsSP.PeritoAsignadoForaneas.ActualizarViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.SP.Controllers.PeritoAsignadoForaneasController",
+    "Method": "ActualizarConclu",
+    "RelativePath": "api/PeritoAsignadoForaneas/ActualizarConclu",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.SP.ModelsSP.PeritoAsignadoForaneas.ActualizarViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.SP.Controllers.PeritoAsignadoForaneasController",
+    "Method": "ActualizarFechaEntregado",
+    "RelativePath": "api/PeritoAsignadoForaneas/ActualizarFechaEntregado",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.SP.ModelsSP.PeritoAsignadoForaneas.ActualizarViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.SP.Controllers.PeritoAsignadoForaneasController",
+    "Method": "Actualizarmodulo",
+    "RelativePath": "api/PeritoAsignadoForaneas/Actualizarmodulo",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.SP.ModelsSP.PeritoAsignadoForaneas.ActualizarViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.SP.Controllers.PeritoAsignadoForaneasController",
+    "Method": "Actualizarultimostatus",
+    "RelativePath": "api/PeritoAsignadoForaneas/Actualizarultimostatus",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.SP.ModelsSP.PeritoAsignadoForaneas.ActualizarViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.SP.Controllers.PeritoAsignadoForaneasController",
+    "Method": "Crear",
+    "RelativePath": "api/PeritoAsignadoForaneas/Crear",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.SP.ModelsSP.PeritoAsignadoForaneas.CrearViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.SP.Controllers.PeritoAsignadoForaneasController",
+    "Method": "Listar",
+    "RelativePath": "api/PeritoAsignadoForaneas/Listar",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.SP.ModelsSP.PeritoAsignadoForaneas.PeritoAsignadoForaneaViewModel, SIIGPP.SP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.SP.Controllers.PeritoAsignadoForaneasController",
+    "Method": "Listarporagencia",
+    "RelativePath": "api/PeritoAsignadoForaneas/Listarporagencia/{idagencia}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idagencia",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.SP.ModelsSP.PeritoAsignadoForaneas.PeritoAsignadoForaneaViewModel, SIIGPP.SP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.SP.Controllers.PeritoAsignadoForaneasController",
+    "Method": "Listarporid",
+    "RelativePath": "api/PeritoAsignadoForaneas/Listarporid/{idmoduloservicio}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idmoduloservicio",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.SP.ModelsSP.PeritoAsignadoForaneas.PeritoAsignadoForaneaViewModel, SIIGPP.SP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.SP.Controllers.PeritoAsignadoForaneasController",
+    "Method": "Listarporid2",
+    "RelativePath": "api/PeritoAsignadoForaneas/Listarporid2/{idmoduloservicio}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idmoduloservicio",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.SP.ModelsSP.PeritoAsignadoForaneas.PeritoAsignadoForaneaViewModel, SIIGPP.SP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.SP.Controllers.PeritoAsignadoForaneasController",
+    "Method": "Listarporidfecha",
+    "RelativePath": "api/PeritoAsignadoForaneas/Listarporidfecha/{iddsp}/{fechai}/{fechaf}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "iddsp",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "fechai",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      },
+      {
+        "Name": "fechaf",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.SP.ModelsSP.PeritoAsignadoForaneas.PeritoAsignadoForaneaViewModel, SIIGPP.SP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.SP.Controllers.PeritoAsignadoForaneasController",
+    "Method": "Listarporrdiligenciasforaneas",
+    "RelativePath": "api/PeritoAsignadoForaneas/Listarporrdiligenciasforaneas/{idrdiligenciasforaneas}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idrdiligenciasforaneas",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.SP.ModelsSP.PeritoAsignadoForaneas.PeritoAsignadoForaneaViewModel, SIIGPP.SP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.SP.Controllers.PeritoAsignadoForaneasController",
+    "Method": "Listarporstatus",
+    "RelativePath": "api/PeritoAsignadoForaneas/Listarporstatus/{idagencia}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idagencia",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.SP.ModelsSP.PeritoAsignadoForaneas.PeritoAsignadoForaneaViewModel, SIIGPP.SP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.SP.Controllers.PeritoAsignadoForaneasController",
+    "Method": "PorA\u00F1o",
+    "RelativePath": "api/PeritoAsignadoForaneas/PorA\u00F1o/{iddsp}/{fechai}/{fechaf}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "iddsp",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "fechai",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      },
+      {
+        "Name": "fechaf",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.SP.ModelsSP.PeritoAsignadoForaneas.EstadisticasFechaViewModel, SIIGPP.SP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.SP.Controllers.PeritoAsignadoForaneasController",
+    "Method": "PorA\u00F1os",
+    "RelativePath": "api/PeritoAsignadoForaneas/PorA\u00F1os/{iddsp}/{fechai}/{fechaf}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "iddsp",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "fechai",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      },
+      {
+        "Name": "fechaf",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.SP.ModelsSP.PeritoAsignadoForaneas.EstadisticasFechaViewModel, SIIGPP.SP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.SP.Controllers.PeritoAsignadoForaneasController",
+    "Method": "PorMes",
+    "RelativePath": "api/PeritoAsignadoForaneas/PorMes/{iddsp}/{fechai}/{fechaf}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "iddsp",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "fechai",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      },
+      {
+        "Name": "fechaf",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.SP.ModelsSP.PeritoAsignadoForaneas.EstadisticasFechaViewModel, SIIGPP.SP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.SP.Controllers.PeritoAsignadoForaneasController",
+    "Method": "PorModulo",
+    "RelativePath": "api/PeritoAsignadoForaneas/PorModulo/{iddsp}/{fechai}/{fechaf}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "iddsp",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "fechai",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      },
+      {
+        "Name": "fechaf",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.SP.ModelsSP.PeritoAsignadoForaneas.EstadisticasModuloViewModel, SIIGPP.SP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.SP.Controllers.ValuesController",
+    "Method": "Get",
+    "RelativePath": "api/Values",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.SP.Controllers.ValuesController",
+    "Method": "Post",
+    "RelativePath": "api/Values",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "value",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.SP.Controllers.ValuesController",
+    "Method": "Get",
+    "RelativePath": "api/Values/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.SP.Controllers.ValuesController",
+    "Method": "Put",
+    "RelativePath": "api/Values/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "value",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.SP.Controllers.ValuesController",
+    "Method": "Delete",
+    "RelativePath": "api/Values/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  }
+]

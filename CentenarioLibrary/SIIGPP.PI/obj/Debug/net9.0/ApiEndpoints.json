@@ -1,0 +1,2700 @@
+[
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.ArchivosColaboracionesController",
+    "Method": "CrearOrdenesAprehension",
+    "RelativePath": "api/ArchivosColaboraciones/CrearOrdenesAprehension",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.ArchivosColaboraciones.CrearOrdenAprehensionViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.ArchivosColaboracionesController",
+    "Method": "CrearPresentacionesComparecencia",
+    "RelativePath": "api/ArchivosColaboraciones/CrearPresentacionesComparecencia",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.ArchivosColaboraciones.CrearComparecenciaViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.ArchivosColaboracionesController",
+    "Method": "ListarOrdenesAprehension",
+    "RelativePath": "api/ArchivosColaboraciones/ListarOrdenesAprehension/{ordenaprehensionid}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ordenaprehensionid",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.PI.Models.ArchivosColaboraciones.OrdenAprehensionViewModel, SIIGPP.PI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.ArchivosColaboracionesController",
+    "Method": "ListarPresentacionesComparecencia",
+    "RelativePath": "api/ArchivosColaboraciones/ListarPresentacionesComparecencia/{presentacionescid}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "presentacionescid",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.PI.Models.ArchivosColaboraciones.ComparecenciaViewModel, SIIGPP.PI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.ArchivosColaboracionesController",
+    "Method": "Post",
+    "RelativePath": "api/ArchivosColaboraciones/Post/{nombreCarpeta}/{nombreArchivo}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "file",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "nombreCarpeta",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "nombreArchivo",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.ArrestoController",
+    "Method": "ActualizarStatus",
+    "RelativePath": "api/Arresto/ActualizarStatus",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.InformacionJuridico.Arrestos.ActualizarViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.ArrestoController",
+    "Method": "ActualizarStatusFinalizado",
+    "RelativePath": "api/Arresto/ActualizarStatusFinalizado",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.InformacionJuridico.Arrestos.ActualizarViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.ArrestoController",
+    "Method": "AsiganarUnidad",
+    "RelativePath": "api/Arresto/AsiganarUnidad",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.InformacionJuridico.Arrestos.ActualizarViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.ArrestoController",
+    "Method": "Crear",
+    "RelativePath": "api/Arresto/Crear",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.InformacionJuridico.Arrestos.CrearViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.ArrestoController",
+    "Method": "Listar",
+    "RelativePath": "api/Arresto/Listar/{idmodulo}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idmodulo",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.PI.Models.InformacionJuridico.Arrestos.ArrestoViewModel, SIIGPP.PI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.ArrestoController",
+    "Method": "ListarporModulo",
+    "RelativePath": "api/Arresto/ListarporModulo/{moduloid}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "moduloid",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.PI.Models.InformacionJuridico.Arrestos.ArrestoViewModel, SIIGPP.PI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.BusquedaDomicilioController",
+    "Method": "ActualizarStatus",
+    "RelativePath": "api/BusquedaDomicilio/ActualizarStatus",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.InformacionJuridico.BusquedaDomicilios.ActualizarViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.BusquedaDomicilioController",
+    "Method": "ActualizarStatusFinalizado",
+    "RelativePath": "api/BusquedaDomicilio/ActualizarStatusFinalizado",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.InformacionJuridico.BusquedaDomicilios.ActualizarViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.BusquedaDomicilioController",
+    "Method": "AsiganarUnidad",
+    "RelativePath": "api/BusquedaDomicilio/AsiganarUnidad",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.InformacionJuridico.BusquedaDomicilios.ActualizarViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.BusquedaDomicilioController",
+    "Method": "Crear",
+    "RelativePath": "api/BusquedaDomicilio/Crear",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.InformacionJuridico.BusquedaDomicilios.CrearViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.BusquedaDomicilioController",
+    "Method": "Listar",
+    "RelativePath": "api/BusquedaDomicilio/Listar/{idmodulo}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idmodulo",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.PI.Models.InformacionJuridico.BusquedaDomicilios.BusquedaDomicilioViewModel, SIIGPP.PI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.BusquedaDomicilioController",
+    "Method": "ListarporModulo",
+    "RelativePath": "api/BusquedaDomicilio/ListarporModulo/{moduloid}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "moduloid",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.PI.Models.InformacionJuridico.BusquedaDomicilios.BusquedaDomicilioViewModel, SIIGPP.PI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.CMedicoPRController",
+    "Method": "ActualizarStatus",
+    "RelativePath": "api/CMedicoPR/ActualizarStatus",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.CMedicosPR.ActualizarViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.CMedicoPRController",
+    "Method": "ActualizarStatusFinalizado",
+    "RelativePath": "api/CMedicoPR/ActualizarStatusFinalizado",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.CMedicosPR.ActualizarViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.CMedicoPRController",
+    "Method": "AsignarModuloServicio",
+    "RelativePath": "api/CMedicoPR/AsignarModuloServicio",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.CMedicosPR.ActualizarViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.CMedicoPRController",
+    "Method": "Crear",
+    "RelativePath": "api/CMedicoPR/Crear",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.CMedicosPR.CrearViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.CMedicoPRController",
+    "Method": "Listarporid",
+    "RelativePath": "api/CMedicoPR/Listarporid/{PersonaID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "PersonaID",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.PI.Models.CMedicosPR.CMedicoPRViewModel, SIIGPP.PI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.CMedicoPRController",
+    "Method": "ListarporModulo",
+    "RelativePath": "api/CMedicoPR/ListarporModulo/{moduloid}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "moduloid",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.PI.Models.CMedicosPR.CMedicoPRViewModel, SIIGPP.PI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.CMedicoPRController",
+    "Method": "ListarTodos",
+    "RelativePath": "api/CMedicoPR/ListarTodos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.PI.Models.CMedicosPR.CMedicoPRViewModel, SIIGPP.PI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.CMedicoPRController",
+    "Method": "ObtenernumeroMaximoporDistrito",
+    "RelativePath": "api/CMedicoPR/ObtenernumeroMaximoporDistrito/{Ndistrito}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Ndistrito",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.CMedicoPRController",
+    "Method": "RechazarSolicitudServicio",
+    "RelativePath": "api/CMedicoPR/RechazarSolicitudServicio",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.CMedicosPR.ActualizarViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.CMedicoPSRController",
+    "Method": "ActualizarStatus",
+    "RelativePath": "api/CMedicoPSR/ActualizarStatus",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.CMedicosPSR.ActualizarViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.CMedicoPSRController",
+    "Method": "ActualizarStatusFinalizado",
+    "RelativePath": "api/CMedicoPSR/ActualizarStatusFinalizado",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.CMedicosPSR.ActualizarViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.CMedicoPSRController",
+    "Method": "AsignarModuloServicio",
+    "RelativePath": "api/CMedicoPSR/AsignarModuloServicio",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.CMedicosPSR.ActualizarViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.CMedicoPSRController",
+    "Method": "Crear",
+    "RelativePath": "api/CMedicoPSR/Crear",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.CMedicosPSR.CrearViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.CMedicoPSRController",
+    "Method": "Listar",
+    "RelativePath": "api/CMedicoPSR/Listar",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.PI.Models.CMedicosPSR.CMedicoPSRViewModel, SIIGPP.PI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.CMedicoPSRController",
+    "Method": "ListarporModulo",
+    "RelativePath": "api/CMedicoPSR/ListarporModulo/{moduloid}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "moduloid",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.PI.Models.CMedicosPSR.CMedicoPSRViewModel, SIIGPP.PI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.CMedicoPSRController",
+    "Method": "ListarTodos",
+    "RelativePath": "api/CMedicoPSR/ListarTodos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.PI.Models.CMedicosPSR.CMedicoPSRViewModel, SIIGPP.PI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.CMedicoPSRController",
+    "Method": "ObtenernumeroMaximoporDistrito",
+    "RelativePath": "api/CMedicoPSR/ObtenernumeroMaximoporDistrito/{Ndistrito}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Ndistrito",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.CMedicoPSRController",
+    "Method": "ObtenernumeroMaximoporDistritoPr",
+    "RelativePath": "api/CMedicoPSR/ObtenernumeroMaximoporDistritoPr/{Ndistrito}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Ndistrito",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.CMedicoPSRController",
+    "Method": "RechazarSolicitudServicio",
+    "RelativePath": "api/CMedicoPSR/RechazarSolicitudServicio",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.CMedicosPSR.ActualizarViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.ComparecenciaElementoController",
+    "Method": "ActualizarStatus",
+    "RelativePath": "api/ComparecenciaElemento/ActualizarStatus",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.InformacionJuridico.ComparecenciasElementoss.ActualizarViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.ComparecenciaElementoController",
+    "Method": "ActualizarStatusFinalizado",
+    "RelativePath": "api/ComparecenciaElemento/ActualizarStatusFinalizado",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.InformacionJuridico.ComparecenciasElementoss.ActualizarViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.ComparecenciaElementoController",
+    "Method": "AsiganarUnidad",
+    "RelativePath": "api/ComparecenciaElemento/AsiganarUnidad",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.InformacionJuridico.ComparecenciasElementoss.ActualizarViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.ComparecenciaElementoController",
+    "Method": "Crear",
+    "RelativePath": "api/ComparecenciaElemento/Crear",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.InformacionJuridico.ComparecenciasElementoss.CrearViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.ComparecenciaElementoController",
+    "Method": "Listar",
+    "RelativePath": "api/ComparecenciaElemento/Listar/{idmodulo}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idmodulo",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.PI.Models.InformacionJuridico.ComparecenciasElementoss.ComparecenciaElementoViewModel, SIIGPP.PI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.ComparecenciaElementoController",
+    "Method": "ListarporModulo",
+    "RelativePath": "api/ComparecenciaElemento/ListarporModulo/{moduloid}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "moduloid",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.PI.Models.InformacionJuridico.ComparecenciasElementoss.ComparecenciaElementoViewModel, SIIGPP.PI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.DetencionController",
+    "Method": "cambiar",
+    "RelativePath": "api/Detencion",
+    "HttpMethod": "",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "a",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.DetencionController",
+    "Method": "ActualizarDetencionporegresotemporal",
+    "RelativePath": "api/Detencion/ActualizarDetencionporegresotemporal",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.Detenciones.ActualizarStatusViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.DetencionController",
+    "Method": "ActualizarLiberacion",
+    "RelativePath": "api/Detencion/ActualizarLiberacion",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.Detenciones.ActualizarLiberacionViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.DetencionController",
+    "Method": "ActualizarStatus",
+    "RelativePath": "api/Detencion/ActualizarStatus",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.Detenciones.ActualizarStatusViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.DetencionController",
+    "Method": "ActualizarTraslado",
+    "RelativePath": "api/Detencion/ActualizarTraslado",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.Detenciones.ActualizarTrasladoViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.DetencionController",
+    "Method": "Crear",
+    "RelativePath": "api/Detencion/Crear",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.Detenciones.CrearViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.DetencionController",
+    "Method": "Listar",
+    "RelativePath": "api/Detencion/Listar",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.PI.Models.Detenciones.DetencionViewModel, SIIGPP.PI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.DireccionController",
+    "Method": "Crear",
+    "RelativePath": "api/Direccion/Crear",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.Direcciones.CrearViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.DireccionController",
+    "Method": "Listar",
+    "RelativePath": "api/Direccion/Listar/{PIPersonaVisitaId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "PIPersonaVisitaId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.EgresosTemporalController",
+    "Method": "Crear",
+    "RelativePath": "api/EgresosTemporal/Crear",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.EgresosTemporales.CrearViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.EgresosTemporalController",
+    "Method": "Listar",
+    "RelativePath": "api/EgresosTemporal/Listar/{DetencionId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "DetencionId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.PI.Models.EgresosTemporales.EgresosTemporalViewModel, SIIGPP.PI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.EgresosTemporalController",
+    "Method": "ListarporidDetencion",
+    "RelativePath": "api/EgresosTemporal/ListarporidDetencion/{DetencionId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "DetencionId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.EstatusCustodiaController",
+    "Method": "Actualizarhorallegada",
+    "RelativePath": "api/EstatusCustodia/Actualizarhorallegada",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.EstatusCustodias.ActualizarViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.EstatusCustodiaController",
+    "Method": "Crear",
+    "RelativePath": "api/EstatusCustodia/Crear",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.EstatusCustodias.CrearViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.EstatusCustodiaController",
+    "Method": "Listar",
+    "RelativePath": "api/EstatusCustodia/Listar/{DetencionId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "DetencionId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.PI.Models.EstatusCustodias.EstatusCustodiaViewModel, SIIGPP.PI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.ExhortoController",
+    "Method": "ActualizarStatus",
+    "RelativePath": "api/Exhorto/ActualizarStatus",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.InformacionJuridico.Exhortos.ActualizarViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.ExhortoController",
+    "Method": "ActualizarStatusFinalizado",
+    "RelativePath": "api/Exhorto/ActualizarStatusFinalizado",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.InformacionJuridico.Exhortos.ActualizarViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.ExhortoController",
+    "Method": "AsiganarUnidad",
+    "RelativePath": "api/Exhorto/AsiganarUnidad",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.InformacionJuridico.Exhortos.ActualizarViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.ExhortoController",
+    "Method": "Crear",
+    "RelativePath": "api/Exhorto/Crear",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.InformacionJuridico.Exhortos.CrearViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.ExhortoController",
+    "Method": "Listar",
+    "RelativePath": "api/Exhorto/Listar/{idmodulo}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idmodulo",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.PI.Models.InformacionJuridico.Exhortos.ExhortoViewModel, SIIGPP.PI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.ExhortoController",
+    "Method": "ListarporModulo",
+    "RelativePath": "api/Exhorto/ListarporModulo/{moduloid}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "moduloid",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.PI.Models.InformacionJuridico.Exhortos.ExhortoViewModel, SIIGPP.PI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.FotosController",
+    "Method": "Crear",
+    "RelativePath": "api/Fotos/Crear",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.Cfotos.CrearViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.FotosController",
+    "Method": "Listar",
+    "RelativePath": "api/Fotos/Listar/{ActosInvestigacionId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ActosInvestigacionId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.PI.Models.Cfotos.CFotosViewModel, SIIGPP.PI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.FotosController",
+    "Method": "Post",
+    "RelativePath": "api/Fotos/Post/{nombreCarpeta}/{nombreArchivo}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "file",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "nombreCarpeta",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "nombreArchivo",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.FPersonaController",
+    "Method": "Crear",
+    "RelativePath": "api/FPersona/Crear",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.FPersonas.CrearViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.FPersonaController",
+    "Method": "Listarporid",
+    "RelativePath": "api/FPersona/Listarporid/{PersonaVisitaId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "PersonaVisitaId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.FPersonaController",
+    "Method": "Post",
+    "RelativePath": "api/FPersona/Post/{nombreCarpeta}/{nombreArchivo}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "file",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "nombreCarpeta",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "nombreArchivo",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.HistorialDetencionController",
+    "Method": "CrearEntrada",
+    "RelativePath": "api/HistorialDetencion/CrearEntrada",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.Detenciones.CrearHistorialDetencionesViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.HistorialDetencionController",
+    "Method": "ListarporIddtencion",
+    "RelativePath": "api/HistorialDetencion/ListarporIddtencion/{iddetenciones}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "iddetenciones",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.PI.Models.Detenciones.HistorialDetencionesViewModel, SIIGPP.PI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.HistorialDetencionController",
+    "Method": "NuevoStatus",
+    "RelativePath": "api/HistorialDetencion/NuevoStatus",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.Detenciones.CrearHistorialDetencionesViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.InformesController",
+    "Method": "Crear",
+    "RelativePath": "api/Informes/Crear",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.Informes.CrearViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.InformesController",
+    "Method": "ListarporPeritoId",
+    "RelativePath": "api/Informes/ListarporPeritoId/{IdPerito}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "IdPerito",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.PI.Models.Informes.InformeViewModel, SIIGPP.PI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.InformesController",
+    "Method": "ListarporPeritoIdParciales",
+    "RelativePath": "api/Informes/ListarporPeritoIdParciales/{IdPerito}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "IdPerito",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.PI.Models.Informes.InformeViewModel, SIIGPP.PI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.OAprhensionBitacoraController",
+    "Method": "Crear",
+    "RelativePath": "api/OAprhensionBitacora/Crear",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.OAprhensionBitacoras.CrearViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.OAprhensionBitacoraController",
+    "Method": "Listar",
+    "RelativePath": "api/OAprhensionBitacora/Listar/{OrdenAprensionId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "OrdenAprensionId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.PI.Models.OAprhensionBitacoras.OAprhensionBitacoraViewModel, SIIGPP.PI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.OrdenAprensionController",
+    "Method": "ActualizarStatus",
+    "RelativePath": "api/OrdenAprension/ActualizarStatus",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.InformacionJuridico.OrdenesAprension.ActualizarViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.OrdenAprensionController",
+    "Method": "ActualizarStatusFinalizado",
+    "RelativePath": "api/OrdenAprension/ActualizarStatusFinalizado",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.InformacionJuridico.OrdenesAprension.ActualizarViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.OrdenAprensionController",
+    "Method": "AsiganarUnidad",
+    "RelativePath": "api/OrdenAprension/AsiganarUnidad",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.InformacionJuridico.OrdenesAprension.ActualizarViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.OrdenAprensionController",
+    "Method": "Crear",
+    "RelativePath": "api/OrdenAprension/Crear",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.InformacionJuridico.OrdenesAprension.CrearViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.OrdenAprensionController",
+    "Method": "EstadisticaOrdenesArrestosComparecencias",
+    "RelativePath": "api/OrdenAprension/EstadisticaOrdenesArrestosComparecencias/{OrArCo}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "DatosGenerales.Distrito",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "DatosGenerales.Distritoact",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "DatosGenerales.Dsp",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "DatosGenerales.Dspact",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "DatosGenerales.Agencia",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "DatosGenerales.Agenciaact",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "DatosGenerales.Fechadesde",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "DatosGenerales.Fechahasta",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "OrArCo",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.PI.Models.InformacionJuridico.EstadisticaOrArCoViewModel, SIIGPP.PI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.OrdenAprensionController",
+    "Method": "Listar",
+    "RelativePath": "api/OrdenAprension/Listar/{idmodulo}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idmodulo",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.PI.Models.InformacionJuridico.OrdenesAprension.OrdenAprensionViewModel, SIIGPP.PI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.OrdenAprensionController",
+    "Method": "ListarporModulo",
+    "RelativePath": "api/OrdenAprension/ListarporModulo/{moduloid}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "moduloid",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.PI.Models.InformacionJuridico.OrdenesAprension.OrdenAprensionViewModel, SIIGPP.PI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.PeritoAsignadoPIController",
+    "Method": "mes",
+    "RelativePath": "api/PeritoAsignadoPI",
+    "HttpMethod": "",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "a",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.PeritoAsignadoPIController",
+    "Method": "Actualizar",
+    "RelativePath": "api/PeritoAsignadoPI/Actualizar",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.PeritoAsignadoPI.ActualizarViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.PeritoAsignadoPIController",
+    "Method": "ActualizarConclu",
+    "RelativePath": "api/PeritoAsignadoPI/ActualizarConclu",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.PeritoAsignadoPI.ActualizarViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.PeritoAsignadoPIController",
+    "Method": "ActualizarFechaEntregado",
+    "RelativePath": "api/PeritoAsignadoPI/ActualizarFechaEntregado",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.PeritoAsignadoPI.ActualizarViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.PeritoAsignadoPIController",
+    "Method": "Actualizarmodulo",
+    "RelativePath": "api/PeritoAsignadoPI/Actualizarmodulo",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.PeritoAsignadoPI.ActualizarViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.PeritoAsignadoPIController",
+    "Method": "Actualizarultimostatus",
+    "RelativePath": "api/PeritoAsignadoPI/Actualizarultimostatus",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.PeritoAsignadoPI.ActualizarViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.PeritoAsignadoPIController",
+    "Method": "ContadorRegistrados",
+    "RelativePath": "api/PeritoAsignadoPI/ContadorRegistrados/{ano}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ano",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.PI.Models.PeritoAsignadoPI.CC, SIIGPP.PI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.PeritoAsignadoPIController",
+    "Method": "Crear",
+    "RelativePath": "api/PeritoAsignadoPI/Crear",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.PeritoAsignadoPI.CrearViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.PeritoAsignadoPIController",
+    "Method": "Listar",
+    "RelativePath": "api/PeritoAsignadoPI/Listar",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.PI.Models.PeritoAsignadoPI.PeritoAsignadoPIViewModel, SIIGPP.PI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.PeritoAsignadoPIController",
+    "Method": "Listarporidfecha",
+    "RelativePath": "api/PeritoAsignadoPI/Listarporidfecha/{fechai}/{fechaf}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "fechai",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      },
+      {
+        "Name": "fechaf",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.PI.Models.PeritoAsignadoPI.PeritoAsignadoPIFullViewModel, SIIGPP.PI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.PeritoAsignadoPIController",
+    "Method": "ListarporModulo",
+    "RelativePath": "api/PeritoAsignadoPI/ListarporModulo/{idmoduloservicio}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idmoduloservicio",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.PI.Models.PeritoAsignadoPI.PeritoAsignadoPIFullViewModel, SIIGPP.PI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.PeritoAsignadoPIController",
+    "Method": "Listarporstatus",
+    "RelativePath": "api/PeritoAsignadoPI/Listarporstatus",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.PI.Models.PeritoAsignadoPI.PeritoAsignadoPIViewModel, SIIGPP.PI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.PersonaVisitaController",
+    "Method": "Crear",
+    "RelativePath": "api/PersonaVisita/Crear",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.PersonasVisita.CrearViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.PersonaVisitaController",
+    "Method": "Listar",
+    "RelativePath": "api/PersonaVisita/Listar",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.PI.Models.PersonasVisita.PersonaVisitaViewModel, SIIGPP.PI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.PresentacionYCController",
+    "Method": "ActualizarStatus",
+    "RelativePath": "api/PresentacionYC/ActualizarStatus",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.InformacionJuridico.PresentacionesYC.ActualizarViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.PresentacionYCController",
+    "Method": "ActualizarStatusFinalizado",
+    "RelativePath": "api/PresentacionYC/ActualizarStatusFinalizado",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.InformacionJuridico.PresentacionesYC.ActualizarViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.PresentacionYCController",
+    "Method": "AsiganarUnidad",
+    "RelativePath": "api/PresentacionYC/AsiganarUnidad",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.InformacionJuridico.PresentacionesYC.ActualizarViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.PresentacionYCController",
+    "Method": "Crear",
+    "RelativePath": "api/PresentacionYC/Crear",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.InformacionJuridico.PresentacionesYC.CrearViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.PresentacionYCController",
+    "Method": "Listar",
+    "RelativePath": "api/PresentacionYC/Listar/{idmodulo}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idmodulo",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.PI.Models.InformacionJuridico.PresentacionesYC.PresentacionYCViewModel, SIIGPP.PI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.PresentacionYCController",
+    "Method": "ListarporModulo",
+    "RelativePath": "api/PresentacionYC/ListarporModulo/{moduloid}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "moduloid",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.PI.Models.InformacionJuridico.PresentacionesYC.PresentacionYCViewModel, SIIGPP.PI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.RequerimientoVarioController",
+    "Method": "ActualizarStatus",
+    "RelativePath": "api/RequerimientoVario/ActualizarStatus",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.InformacionJuridico.RequerimientosVarios.ActualizarViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.RequerimientoVarioController",
+    "Method": "ActualizarStatusFinalizado",
+    "RelativePath": "api/RequerimientoVario/ActualizarStatusFinalizado",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.InformacionJuridico.RequerimientosVarios.ActualizarViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.RequerimientoVarioController",
+    "Method": "AsiganarUnidad",
+    "RelativePath": "api/RequerimientoVario/AsiganarUnidad",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.InformacionJuridico.RequerimientosVarios.ActualizarViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.RequerimientoVarioController",
+    "Method": "Crear",
+    "RelativePath": "api/RequerimientoVario/Crear",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.InformacionJuridico.RequerimientosVarios.CrearViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.RequerimientoVarioController",
+    "Method": "Listar",
+    "RelativePath": "api/RequerimientoVario/Listar/{idmodulo}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idmodulo",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.PI.Models.InformacionJuridico.RequerimientosVarios.RequerimientoVarioViewModel, SIIGPP.PI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.RequerimientoVarioController",
+    "Method": "ListarporModulo",
+    "RelativePath": "api/RequerimientoVario/ListarporModulo/{moduloid}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "moduloid",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.PI.Models.InformacionJuridico.RequerimientosVarios.RequerimientoVarioViewModel, SIIGPP.PI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.SolicitudesInteligenciaController",
+    "Method": "Actualizar",
+    "RelativePath": "api/SolicitudesInteligencia/Actualizar",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.SolicitudesInteligencia.ActualizarSolicitiudViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.SolicitudesInteligenciaController",
+    "Method": "Crear",
+    "RelativePath": "api/SolicitudesInteligencia/Crear",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.SolicitudesInteligencia.CrearSolicitudViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.SolicitudesInteligenciaController",
+    "Method": "CrearAsignacion",
+    "RelativePath": "api/SolicitudesInteligencia/CrearAsignacion",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.SolicitudesInteligencia.CrearSolicitudAsignacionViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.SolicitudesInteligenciaController",
+    "Method": "ListarAsignacionesAprovadas",
+    "RelativePath": "api/SolicitudesInteligencia/ListarAsignacionesAprovadas/{idmoduloservicio}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idmoduloservicio",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.PI.Models.SolicitudesInteligencia.AsignacionFullViewModel, SIIGPP.PI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.SolicitudesInteligenciaController",
+    "Method": "ListarTodos",
+    "RelativePath": "api/SolicitudesInteligencia/ListarTodos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.PI.Models.SolicitudesInteligencia.SolicitudInteligenciaViewModel, SIIGPP.PI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.SolicitudesInteligenciaController",
+    "Method": "ValidarExistencia",
+    "RelativePath": "api/SolicitudesInteligencia/ValidarExistencia/{idperitoasignado}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idperitoasignado",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.SubirArchivosController",
+    "Method": "Crear",
+    "RelativePath": "api/SubirArchivos/Crear",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.SubirArchivos.CrearViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.SubirArchivosController",
+    "Method": "Listar",
+    "RelativePath": "api/SubirArchivos/Listar/{DetencionId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "DetencionId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.PI.Models.SubirArchivos.SubirArchivoViewModel, SIIGPP.PI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.SubirArchivosController",
+    "Method": "Post",
+    "RelativePath": "api/SubirArchivos/Post/{nombreCarpeta}/{nombreArchivo}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "file",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "nombreCarpeta",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "nombreArchivo",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.TrasladoYCustodiasController",
+    "Method": "ActualizarStatus",
+    "RelativePath": "api/TrasladoYCustodias/ActualizarStatus",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.InformacionJuridico.TrasladosYCustodias.ActualizarViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.TrasladoYCustodiasController",
+    "Method": "ActualizarStatusFinalizado",
+    "RelativePath": "api/TrasladoYCustodias/ActualizarStatusFinalizado",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.InformacionJuridico.TrasladosYCustodias.ActualizarViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.TrasladoYCustodiasController",
+    "Method": "AsiganarUnidad",
+    "RelativePath": "api/TrasladoYCustodias/AsiganarUnidad",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.InformacionJuridico.TrasladosYCustodias.ActualizarViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.TrasladoYCustodiasController",
+    "Method": "Crear",
+    "RelativePath": "api/TrasladoYCustodias/Crear",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.InformacionJuridico.TrasladosYCustodias.CrearViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.TrasladoYCustodiasController",
+    "Method": "Listar",
+    "RelativePath": "api/TrasladoYCustodias/Listar/{idmodulo}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idmodulo",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.PI.Models.InformacionJuridico.TrasladosYCustodias.TrasladoYCustodiasViewModel, SIIGPP.PI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.TrasladoYCustodiasController",
+    "Method": "ListarporModulo",
+    "RelativePath": "api/TrasladoYCustodias/ListarporModulo/{moduloid}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "moduloid",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.PI.Models.InformacionJuridico.TrasladosYCustodias.TrasladoYCustodiasViewModel, SIIGPP.PI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.ValuesController",
+    "Method": "Get",
+    "RelativePath": "api/Values",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.ValuesController",
+    "Method": "Post",
+    "RelativePath": "api/Values",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "value",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.ValuesController",
+    "Method": "Get",
+    "RelativePath": "api/Values/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.ValuesController",
+    "Method": "Put",
+    "RelativePath": "api/Values/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "value",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.ValuesController",
+    "Method": "Delete",
+    "RelativePath": "api/Values/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.VisitaController",
+    "Method": "ActualizarhrSalida",
+    "RelativePath": "api/Visita/ActualizarhrSalida",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.Visitas.ActualizarhrSalidaViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.VisitaController",
+    "Method": "Crear",
+    "RelativePath": "api/Visita/Crear",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.PI.Models.Visitas.CrearViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.VisitaController",
+    "Method": "Listar",
+    "RelativePath": "api/Visita/Listar",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.PI.Models.Visitas.VisitaViewModel, SIIGPP.PI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.VisitaController",
+    "Method": "ListarporIddetenido",
+    "RelativePath": "api/Visita/ListarporIddetenido/{detenidoid}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "detenidoid",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.PI.Models.Visitas.VisitaViewModel, SIIGPP.PI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.PI.Controllers.VisitaController",
+    "Method": "ListarporIdvisita",
+    "RelativePath": "api/Visita/ListarporIdvisita/{personavisitaId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "personavisitaId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.PI.Models.Visitas.VisitaViewModel, SIIGPP.PI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  }
+]

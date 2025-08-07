@@ -1,0 +1,5011 @@
+[
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.AcuerdoReparatoriosController",
+    "Method": "ContadorRegistrados",
+    "RelativePath": "api/AcuerdoReparatorios",
+    "HttpMethod": "",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ano",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RAcuerdoReparatorio.GET_ListarTodosViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.AcuerdoReparatoriosController",
+    "Method": "ActualizarAcuerdoReparatorio",
+    "RelativePath": "api/AcuerdoReparatorios/ActualizarAcuerdoReparatorio",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RAcuerdoReparatorio.PUT_AcuerdoReparatorioViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.AcuerdoReparatoriosController",
+    "Method": "ActualizarRespuesta",
+    "RelativePath": "api/AcuerdoReparatorios/ActualizarRespuesta/{idDistrito}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RAcuerdoReparatorio.PUT_CoordinadorJuridicoViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "idDistrito",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.AcuerdoReparatoriosController",
+    "Method": "ActualizarRespuestaL",
+    "RelativePath": "api/AcuerdoReparatorios/ActualizarRespuestaL",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RAcuerdoReparatorio.PUT_CoordinadorJuridicoViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.AcuerdoReparatoriosController",
+    "Method": "ActualizarRespuestaMP",
+    "RelativePath": "api/AcuerdoReparatorios/ActualizarRespuestaMP",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RAcuerdoReparatorio.PUT_MPViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.AcuerdoReparatoriosController",
+    "Method": "Actualizarsise",
+    "RelativePath": "api/AcuerdoReparatorios/Actualizarsise",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RAcuerdoReparatorio.PUT_SiseViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.AcuerdoReparatoriosController",
+    "Method": "ActualizarStatuscumplimineto",
+    "RelativePath": "api/AcuerdoReparatorios/ActualizarStatuscumplimineto",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RAcuerdoReparatorio.PUT_StatusCumplimientoviewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.AcuerdoReparatoriosController",
+    "Method": "AcuerdoPorConjunto",
+    "RelativePath": "api/AcuerdoReparatorios/AcuerdoPorConjunto/{ConjuntoDerivacionId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ConjuntoDerivacionId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.AcuerdoReparatoriosController",
+    "Method": "Acuerdosxdistrito",
+    "RelativePath": "api/AcuerdoReparatorios/Acuerdosxdistrito/{distritoId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "distritoId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.AcuerdoReparatoriosController",
+    "Method": "CheckSessions",
+    "RelativePath": "api/AcuerdoReparatorios/CheckSessions/{envioId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "envioId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.AcuerdoReparatoriosController",
+    "Method": "CrearAcuerdoConjunto",
+    "RelativePath": "api/AcuerdoReparatorios/CrearAcuerdoConjunto",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.Entidades.M_JR.RSeguimientoCumplimiento.AcuerdosConjunto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.AcuerdoReparatoriosController",
+    "Method": "CrearAcuerdoReparatorio",
+    "RelativePath": "api/AcuerdoReparatorios/CrearAcuerdoReparatorio",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RAcuerdoReparatorio.POST_AcuerdoReparatorioViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.AcuerdoReparatoriosController",
+    "Method": "CreateMonitoring",
+    "RelativePath": "api/AcuerdoReparatorios/CreateMonitoring",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RAcuerdoReparatorio.EditAcuerdoReparatorioViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.AcuerdoReparatoriosController",
+    "Method": "DistritoC",
+    "RelativePath": "api/AcuerdoReparatorios/DistritoC/{usuarioId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "usuarioId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.AcuerdoReparatoriosController",
+    "Method": "Eliminar",
+    "RelativePath": "api/AcuerdoReparatorios/Eliminar/{idps}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idps",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.AcuerdoReparatoriosController",
+    "Method": "ExistsAN",
+    "RelativePath": "api/AcuerdoReparatorios/ExistsAN/{acuerdoId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "acuerdoId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.AcuerdoReparatoriosController",
+    "Method": "ExistsAR",
+    "RelativePath": "api/AcuerdoReparatorios/ExistsAR/{envioId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "envioId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.AcuerdoReparatoriosController",
+    "Method": "isTypeConjunt",
+    "RelativePath": "api/AcuerdoReparatorios/isTypeConjunt/{idEnvio}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idEnvio",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.AcuerdoReparatoriosController",
+    "Method": "ListaAR",
+    "RelativePath": "api/AcuerdoReparatorios/ListaAR/{envioId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "envioId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.AcuerdoReparatoriosController",
+    "Method": "ListaARC",
+    "RelativePath": "api/AcuerdoReparatorios/ListaARC/{conjuntoderivacionesId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "conjuntoderivacionesId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.AcuerdoReparatoriosController",
+    "Method": "ListaARSeguimiento",
+    "RelativePath": "api/AcuerdoReparatorios/ListaARSeguimiento/{envioId}/{acuerdoreparatorioid}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "envioId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "acuerdoreparatorioid",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.AcuerdoReparatoriosController",
+    "Method": "ListarAREstadisticaA\u00F1o",
+    "RelativePath": "api/AcuerdoReparatorios/ListarAREstadisticaA\u00F1o/{a\u00F1o}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "a\u00F1o",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RAcuerdoReparatorio.GET_AcuerdoReparatorioEstadisticaViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.AcuerdoReparatoriosController",
+    "Method": "ListarAREstadisticaDia",
+    "RelativePath": "api/AcuerdoReparatorios/ListarAREstadisticaDia/{fi}/{ff}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "fi",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      },
+      {
+        "Name": "ff",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RAcuerdoReparatorio.GET_AcuerdoReparatorioEstadisticaViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.AcuerdoReparatoriosController",
+    "Method": "ListarAREstadisticaMes",
+    "RelativePath": "api/AcuerdoReparatorios/ListarAREstadisticaMes/{a\u00F1o}/{mes}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "a\u00F1o",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "mes",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RAcuerdoReparatorio.GET_AcuerdoReparatorioEstadisticaViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.AcuerdoReparatoriosController",
+    "Method": "ListarARInformeA\u00F1o",
+    "RelativePath": "api/AcuerdoReparatorios/ListarARInformeA\u00F1o/{distritoId}/{a\u00F1o}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "distritoId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "a\u00F1o",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RAcuerdoReparatorio.GET_ARInformeViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.AcuerdoReparatoriosController",
+    "Method": "ListarARInformeDia",
+    "RelativePath": "api/AcuerdoReparatorios/ListarARInformeDia/{distritoId}/{fi}/{ff}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "distritoId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "fi",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      },
+      {
+        "Name": "ff",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RAcuerdoReparatorio.GET_ARInformeViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.AcuerdoReparatoriosController",
+    "Method": "ListarARInformeMes",
+    "RelativePath": "api/AcuerdoReparatorios/ListarARInformeMes/{distritoId}/{a\u00F1o}/{mes}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "distritoId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "a\u00F1o",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "mes",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RAcuerdoReparatorio.GET_ARInformeViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.AcuerdoReparatoriosController",
+    "Method": "ListarConjuntos",
+    "RelativePath": "api/AcuerdoReparatorios/ListarConjuntos/{idEnvio}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idEnvio",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.AcuerdoReparatoriosController",
+    "Method": "ListarConjuntosCA",
+    "RelativePath": "api/AcuerdoReparatorios/ListarConjuntosCA/{idEnvio}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idEnvio",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.AcuerdoReparatoriosController",
+    "Method": "ListarConjuntoxAcuerdo",
+    "RelativePath": "api/AcuerdoReparatorios/ListarConjuntoxAcuerdo/{AcuerdoId}/{enlace}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "AcuerdoId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "enlace",
+        "Type": "System.Boolean",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.AcuerdoReparatoriosController",
+    "Method": "ListarSolicitantesRequeridosxDis",
+    "RelativePath": "api/AcuerdoReparatorios/ListarSolicitantesRequeridosxDis/{idDistrito}/{EnvioId}/{SolReq}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "EnvioId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "SolReq",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "IdDistrito",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.AcuerdoReparatoriosController",
+    "Method": "ListarValidacion",
+    "RelativePath": "api/AcuerdoReparatorios/ListarValidacion",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RAcuerdoReparatorio.GET_AcuerdoReparatorioViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.AcuerdoReparatoriosController",
+    "Method": "ListConjuntsWithAttached",
+    "RelativePath": "api/AcuerdoReparatorios/ListConjuntsWithAttached/{idConjunto}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idConjunto",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.AsignacionEnviosController",
+    "Method": "AsignarFacilitadorNotificador",
+    "RelativePath": "api/AsignacionEnvios/AsignarFacilitadorNotificador",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RAsignacionEnvios.AsignacionFacilitadorNotificador",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.AsignacionEnviosController",
+    "Method": "ContadorRegistrados",
+    "RelativePath": "api/AsignacionEnvios/ContadorRegistrados/{ano}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ano",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RAsignacionEnvios.GET_ListarTodosViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.AsignacionEnviosController",
+    "Method": "CrearAsignacion",
+    "RelativePath": "api/AsignacionEnvios/CrearAsignacion",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RAsignacionEnvios.POST_AsignacionEnvioViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.AsignacionEnviosController",
+    "Method": "CrearAsingacion",
+    "RelativePath": "api/AsignacionEnvios/CrearAsingacion",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RAsignacionEnvios.POST_AsignacionEnvioViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.AsignacionEnviosController",
+    "Method": "CrearAsingacion2",
+    "RelativePath": "api/AsignacionEnvios/CrearAsingacion2",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RAsignacionEnvios.POST_AsignacionEnvioViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.AsignacionEnviosController",
+    "Method": "ListarARXDistritoXRhechoid",
+    "RelativePath": "api/AsignacionEnvios/ListarARXDistritoXRhechoid/{distritoId}/{rhechoid}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "rhechoId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "distritoId",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.AsignacionEnviosController",
+    "Method": "ListarFacilitadorEnv",
+    "RelativePath": "api/AsignacionEnvios/ListarFacilitadorEnv/{envioId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "envioId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.AsignacionEnviosController",
+    "Method": "ListarIdEnvio",
+    "RelativePath": "api/AsignacionEnvios/ListarIdEnvio/{idEnvio}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "IdEnvio",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.AsignacionEnviosController",
+    "Method": "ListarIdEnvio2",
+    "RelativePath": "api/AsignacionEnvios/ListarIdEnvio2/{idEnvio}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "IdEnvio",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.AsignacionEnviosController",
+    "Method": "ListarIdEnvioAll",
+    "RelativePath": "api/AsignacionEnvios/ListarIdEnvioAll/{envioId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "envioId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RAsignacionEnvios.GET_AsignacionEnvioviewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.AsignacionEnviosController",
+    "Method": "ListarMisEnvios",
+    "RelativePath": "api/AsignacionEnvios/ListarMisEnvios/{moduloServicioId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "moduloServicioId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RAsignacionEnvios.GET_MisEnviosViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.AsignacionEnviosController",
+    "Method": "ListarMisEnviosME",
+    "RelativePath": "api/AsignacionEnvios/ListarMisEnviosME/{moduloServicioId}/{envioId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "moduloServicioId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "envioId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.AsignacionEnviosController",
+    "Method": "ListarTodoExpedienteXDistrito",
+    "RelativePath": "api/AsignacionEnvios/ListarTodoExpedienteXDistrito/{distritoId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "distritoId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.AsignacionEnviosController",
+    "Method": "ListarTodos",
+    "RelativePath": "api/AsignacionEnvios/ListarTodos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RAsignacionEnvios.GET_TodosEnviosViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.AsignacionEnviosController",
+    "Method": "ListarTodosAgrupar",
+    "RelativePath": "api/AsignacionEnvios/ListarTodosAgrupar/{idDistrito}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idDistrito",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RAsignacionEnvios.GET_AsignacionExpedientesViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.AsignacionEnviosController",
+    "Method": "Reasignacion",
+    "RelativePath": "api/AsignacionEnvios/Reasignacion",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RAsignacionEnvios.PUT_ReasignacionViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.CitatorioRecordatoriosController",
+    "Method": "Auth",
+    "RelativePath": "api/CitatorioRecordatorios/Auth",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.CitatorioRecordatoriosController",
+    "Method": "ContadorSMSR",
+    "RelativePath": "api/CitatorioRecordatorios/ContadorSMSR",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RCitatorioRecordatorio.PUT_ContadorSMSViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.CitatorioRecordatoriosController",
+    "Method": "ContadorSMSS",
+    "RelativePath": "api/CitatorioRecordatorios/ContadorSMSS",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RCitatorioRecordatorio.PUT_ContadorSMSViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.CitatorioRecordatoriosController",
+    "Method": "CrearCR",
+    "RelativePath": "api/CitatorioRecordatorios/CrearCR",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RCitatorioRecordatorio.POST_CrearCitatorioRecordatorioViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.CitatorioRecordatoriosController",
+    "Method": "FiltrarNoCIta",
+    "RelativePath": "api/CitatorioRecordatorios/FiltrarNoCIta/{NoExpediente}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "NoExpediente",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.CitatorioRecordatoriosController",
+    "Method": "FiltrarNoCItaC",
+    "RelativePath": "api/CitatorioRecordatorios/FiltrarNoCItaC/{IdConjuntoDerivaciones}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "IdConjuntoDerivaciones",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.CitatorioRecordatoriosController",
+    "Method": "ListaFiltroCR",
+    "RelativePath": "api/CitatorioRecordatorios/ListaFiltroCR/{moduloId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "moduloId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RCitatorioRecordatorio.GET_FiltroAgendaViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.CitatorioRecordatoriosController",
+    "Method": "ListarAgendaGlobal1",
+    "RelativePath": "api/CitatorioRecordatorios/ListarAgendaGlobal1/{distritoid}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "distritoid",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RCitatorioRecordatorio.GET_DistinticViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.CitatorioRecordatoriosController",
+    "Method": "ListarAgendaGlobal2",
+    "RelativePath": "api/CitatorioRecordatorios/ListarAgendaGlobal2/{distritoid}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "distritoid",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RCitatorioRecordatorio.GET_DistinticViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.CitatorioRecordatoriosController",
+    "Method": "ListarAsistencia",
+    "RelativePath": "api/CitatorioRecordatorios/ListarAsistencia",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RCitatorioRecordatorio.GET_EAsistenciaViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.CitatorioRecordatoriosController",
+    "Method": "ListarAsistenciaDetalleAno",
+    "RelativePath": "api/CitatorioRecordatorios/ListarAsistenciaDetalleAno/{a\u00F1o}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "a\u00F1o",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RCitatorioRecordatorio.GET_EAsistenciaDetalleViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.CitatorioRecordatoriosController",
+    "Method": "ListarAsistenciaDetalleDias",
+    "RelativePath": "api/CitatorioRecordatorios/ListarAsistenciaDetalleDias/{fi}/{ff}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "fi",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      },
+      {
+        "Name": "ff",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RCitatorioRecordatorio.GET_EAsistenciaDetalleViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.CitatorioRecordatoriosController",
+    "Method": "ListarAsistenciaDetalleMesA\u00F1o",
+    "RelativePath": "api/CitatorioRecordatorios/ListarAsistenciaDetalleMesA\u00F1o/{mes}/{a\u00F1o}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "mes",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "a\u00F1o",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RCitatorioRecordatorio.GET_EAsistenciaDetalleViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.CitatorioRecordatoriosController",
+    "Method": "ListarC",
+    "RelativePath": "api/CitatorioRecordatorios/ListarC/{moduloId}/{sesionId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "moduloId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "sesionId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RCitatorioRecordatorio.GET_CitatorioRecordatorioViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.CitatorioRecordatoriosController",
+    "Method": "ListarCitatoriosModulo",
+    "RelativePath": "api/CitatorioRecordatorios/ListarCitatoriosModulo/{modulo}/{tipomodulo}/{nombrefacilitador}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "modulo",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "tipomodulo",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "nombrefacilitador",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RCitatorioRecordatorio.GET_CitatorioRecordatorioViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.CitatorioRecordatoriosController",
+    "Method": "ListarCitatoriosModuloFiltros",
+    "RelativePath": "api/CitatorioRecordatorios/ListarCitatoriosModuloFiltros/{modulo}/{fechai}/{fechaf}/{StatusEntrega}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "modulo",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "fechai",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      },
+      {
+        "Name": "fechaf",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      },
+      {
+        "Name": "StatusEntrega",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RCitatorioRecordatorio.GET_CitatorioRecordatorioViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.CitatorioRecordatoriosController",
+    "Method": "ListarCR",
+    "RelativePath": "api/CitatorioRecordatorios/ListarCR/{sesionId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "sesionId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.CitatorioRecordatoriosController",
+    "Method": "ListarCRConjunto",
+    "RelativePath": "api/CitatorioRecordatorios/ListarCRConjunto/{ConjuntoDerivacionId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ConjuntoDerivacionId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RCitatorioRecordatorio.GET_CitatorioRecordatorioViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.CitatorioRecordatoriosController",
+    "Method": "ListarCREnvio",
+    "RelativePath": "api/CitatorioRecordatorios/ListarCREnvio/{envioId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "envioId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RCitatorioRecordatorio.GET_CitatorioRecordatorioViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.CitatorioRecordatoriosController",
+    "Method": "ListarCRStatusglobal",
+    "RelativePath": "api/CitatorioRecordatorios/ListarCRStatusglobal/{distritoid}/{statusSesion}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "distritoid",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "statusSesion",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RCitatorioRecordatorio.GET_DistinticViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.CitatorioRecordatoriosController",
+    "Method": "ListarEntregas",
+    "RelativePath": "api/CitatorioRecordatorios/ListarEntregas",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RCitatorioRecordatorio.GET_EAEntregaViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.CitatorioRecordatoriosController",
+    "Method": "ListarEntregasAno",
+    "RelativePath": "api/CitatorioRecordatorios/ListarEntregasAno/{a\u00F1o}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "a\u00F1o",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RCitatorioRecordatorio.GET_EEntregasViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.CitatorioRecordatoriosController",
+    "Method": "ListarEntregasDia",
+    "RelativePath": "api/CitatorioRecordatorios/ListarEntregasDia/{fi}/{ff}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "fi",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      },
+      {
+        "Name": "ff",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RCitatorioRecordatorio.GET_EEntregasViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.CitatorioRecordatoriosController",
+    "Method": "ListarEntregasMesAno",
+    "RelativePath": "api/CitatorioRecordatorios/ListarEntregasMesAno/{mes}/{a\u00F1o}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "mes",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "a\u00F1o",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RCitatorioRecordatorio.GET_EEntregasViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.CitatorioRecordatoriosController",
+    "Method": "ListarMisCR",
+    "RelativePath": "api/CitatorioRecordatorios/ListarMisCR/{moduloId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "moduloId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RCitatorioRecordatorio.GET_DistinticViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.CitatorioRecordatoriosController",
+    "Method": "ListarMisCRStatus",
+    "RelativePath": "api/CitatorioRecordatorios/ListarMisCRStatus/{moduloId}/{statusSesion}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "moduloId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "statusSesion",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RCitatorioRecordatorio.GET_DistinticViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.CitatorioRecordatoriosController",
+    "Method": "ListarSCPorEnvio",
+    "RelativePath": "api/CitatorioRecordatorios/ListarSCPorEnvio/{envioId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "envioId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RCitatorioRecordatorio.GET_CitatorioRecordatorioSViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.CitatorioRecordatoriosController",
+    "Method": "Notificador",
+    "RelativePath": "api/CitatorioRecordatorios/Notificador",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RCitatorioRecordatorio.PUT_NotificadorViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.CitatorioRecordatoriosController",
+    "Method": "Send",
+    "RelativePath": "api/CitatorioRecordatorios/Send",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RCitatorioRecordatorio.POST_smsViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.CitatorioRecordatoriosController",
+    "Method": "StatusAsistencia",
+    "RelativePath": "api/CitatorioRecordatorios/StatusAsistencia",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RCitatorioRecordatorio.PUT_StatusAsistenciaViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.CitatorioRecordatoriosController",
+    "Method": "StatusEntrega",
+    "RelativePath": "api/CitatorioRecordatorios/StatusEntrega",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RCitatorioRecordatorio.PUT_StatusEntregaViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.DelitoesController",
+    "Method": "GetDelitos",
+    "RelativePath": "api/Delitoes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.Entidades.M_Configuracion.Cat_Delito.Delito, CentenarioLibrary, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.DelitoesController",
+    "Method": "EditarConjuntoIdDelitosDerivados",
+    "RelativePath": "api/Delitoes/EditarConjuntoIdDelitosDerivados",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RDelito.GET_idDelitoDeViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.DelitoesController",
+    "Method": "EliminarEnvio",
+    "RelativePath": "api/Delitoes/EliminarEnvio/{idEnvio}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idEnvio",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.DelitoesController",
+    "Method": "InfoDelitos",
+    "RelativePath": "api/Delitoes/InfoDelitos/{IdDelitoDerivado}/{EnvioId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "EnvioId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "IdDelitoDerivado",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RDelito.GET_DelitoViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.DelitoesController",
+    "Method": "ListarDelitoConjunto",
+    "RelativePath": "api/Delitoes/ListarDelitoConjunto/{ConjuntoDerivacionesId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ConjuntoDerivacionesId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RDelito.GET_DelitoViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.DelitoesController",
+    "Method": "ListarDelitos",
+    "RelativePath": "api/Delitoes/ListarDelitos/{EnvioId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "EnvioId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RDelito.GET_idDelitoViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.EnviosController",
+    "Method": "mes",
+    "RelativePath": "api/Envios",
+    "HttpMethod": "",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "a",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.EnviosController",
+    "Method": "AceptacionDerivacion",
+    "RelativePath": "api/Envios/AceptacionDerivacion",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.REnvio.PUT_StatusModuloViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.EnviosController",
+    "Method": "ActualizarStatusEnvio",
+    "RelativePath": "api/Envios/ActualizarStatusEnvio",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.REnvio.PUT_StatusModuloViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.EnviosController",
+    "Method": "BusquedaExp",
+    "RelativePath": "api/Envios/BusquedaExp/{distritoId}/{noexp}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "distritoId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "noExp",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.EnviosController",
+    "Method": "ContarCarpetasiniciadas",
+    "RelativePath": "api/Envios/ContarCarpetasiniciadas/{fechai}/{fechaf}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "fechai",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      },
+      {
+        "Name": "fechaf",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.REnvio.EstadisticasModuloViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.EnviosController",
+    "Method": "ContarCarpetasiniciadasFechaA\u00F1o",
+    "RelativePath": "api/Envios/ContarCarpetasiniciadasFechaA\u00F1o/{fechai}/{fechaf}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "fechai",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      },
+      {
+        "Name": "fechaf",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.REnvio.EstadisticasFechaViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.EnviosController",
+    "Method": "ContarCarpetasiniciadasFechaA\u00F1os",
+    "RelativePath": "api/Envios/ContarCarpetasiniciadasFechaA\u00F1os/{fechai}/{fechaf}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "fechai",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      },
+      {
+        "Name": "fechaf",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.REnvio.EstadisticasFechaViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.EnviosController",
+    "Method": "ContarCarpetasiniciadasFechaMes",
+    "RelativePath": "api/Envios/ContarCarpetasiniciadasFechaMes/{fechai}/{fechaf}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "fechai",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      },
+      {
+        "Name": "fechaf",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.REnvio.EstadisticasFechaViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.EnviosController",
+    "Method": "CrearEnvios",
+    "RelativePath": "api/Envios/CrearEnvios",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.REnvio.POST_CrearEnvioViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.EnviosController",
+    "Method": "InformacionCompleta",
+    "RelativePath": "api/Envios/InformacionCompleta/{fechai}/{fechaf}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "fechai",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      },
+      {
+        "Name": "fechaf",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.REnvio.GET_EnviosViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.EnviosController",
+    "Method": "InformacionExpediente",
+    "RelativePath": "api/Envios/InformacionExpediente/{expedienteId}/{envioId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "expedienteId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "envioId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.EnviosController",
+    "Method": "InformacionExpedienteCAT",
+    "RelativePath": "api/Envios/InformacionExpedienteCAT/{rhechoId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "rhechoId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.REnvio.GET_EnviosAllViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.EnviosController",
+    "Method": "InformacionExpedienteInd",
+    "RelativePath": "api/Envios/InformacionExpedienteInd/{rhechoId}/{expedienteId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "rhechoId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "expedienteId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.EnviosController",
+    "Method": "InformacionExpedienteXDistrito",
+    "RelativePath": "api/Envios/InformacionExpedienteXDistrito/{expedienteId}/{envioId}/{distritoId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "expedienteId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "envioId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "distritoId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.EnviosController",
+    "Method": "InformacionFirmaAMPO",
+    "RelativePath": "api/Envios/InformacionFirmaAMPO/{envioId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "envioId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.EnviosController",
+    "Method": "InformacionStatusAMPO",
+    "RelativePath": "api/Envios/InformacionStatusAMPO/{expedienteId}/{envioId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "expedienteId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "envioId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.EnviosController",
+    "Method": "InformeGeneral",
+    "RelativePath": "api/Envios/InformeGeneral/{year}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "year",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.REnvio.GET_InformeGeneralViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.EnviosController",
+    "Method": "InformeGeneralAT",
+    "RelativePath": "api/Envios/InformeGeneralAT/{year}/{mes}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "year",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "mes",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.REnvio.Get_InformacionGeneralDiferidos, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.EnviosController",
+    "Method": "InformeGeneralDiferidos",
+    "RelativePath": "api/Envios/InformeGeneralDiferidos/{year}/{mes}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "year",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "mes",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.REnvio.Get_InformacionGeneralDiferidos, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.EnviosController",
+    "Method": "InformeGeneralInmediatos",
+    "RelativePath": "api/Envios/InformeGeneralInmediatos/{year}/{mes}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "year",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "mes",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.REnvio.GET_InformacionGeneralInmediatos, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.EnviosController",
+    "Method": "ListaEnviosPorExpedienteNoDerivacion",
+    "RelativePath": "api/Envios/ListaEnviosPorExpedienteNoDerivacion/{expedienteId}/{noDerivacion}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "expedienteId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "noDerivacion",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.EnviosController",
+    "Method": "ListarDerivacionesFiltro",
+    "RelativePath": "api/Envios/ListarDerivacionesFiltro/{idDistrito}/{fechai}/{fechaf}/{statusAMPO}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idDistrito",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "fechai",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      },
+      {
+        "Name": "fechaf",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      },
+      {
+        "Name": "statusAMPO",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.REnvio.GET_EnviosAllViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.EnviosController",
+    "Method": "ListarDerivacionesProcedentes",
+    "RelativePath": "api/Envios/ListarDerivacionesProcedentes/{fechai}/{fechaf}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "fechai",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      },
+      {
+        "Name": "fechaf",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.REnvio.GET_EnviosAllViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.EnviosController",
+    "Method": "ListarDerivacionesProcedentesInicial",
+    "RelativePath": "api/Envios/ListarDerivacionesProcedentesInicial/{idDistrito}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idDistrito",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.REnvio.GET_EnviosAllViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.EnviosController",
+    "Method": "ListarTodosRezago",
+    "RelativePath": "api/Envios/ListarTodosRezago/{idDistrito}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idDistrito",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.EnviosController",
+    "Method": "StatusAMPO",
+    "RelativePath": "api/Envios/StatusAMPO",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.REnvio.PUT_StatusAMPOViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.EnviosController",
+    "Method": "StatusEnvioDerivacion",
+    "RelativePath": "api/Envios/StatusEnvioDerivacion",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.REnvio.GET_EnviosAllViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.EnviosController",
+    "Method": "StatusModuloRespuesta",
+    "RelativePath": "api/Envios/StatusModuloRespuesta",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.REnvio.PUT_StatusModuloViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.ExpedientesController",
+    "Method": "BusquedaExpediente",
+    "RelativePath": "api/Expedientes/BusquedaExpediente/{rHechoId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "rHechoId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RExpediente.GET_ExpedienteViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.ExpedientesController",
+    "Method": "CrearConjunto",
+    "RelativePath": "api/Expedientes/CrearConjunto",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RExpediente.POST_CrearConjuntosSRD",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.ExpedientesController",
+    "Method": "CrearExpedienteJRNew",
+    "RelativePath": "api/Expedientes/CrearExpedienteJRNew",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RExpediente.POST_CrearExpedienteViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.ExpedientesController",
+    "Method": "CrearRegistroModuloCaptura",
+    "RelativePath": "api/Expedientes/CrearRegistroModuloCaptura",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RExpediente.ALL_ModuloCaptura",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.ExpedientesController",
+    "Method": "CrearSolReq",
+    "RelativePath": "api/Expedientes/CrearSolReq",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RSolicitanteRequerido.POST_CrearSViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.ExpedientesController",
+    "Method": "Eliminar",
+    "RelativePath": "api/Expedientes/Eliminar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.AdminInfo.EliminarNuc",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.ExpedientesController",
+    "Method": "ExisteExpedienteEspecifico",
+    "RelativePath": "api/Expedientes/ExisteExpedienteEspecifico/{idexpediente}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idexpediente",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.ExpedientesController",
+    "Method": "ExisteExpedientes",
+    "RelativePath": "api/Expedientes/ExisteExpedientes/{rHechoId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "rHechoId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.ExpedientesController",
+    "Method": "InformacionStatus",
+    "RelativePath": "api/Expedientes/InformacionStatus",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RExpediente.PUT_InformacionStatusViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.ExpedientesController",
+    "Method": "ListarConjuntos",
+    "RelativePath": "api/Expedientes/ListarConjuntos/{idEnvio}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idEnvio",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.ExpedientesController",
+    "Method": "ListarModuloCaptura",
+    "RelativePath": "api/Expedientes/ListarModuloCaptura/{rHechoId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "rHechoId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RExpediente.GET_ModuloCaptura, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.ExpedientesController",
+    "Method": "ListarPorHecho",
+    "RelativePath": "api/Expedientes/ListarPorHecho/{idRHecho}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idRHecho",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.ExpedientesController",
+    "Method": "ListarStatus",
+    "RelativePath": "api/Expedientes/ListarStatus/{idDistrito}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idDistrito",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RExpediente.GET_ExpedienteViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.ExpedientesController",
+    "Method": "ListarTodas",
+    "RelativePath": "api/Expedientes/ListarTodas/{idDistrito}/{fechai}/{fechaf}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idDistrito",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "fechai",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      },
+      {
+        "Name": "fechaf",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      },
+      {
+        "Name": "StatusAcepRech",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RExpediente.GET_ExpedienteViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.ExpedientesController",
+    "Method": "ListarTodasFiltro",
+    "RelativePath": "api/Expedientes/ListarTodasFiltro/{idDistrito}/{fechai}/{fechaf}/{StatusGeneral}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idDistrito",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "fechai",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      },
+      {
+        "Name": "fechaf",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      },
+      {
+        "Name": "StatusGeneral",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RExpediente.GET_ExpedienteViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.ExpedientesController",
+    "Method": "NoDerivacionStatus",
+    "RelativePath": "api/Expedientes/NoDerivacionStatus",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RExpediente.PUT_NoDerivacionStatusViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.ExpedientesController",
+    "Method": "StatusAcepRech",
+    "RelativePath": "api/Expedientes/StatusAcepRech",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RExpediente.PUT_StatusGeneralViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.FacilitadorNotificadorsController",
+    "Method": "GetFacilitadorNotificadors",
+    "RelativePath": "api/FacilitadorNotificadors",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.Entidades.M_JR.RFacilitadorNotificador.FacilitadorNotificador, CentenarioLibrary, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.FacilitadorNotificadorsController",
+    "Method": "BuscarFacilitador",
+    "RelativePath": "api/FacilitadorNotificadors/BuscarFacilitador/{distritoId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "distritoId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.FacilitadorNotificadorsController",
+    "Method": "BuscarNotificador",
+    "RelativePath": "api/FacilitadorNotificadors/BuscarNotificador/{distritoId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "distritoId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.FacilitadorNotificadorsController",
+    "Method": "CrearFacilitadorNotificador",
+    "RelativePath": "api/FacilitadorNotificadors/CrearFacilitadorNotificador",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RFacilitadorNotificador.POST_FacilitadorNotificadorViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.FacilitadorNotificadorsController",
+    "Method": "Listar",
+    "RelativePath": "api/FacilitadorNotificadors/Listar/{distritoId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "distritoId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RFacilitadorNotificador.GET_FacilitadorNotificadorViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.FacilitadorNotificadorsController",
+    "Method": "ListarAgenciasModulos",
+    "RelativePath": "api/FacilitadorNotificadors/ListarAgenciasModulos/{distritoId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "distritoId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.FacilitadorNotificadorsController",
+    "Method": "ListarFacilitadores",
+    "RelativePath": "api/FacilitadorNotificadors/ListarFacilitadores/{distritoId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "distritoId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RFacilitadorNotificador.GET_FacilitadorNotificadorViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.FacilitadorNotificadorsController",
+    "Method": "ListarFacilitadores2",
+    "RelativePath": "api/FacilitadorNotificadors/ListarFacilitadores2/{distritoId}/{idAgencia}/{idModulo}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "distritoId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "idAgencia",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "idModulo",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RFacilitadorNotificador.GET_FacilitadorNotificadorViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.FacilitadorNotificadorsController",
+    "Method": "ListarFacilitadoresAsignados",
+    "RelativePath": "api/FacilitadorNotificadors/ListarFacilitadoresAsignados/{distritoId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "distritoId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RFacilitadorNotificador.GET_FacilitadorNotificadorViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.FacilitadorNotificadorsController",
+    "Method": "ListarM",
+    "RelativePath": "api/FacilitadorNotificadors/ListarM/{distritoId}/{idAgencia}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "distritoId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "idAgencia",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RFacilitadorNotificador.GET_FacilitadorNotificadorViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.FacilitadorNotificadorsController",
+    "Method": "ListarModulos",
+    "RelativePath": "api/FacilitadorNotificadors/ListarModulos/{distritoId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "distritoId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.FacilitadorNotificadorsController",
+    "Method": "ListarNotificadores",
+    "RelativePath": "api/FacilitadorNotificadors/ListarNotificadores/{distritoId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "distritoId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RFacilitadorNotificador.GET_FacilitadorNotificadorViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.FacilitadorNotificadorsController",
+    "Method": "ListarNotificadoresAsignados",
+    "RelativePath": "api/FacilitadorNotificadors/ListarNotificadoresAsignados/{distritoId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "distritoId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RFacilitadorNotificador.GET_FacilitadorNotificadorViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.FacilitadorNotificadorsController",
+    "Method": "ListarPorFecha",
+    "RelativePath": "api/FacilitadorNotificadors/ListarPorFecha/{moduloServicioId}/{fechaInicio}/{fechaFinal}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "moduloServicioId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "fechaInicio",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      },
+      {
+        "Name": "fechaFinal",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.FacilitadorNotificadorsController",
+    "Method": "ListarSesionesFecha",
+    "RelativePath": "api/FacilitadorNotificadors/ListarSesionesFecha/{moduloServicio}/{fecha}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "moduloServicio",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "fecha",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.FacilitadorNotificadorsController",
+    "Method": "StatusActivarDesactivar",
+    "RelativePath": "api/FacilitadorNotificadors/StatusActivarDesactivar",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RFacilitadorNotificador.PUT_StatusInactivoViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.FacilitadorNotificadorsController",
+    "Method": "StatusReAsignacionFacilitador",
+    "RelativePath": "api/FacilitadorNotificadors/StatusReAsignacionFacilitador",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RFacilitadorNotificador.PUT_StatusAsignadoViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.FacilitadorNotificadorsController",
+    "Method": "StatusReAsignacionNotificador",
+    "RelativePath": "api/FacilitadorNotificadors/StatusReAsignacionNotificador",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RFacilitadorNotificador.PUT_StatusAsignadoViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.RegistroConclusionsController",
+    "Method": "GetRegistroConclusions",
+    "RelativePath": "api/RegistroConclusions",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.Entidades.M_JR.RRegistro.RegistroConclusion, CentenarioLibrary, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.RegistroConclusionsController",
+    "Method": "Crear",
+    "RelativePath": "api/RegistroConclusions/Crear",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RRegistro.POST_RegistroConclusionViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.RegistroConclusionsController",
+    "Method": "ListarRegistros",
+    "RelativePath": "api/RegistroConclusions/ListarRegistros/{EnvioId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "EnvioId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.RegistroNotificacionsController",
+    "Method": "GetRegistroNotificacions",
+    "RelativePath": "api/RegistroNotificacions",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.Entidades.M_JR.RNotificacion.RegistroNotificacion, CentenarioLibrary, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.RegistroNotificacionsController",
+    "Method": "Crear",
+    "RelativePath": "api/RegistroNotificacions/Crear",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RNotificacion.POST_RegistroNotificacionViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.RegistroNotificacionsController",
+    "Method": "ListarRegistros",
+    "RelativePath": "api/RegistroNotificacions/ListarRegistros/{ExpedienteId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ExpedienteId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.RegistrosController",
+    "Method": "GetRegistros",
+    "RelativePath": "api/Registros",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.Entidades.M_JR.RRegistros.Registro, CentenarioLibrary, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.RegistrosController",
+    "Method": "CrearRegistro",
+    "RelativePath": "api/Registros/CrearRegistro",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RRegistros.RegistrosViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.RegistrosController",
+    "Method": "ListarRegistroEspecifico",
+    "RelativePath": "api/Registros/ListarRegistroEspecifico/{idExpediente}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idExpediente",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.RegistrosController",
+    "Method": "ListarRegistros",
+    "RelativePath": "api/Registros/ListarRegistros/{idEnvio}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idEnvio",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.ResponsablejrsController",
+    "Method": "Actualizar",
+    "RelativePath": "api/Responsablejrs/Actualizar",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RRespresentatne.PUT_RepresentatneVM",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.ResponsablejrsController",
+    "Method": "Crear",
+    "RelativePath": "api/Responsablejrs/Crear",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RRespresentatne.POST_RepresentatneVM",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.ResponsablejrsController",
+    "Method": "MostrarPersonaJR",
+    "RelativePath": "api/Responsablejrs/MostrarPersonaJR/{idPersona}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idPersona",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.ResponsablejrsController",
+    "Method": "Reasignar",
+    "RelativePath": "api/Responsablejrs/Reasignar",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RRespresentatne.PUT_ReasignarExpediente",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.ResponsablejrsController",
+    "Method": "RepresentanteAllActive",
+    "RelativePath": "api/Responsablejrs/RepresentanteAllActive/{idPersona}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idPersona",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.ResponsablejrsController",
+    "Method": "ResponsaableXPersona",
+    "RelativePath": "api/Responsablejrs/ResponsaableXPersona/{idPersona}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idPersona",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.ResponsablejrsController",
+    "Method": "SaveautoRepresentantes",
+    "RelativePath": "api/Responsablejrs/SaveautoRepresentantes/{EnvioId}/{idRepre}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "EnvioId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "idRepre",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SeguimientoCumplimientoesController",
+    "Method": "GetSeguimientoCumplimientos",
+    "RelativePath": "api/SeguimientoCumplimientoes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.Entidades.M_JR.RSeguimientoCumplimiento.SeguimientoCumplimiento, CentenarioLibrary, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SeguimientoCumplimientoesController",
+    "Method": "Actualizar",
+    "RelativePath": "api/SeguimientoCumplimientoes/Actualizar",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RSeguimientoCumplimiento.PUT_SeguimientoCumplimientoViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SeguimientoCumplimientoesController",
+    "Method": "ActualizarSP",
+    "RelativePath": "api/SeguimientoCumplimientoes/ActualizarSP",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RSeguimientoCumplimiento.PUT_StatuPagoViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SeguimientoCumplimientoesController",
+    "Method": "ActualizarSPMyR",
+    "RelativePath": "api/SeguimientoCumplimientoes/ActualizarSPMyR/{conjunto}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "conjunto",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SeguimientoCumplimientoesController",
+    "Method": "Crear",
+    "RelativePath": "api/SeguimientoCumplimientoes/Crear",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RSeguimientoCumplimiento.POST_SCRegistroViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SeguimientoCumplimientoesController",
+    "Method": "ListarSeguimiento",
+    "RelativePath": "api/SeguimientoCumplimientoes/ListarSeguimiento/{acuerdoreparatorioId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "acuerdoreparatorioId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RSeguimientoCumplimiento.GET_SeguimientoCumplimientoViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SeguimientoCumplimientoesController",
+    "Method": "ListarSeguimientoDistrito",
+    "RelativePath": "api/SeguimientoCumplimientoes/ListarSeguimientoDistrito/{distrito}/{fi}/{ff}/{statusconclusion}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "distrito",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "fi",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      },
+      {
+        "Name": "ff",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      },
+      {
+        "Name": "statusconclusion",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RSeguimientoCumplimiento.GET_SeguimientoCumplimientoViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SeguimientoCumplimientoesController",
+    "Method": "ListarSeguimientoDistritoGrupo",
+    "RelativePath": "api/SeguimientoCumplimientoes/ListarSeguimientoDistritoGrupo/{distrito}/{fi}/{ff}/{statusconclusion}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "distrito",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "fi",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      },
+      {
+        "Name": "ff",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      },
+      {
+        "Name": "statusconclusion",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RSeguimientoCumplimiento.GET_GrupoStatusViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SeguimientoCumplimientoesController",
+    "Method": "ListarSeguimientoXDistrito",
+    "RelativePath": "api/SeguimientoCumplimientoes/ListarSeguimientoXDistrito/{acuerdoreparatorioId}/{distritoId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "acuerdoreparatorioId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "distritoId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SeguimientoCumplimientoesController",
+    "Method": "ListarTodosDistrito",
+    "RelativePath": "api/SeguimientoCumplimientoes/ListarTodosDistrito/{distrito}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "distrito",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RSeguimientoCumplimiento.GET_AgendaViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SeguimientoCumplimientoesController",
+    "Method": "ListarTodosDistritoExpediente",
+    "RelativePath": "api/SeguimientoCumplimientoes/ListarTodosDistritoExpediente/{distrito}/{expediente}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "distrito",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "expediente",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RSeguimientoCumplimiento.GET_AgendaViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SeguimientoCumplimientoesController",
+    "Method": "ListarTodosDistritoIdSeg",
+    "RelativePath": "api/SeguimientoCumplimientoes/ListarTodosDistritoIdSeg/{distrito}/{idSeguimiento}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "distrito",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "idSeguimiento",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RSeguimientoCumplimiento.GET_AgendaViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SeguimientoCumplimientoesController",
+    "Method": "ListarTodosDistritoStatus",
+    "RelativePath": "api/SeguimientoCumplimientoes/ListarTodosDistritoStatus/{distrito}/{status}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "distrito",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "status",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RSeguimientoCumplimiento.GET_AgendaViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SeguimientoCumplimientoesController",
+    "Method": "ListarTodosXDistrito",
+    "RelativePath": "api/SeguimientoCumplimientoes/ListarTodosXDistrito/{distritoId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "distritoId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SeguimientoCumplimientoesController",
+    "Method": "ListarTodosXDistritoXExpediente",
+    "RelativePath": "api/SeguimientoCumplimientoes/ListarTodosXDistritoXExpediente/{distritoId}/{noexpediente}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "distritoId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "noexpediente",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SeguimientoCumplimientoesController",
+    "Method": "ListarXDistritoStatus",
+    "RelativePath": "api/SeguimientoCumplimientoes/ListarXDistritoStatus/{distritoId}/{status}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "distritoId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "status",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SeguimientoCumplimientoesController",
+    "Method": "ListAttached",
+    "RelativePath": "api/SeguimientoCumplimientoes/ListAttached/{idAgreement}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idAgreement",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SeguimientoCumplimientoesController",
+    "Method": "ObtenerExistenciaConjunto",
+    "RelativePath": "api/SeguimientoCumplimientoes/ObtenerExistenciaConjunto/{envioid}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "envioid",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SeguimientoCumplimientoesController",
+    "Method": "ObtenerExistenciaConjuntoXDistrito",
+    "RelativePath": "api/SeguimientoCumplimientoes/ObtenerExistenciaConjuntoXDistrito/{envioid}/{distritoId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "envioid",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "distritoId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SeguimientoCumplimientoesController",
+    "Method": "ObtenerIdseguimientoConjunto",
+    "RelativePath": "api/SeguimientoCumplimientoes/ObtenerIdseguimientoConjunto/{idconjuntod}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idconjuntod",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SeguimientoCumplimientoesController",
+    "Method": "ObtenerIdseguimientoSinConjunto",
+    "RelativePath": "api/SeguimientoCumplimientoes/ObtenerIdseguimientoSinConjunto/{envioId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "envioId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SeguimientoCumplimientoesController",
+    "Method": "Seguimiento",
+    "RelativePath": "api/SeguimientoCumplimientoes/Seguimiento/{idSeguimiento}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idSeguimiento",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SeguimientoCumplimientoesController",
+    "Method": "SeguimientoStatus",
+    "RelativePath": "api/SeguimientoCumplimientoes/SeguimientoStatus/{idAcuerdo}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idAcuerdo",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SeguimientoCumplimientoesController",
+    "Method": "ValidateCJMMP",
+    "RelativePath": "api/SeguimientoCumplimientoes/ValidateCJMMP/{acuerdoId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "acuerdoId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SesionsController",
+    "Method": "ActualizarReasignacion",
+    "RelativePath": "api/Sesions/ActualizarReasignacion",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RSesion.PUT_ReasignacionViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SesionsController",
+    "Method": "ActualizarSDS",
+    "RelativePath": "api/Sesions/ActualizarSDS",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RSesion.PUT_SesionViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SesionsController",
+    "Method": "ActualizarStatusSesion",
+    "RelativePath": "api/Sesions/ActualizarStatusSesion",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RSesion.PATCH_SesionViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SesionsController",
+    "Method": "Crear",
+    "RelativePath": "api/Sesions/Crear",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RSesion.POST_SesionViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SesionsController",
+    "Method": "CrearSC",
+    "RelativePath": "api/Sesions/CrearSC",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RSesion.POST_CrearSCViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SesionsController",
+    "Method": "CrearSCA",
+    "RelativePath": "api/Sesions/CrearSCA",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RSesion.POST_CrearSCAViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SesionsController",
+    "Method": "CrearSCAconC",
+    "RelativePath": "api/Sesions/CrearSCAconC",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RSesion.POST_CrearSCAcCViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SesionsController",
+    "Method": "CrearSconC",
+    "RelativePath": "api/Sesions/CrearSconC",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RSesion.POST_SesionViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SesionsController",
+    "Method": "CrearSesionConjunto",
+    "RelativePath": "api/Sesions/CrearSesionConjunto",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RSesion.POST_SesionConjuntoViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SesionsController",
+    "Method": "CrearSesionesRecordatorios",
+    "RelativePath": "api/Sesions/CrearSesionesRecordatorios",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RSesion.SesionRecordatorioIntermediaViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SesionsController",
+    "Method": "EliminarSesion",
+    "RelativePath": "api/Sesions/EliminarSesion/{idSesion}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idSesion",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SesionsController",
+    "Method": "ListarConjuntoPorEnvio",
+    "RelativePath": "api/Sesions/ListarConjuntoPorEnvio/{envioId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "envioId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RSesion.GET_ConjuntosViewModel1, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SesionsController",
+    "Method": "ListarDDPorEnvio",
+    "RelativePath": "api/Sesions/ListarDDPorEnvio/{envioId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "envioId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RSesion.GET_ConjuntosViewModel2, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SesionsController",
+    "Method": "ListarPorConjuntoUltimaSesion",
+    "RelativePath": "api/Sesions/ListarPorConjuntoUltimaSesion/{ConjuntoDerivacionId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ConjuntoDerivacionId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SesionsController",
+    "Method": "ListarPorEnvio",
+    "RelativePath": "api/Sesions/ListarPorEnvio/{envioId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "envioId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RSesion.GET_SesionViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SesionsController",
+    "Method": "ListarPorEnvioUltimaSeseion",
+    "RelativePath": "api/Sesions/ListarPorEnvioUltimaSeseion/{envioId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "envioId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SesionsController",
+    "Method": "ListarPorSesion",
+    "RelativePath": "api/Sesions/ListarPorSesion/{IdSesion}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "IdSesion",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RSesion.GET_SesionViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SesionsController",
+    "Method": "ListarPrimeraSesion",
+    "RelativePath": "api/Sesions/ListarPrimeraSesion/{envioId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "envioId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RSesion.GET_PrimeraSesionViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SesionsController",
+    "Method": "ListarSCpC",
+    "RelativePath": "api/Sesions/ListarSCpC/{ConjuntoDerivacionId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ConjuntoDerivacionId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RSesion.GET_SesionConjuntoViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SesionsController",
+    "Method": "ObtenerUltimaSeseion",
+    "RelativePath": "api/Sesions/ObtenerUltimaSeseion/{envioId}/{conjuntoid}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "envioId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "conjuntoid",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SesionsController",
+    "Method": "ValidateSessionToA",
+    "RelativePath": "api/Sesions/ValidateSessionToA/{acuerdoRId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "acuerdoRId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SesionsController",
+    "Method": "ValidateSessionWA",
+    "RelativePath": "api/Sesions/ValidateSessionWA/{acuerdoRId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "acuerdoRId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SesionsConjuntoController",
+    "Method": "ListarSRD",
+    "RelativePath": "api/SesionsConjunto/ListarSRD/{SesionId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "SesionId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RSesion.GET_ConjuntosViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SesionsConjuntoController",
+    "Method": "ListarSRDConjunto",
+    "RelativePath": "api/SesionsConjunto/ListarSRDConjunto/{ConjuntoId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ConjuntoId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RSesion.GET_ConjuntosViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SolicitanteRequeridoesController",
+    "Method": "EditarConjuntoIdSolicitantesRequeridos",
+    "RelativePath": "api/SolicitanteRequeridoes/EditarConjuntoIdSolicitantesRequeridos",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RSolicitanteRequerido.PUT_CrearSViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SolicitanteRequeridoesController",
+    "Method": "EditarNombresC",
+    "RelativePath": "api/SolicitanteRequeridoes/EditarNombresC",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SIIGPP.JR.Models.RSolicitanteRequerido.PUT_NombresConjuntosViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SolicitanteRequeridoesController",
+    "Method": "InfoPerSolReq",
+    "RelativePath": "api/SolicitanteRequeridoes/InfoPerSolReq/{IdPersona}/{EnvioId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "IdPersona",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "EnvioId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SolicitanteRequeridoesController",
+    "Method": "ListarBusquedaGeneral1",
+    "RelativePath": "api/SolicitanteRequeridoes/ListarBusquedaGeneral1/{nuc}/{NoExpediente}/{nombre}/{apaterno}/{amaterno}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "nuc",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "noExpediente",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "nombre",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "apaterno",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "amaterno",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RSolicitanteRequerido.GET_BusquedaGeneralViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SolicitanteRequeridoesController",
+    "Method": "ListarBusquedaGeneral2",
+    "RelativePath": "api/SolicitanteRequeridoes/ListarBusquedaGeneral2/{nuc}/{NoExpediente}/{nombre}/{apaterno}/{amaterno}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "nuc",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "noExpediente",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "nombre",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "apaterno",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "amaterno",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SolicitanteRequeridoesController",
+    "Method": "ListarNomConjuntos",
+    "RelativePath": "api/SolicitanteRequeridoes/ListarNomConjuntos/{EnvioId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "EnvioId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SolicitanteRequeridoesController",
+    "Method": "ListarPersonasConSinConjunto",
+    "RelativePath": "api/SolicitanteRequeridoes/ListarPersonasConSinConjunto/{EnvioId}/{conjuntoId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "EnvioId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "conjuntoId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RSolicitanteRequerido.GET_SolicitanteRequeridoViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SolicitanteRequeridoesController",
+    "Method": "ListarPersonRepre",
+    "RelativePath": "api/SolicitanteRequeridoes/ListarPersonRepre/{EnvioId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "EnvioId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SolicitanteRequeridoesController",
+    "Method": "ListarSolicitantesRequeridos",
+    "RelativePath": "api/SolicitanteRequeridoes/ListarSolicitantesRequeridos/{EnvioId}/{SolReq}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "EnvioId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "SolReq",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SolicitanteRequeridoesController",
+    "Method": "ListarSolicitantesRequeridosC",
+    "RelativePath": "api/SolicitanteRequeridoes/ListarSolicitantesRequeridosC/{idEnvio}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idEnvio",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SolicitanteRequeridoesController",
+    "Method": "ListarSolicitantesRequeridosCXDistrito",
+    "RelativePath": "api/SolicitanteRequeridoes/ListarSolicitantesRequeridosCXDistrito/{distritoId}/{idEnvio}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "distritoId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "idEnvio",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SolicitanteRequeridoesController",
+    "Method": "ListarSolicitantesRequeridosDistint",
+    "RelativePath": "api/SolicitanteRequeridoes/ListarSolicitantesRequeridosDistint/{EnvioId}/{SolReq}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "EnvioId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "SolReq",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SolicitanteRequeridoesController",
+    "Method": "ListarTodos",
+    "RelativePath": "api/SolicitanteRequeridoes/ListarTodos/{EnvioId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "EnvioId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RSolicitanteRequerido.GET_SolicitanteRequeridoViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.SolicitanteRequeridoesController",
+    "Method": "NomSolReq",
+    "RelativePath": "api/SolicitanteRequeridoes/NomSolReq/{EnvioId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "EnvioId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SIIGPP.JR.Models.RSolicitanteRequerido.GET_idSolicitanteRequeridoViewModel, SIIGPP.JR, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.ValuesController",
+    "Method": "Get",
+    "RelativePath": "api/Values",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.ValuesController",
+    "Method": "Post",
+    "RelativePath": "api/Values",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "value",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.ValuesController",
+    "Method": "Get",
+    "RelativePath": "api/Values/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.ValuesController",
+    "Method": "Put",
+    "RelativePath": "api/Values/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "value",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SIIGPP.JR.Controllers.ValuesController",
+    "Method": "Delete",
+    "RelativePath": "api/Values/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  }
+]
