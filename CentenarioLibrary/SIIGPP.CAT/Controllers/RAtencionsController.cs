@@ -10,13 +10,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using SIIGPP.CAT.Models.Registro;
-using SIIGPP.CAT.Models.Turnador;
 using SIIGPP.CAT.Models.AdminInfo;
 using SIIGPP.Datos;
 using SIIGPP.Entidades.M_Cat.Direcciones;
 using SIIGPP.Entidades.M_Cat.Registro;
 using SIIGPP.Entidades.M_Cat.Turnador;
-using SIIGPP.CAT.FilterClass;
 using SIIGPP.Entidades.M_Administracion;
 
 namespace SIIGPP.CAT.Controllers
@@ -35,6 +33,7 @@ namespace SIIGPP.CAT.Controllers
             _environment = environment;
             _configuration = configuration;
         }
+        
         // GET: api/RAtencions/Listar
         [Authorize(Roles = "Administrador,Director,AMPO-AMP,Recepción")]
         [HttpGet("[action]")]
@@ -45,16 +44,13 @@ namespace SIIGPP.CAT.Controllers
                     .OrderByDescending(a => a.FechaHoraRegistro)
                     .ToListAsync();
 
-
             return ra.Select(a => new RegistroViewModel
             {
-                 
-
                IdRAtencion = a.IdRAtencion,
-               rac = a.RACs.racg,
+               rac = a.RACs?.racg,
                racId = a.racId,
                FechaHoraRegistro = a.FechaHoraRegistro,
-               FechaHoraAtencion = a.FechaHoraAtencion, 
+               FechaHoraAtencion = a.FechaHoraAtencion,
                FechaHoraCierre = a.FechaHoraCierre,
                u_Nombre = a.u_Nombre,
                u_Puesto = a.u_Puesto,
@@ -65,12 +61,9 @@ namespace SIIGPP.CAT.Controllers
                StatusAtencion = a.StatusAtencion,
                StatusRegistro = a.StatusRegistro,
                MedioDenuncia = a.MedioDenuncia,
-               ContencionVicitma = a.ContencionVicitma, 
+               ContencionVicitma = a.ContencionVicitma,
                Numerooficio = a.ModuloServicio
-
             });
-            
-
         }
 
         //ACTUALIZA LA HORA DE ATENCION

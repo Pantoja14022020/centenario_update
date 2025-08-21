@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -18,7 +19,7 @@ namespace SIIGPP.CAT.Models.Bitacora
         public string Puesto { get; set; }
         public string Fechareporte { get; set; }
         public DateTime? Fechasis { get; set; }
-        public Guid rHechoId { get; set; } 
+        public Guid rHechoId { get; set; }
         public Guid IdPersona { get; set; }
         public string Numerooficio { get; set; }
     }

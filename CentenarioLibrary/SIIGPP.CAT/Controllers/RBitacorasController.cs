@@ -37,7 +37,6 @@ namespace SIIGPP.CAT.Controllers
             var db = await _context.Bitacoras.ToListAsync();
 
             return db.Select(a => new BitacoraViewModel
-
             {
                 IdBitacora = a.IdBitacora,
                 rHechoId = a.rHechoId,
@@ -51,10 +50,10 @@ namespace SIIGPP.CAT.Controllers
                 Puesto = a.Puesto,
                 Fechareporte = a.Fechareporte,
                 Fechasis = a.Fechasis
-
             });
 
         }
+
         // GET: api/RBitacoras/ListarPorHecho
         [Authorize(Roles = "Administrador,AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,AMPO-IL,Recepción")]
         [HttpGet("[action]/{rHechoId}")]
@@ -67,7 +66,6 @@ namespace SIIGPP.CAT.Controllers
                            .Where(a => a.rHechoId == rHechoId).ToListAsync();
 
             return db.Select(a => new BitacoraViewModel
-
             {
                 IdBitacora = a.IdBitacora,
                 rHechoId = a.rHechoId,
@@ -83,11 +81,8 @@ namespace SIIGPP.CAT.Controllers
                 Fechareporte = a.Fechareporte,
                 Fechasis = a.Fechasis,
                 Numerooficio = a.Numerooficio
-
             });
-
         }
-
 
         // PUT: api/RBitacoras/Actualizar
         [Authorize(Roles = "Administrador")]
@@ -98,8 +93,6 @@ namespace SIIGPP.CAT.Controllers
             {
                 return BadRequest(ModelState);
             }
-
-
 
             var db = await _context.Bitacoras.FirstOrDefaultAsync(a => a.IdBitacora == model.IdBitacora);
 
@@ -118,9 +111,6 @@ namespace SIIGPP.CAT.Controllers
             db.Usuario = model.Usuario;
             db.Puesto = model.Puesto;
             db.Fechareporte = model.Fechareporte;
-
-
-
 
             try
             {
@@ -176,7 +166,6 @@ namespace SIIGPP.CAT.Controllers
                 result.StatusCode = 402;
                 return result;
             }
-
             return Ok(new { idrbitacora = idrbitacora});
         }
 
@@ -184,7 +173,6 @@ namespace SIIGPP.CAT.Controllers
         {
             return _context.Bitacoras.Any(e => e.IdBitacora == id);
         }
-
 
         // GET: api/RBitacoras/Eliminar
         [Authorize(Roles = "Administrador, AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,Recepción")]
@@ -239,7 +227,6 @@ namespace SIIGPP.CAT.Controllers
                             rHechoId = consultaBitacora.rHechoId,
                             IdPersona = consultaBitacora.IdPersona,
                             Numerooficio = consultaBitacora.Numerooficio
-
                         };
                         ctx.Add(bitacora);
                         _context.Remove(consultaBitacora);
@@ -260,16 +247,11 @@ namespace SIIGPP.CAT.Controllers
             return Ok(new { res = "success", men = "Diligencia eliminada Correctamente" });
         }
 
-
-
-
-
         [Authorize(Roles = "Administrador,AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,Recepción,AMPO-IL")]
         [HttpPost("[action]")]
         // POST: api/RBitacoras/Clonar
         public async Task<IActionResult> Clonar([FromBody] Models.Rac.ClonarViewModel model)
         {
-
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -309,7 +291,6 @@ namespace SIIGPP.CAT.Controllers
                     }
                     return Ok();
                 }
-
             }
             catch (Exception ex)
             {

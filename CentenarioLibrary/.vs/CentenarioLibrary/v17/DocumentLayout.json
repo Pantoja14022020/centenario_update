@@ -1,12 +1,37 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Monserrat PM\\Desktop\\CentenarioProject\\centenario_update\\CentenarioLibrary\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{079C5DD1-D027-1DDB-F587-87A2F4CEEDE0}|SIIGPP.CAT\\SIIGPP.CAT.csproj|c:\\users\\monserrat pm\\desktop\\centenarioproject\\centenario_update\\centenariolibrary\\siigpp.cat\\controllers\\rhechoescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{079C5DD1-D027-1DDB-F587-87A2F4CEEDE0}|SIIGPP.CAT\\SIIGPP.CAT.csproj|solutionrelative:siigpp.cat\\controllers\\rhechoescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RHechoesController.cs",
+              "DocumentMoniker": "C:\\Users\\Monserrat PM\\Desktop\\CentenarioProject\\centenario_update\\CentenarioLibrary\\SIIGPP.CAT\\Controllers\\RHechoesController.cs",
+              "RelativeDocumentMoniker": "SIIGPP.CAT\\Controllers\\RHechoesController.cs",
+              "ToolTip": "C:\\Users\\Monserrat PM\\Desktop\\CentenarioProject\\centenario_update\\CentenarioLibrary\\SIIGPP.CAT\\Controllers\\RHechoesController.cs",
+              "RelativeToolTip": "SIIGPP.CAT\\Controllers\\RHechoesController.cs",
+              "ViewState": "AgIAANYJAAAAAAAAAAAQwOcJAACAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-21T18:50:35.678Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

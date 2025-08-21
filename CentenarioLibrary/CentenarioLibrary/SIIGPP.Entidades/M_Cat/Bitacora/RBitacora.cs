@@ -2,6 +2,7 @@
 using SIIGPP.Entidades.M_Cat.Registro;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace SIIGPP.Entidades.M_Cat.Bitacora
@@ -21,6 +22,7 @@ namespace SIIGPP.Entidades.M_Cat.Bitacora
         public Guid rHechoId { get; set; }
         public RHecho RHecho { get; set; }
         public Guid IdPersona { get; set; }
+        [ForeignKey(nameof(IdPersona))]
         public Persona Persona { get; set; }
         public string Numerooficio { get; set; }
 

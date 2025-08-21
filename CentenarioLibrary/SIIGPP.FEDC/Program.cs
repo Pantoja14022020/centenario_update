@@ -1,41 +1,26 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using Microsoft.AspNetCore.DataProtection;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using SIIGPP.Datos;
 using Prometheus;
+using CentenarioLibrary;
 
 var builder = WebApplication.CreateBuilder(args);
-
 var dataProtectionPath = Path.Combine(Directory.GetCurrentDirectory(), "DataProtection-Keys");
-
-builder.Services.AddDataProtection()
-    .PersistKeysToFileSystem(new DirectoryInfo(dataProtectionPath))
-    .SetApplicationName("SIIGPP.FEDC");
-
 var jwtKey = builder.Configuration["Jwt:Key"];
 
+builder.Services.AddMemoryCache();
 builder.Services.AddControllers();
 builder.Services.AddSignalR();
-builder.Services.AddDbContext<DbContextSIIGPP>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("Conexion")));
-
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("Todos",
-        builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
-});
-
+builder.Services.AddDataProtection().PersistKeysToFileSystem(new DirectoryInfo(dataProtectionPath)).SetApplicationName("SIIGPP.FEDC");
+builder.Services.AddDbContext<DbContextSIIGPP>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Conexion")));
+builder.Services.AddCors(options => { options.AddPolicy("Todos", builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()); });
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -52,15 +37,24 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
-var app = builder.Build();
-app.Urls.Add(builder.Configuration["HOST_URL"]);
+// Configuración de Redis Cache
+builder.Services.AddStackExchangeRedisCache(options =>
+{
+    options.Configuration = "localhost:6379";
+    options.InstanceName = "MiAppCache_";
+});
 
+var app = builder.Build();
+
+//app.Urls.Add(builder.Configuration["HOST_URL"]);
+//app.UseHttpsRedirection();
 app.UseHsts();
 app.UseCors("Todos");
 app.UseHttpMetrics();
-app.MapMetrics();
-app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseMiddleware<ResponseCacheMiddleware>();
+app.MapMetrics();
 app.MapControllers();
+
 app.Run();

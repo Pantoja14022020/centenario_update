@@ -1,12 +1,9 @@
-﻿using System;
-using Microsoft.AspNetCore.DataProtection;
+﻿using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
-using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using SIIGPP.Datos;
@@ -14,27 +11,19 @@ using System.IO;
 using System.Text;
 using Microsoft.Extensions.Configuration;
 using Prometheus;
+using CentenarioLibrary;
 
 var builder = WebApplication.CreateBuilder(args);
-
 var dataProtectionPath = Path.Combine(Directory.GetCurrentDirectory(), "DataProtection-Keys");
-builder.Services.AddDataProtection()
-    .PersistKeysToFileSystem(new DirectoryInfo(dataProtectionPath))
-    .SetApplicationName("SIIGPP.PI");
-
 var jwtKey = builder.Configuration["Jwt:Key"];
 
+builder.Services.AddMemoryCache();
 builder.Services.AddControllers();
 builder.Services.AddSignalR();
-builder.Services.AddDbContext<DbContextSIIGPP>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("Conexion"))
-);
+builder.Services.AddDataProtection().PersistKeysToFileSystem(new DirectoryInfo(dataProtectionPath)).SetApplicationName("SIIGPP.PI");
 
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("Todos", builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
-});
-
+builder.Services.AddDbContext<DbContextSIIGPP>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Conexion")));
+builder.Services.AddCors(options => { options.AddPolicy("Todos", builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()); });
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -51,22 +40,30 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
+// Configuración de Redis Cache
+builder.Services.AddStackExchangeRedisCache(options =>
+{
+    options.Configuration = "localhost:6379";
+    options.InstanceName = "MiAppCache_";
+});
+
 var app = builder.Build();
-app.Urls.Add(builder.Configuration["HOST_URL"]); 
+
+//app.Urls.Add(builder.Configuration["HOST_URL"]);
+//app.UseHttpsRedirection();
 app.UseHsts();
 app.UseCors("Todos");
 app.UseHttpMetrics();
-app.MapMetrics();
-app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
-app.MapControllers();
-
 app.UseStaticFiles();
 app.UseStaticFiles(new StaticFileOptions
 {
     FileProvider = new PhysicalFileProvider(Path.Combine(app.Environment.ContentRootPath, "Carpetas")),
     RequestPath = new PathString("/Carpetas")
 });
+app.UseMiddleware<ResponseCacheMiddleware>();
+app.MapMetrics();
+app.MapControllers();
 
 app.Run();

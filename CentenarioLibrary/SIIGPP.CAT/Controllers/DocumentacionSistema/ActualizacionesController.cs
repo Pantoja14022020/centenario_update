@@ -35,7 +35,6 @@ namespace SIIGPP.Configuracion.Controllers.DocumentacionSistema
             _configuration = configuration;
         }
 
-
         // GET: api/Actualizaciones/Listar
         [Authorize(Roles = "Administrador,AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto,AMPO-IL")]
         [HttpGet("[action]")]
@@ -68,12 +67,8 @@ namespace SIIGPP.Configuracion.Controllers.DocumentacionSistema
                     MensajeAviso = a.MensajeAviso,
                     MostrarPDFAviso = a.MostrarPDFAviso,
                     ModuloCentenario = a.ModuloCentenario,
-
-
-
                 });
             }
-
         }
 
         // GET: api/Actualizaciones/Listar
@@ -112,11 +107,8 @@ namespace SIIGPP.Configuracion.Controllers.DocumentacionSistema
                     MensajeAviso = a.MensajeAviso,
                     MostrarPDFAviso = a.MostrarPDFAviso,
                     ModuloCentenario = a.ModuloCentenario,
-
-
                 });
             }
-
         }
 
         // GET: api/Actualizaciones/comprobarAvisos

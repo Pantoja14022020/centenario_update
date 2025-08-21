@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace SIIGPP.CAT.Controllers
 {
@@ -19,18 +20,16 @@ namespace SIIGPP.CAT.Controllers
     [ApiController]
     public class RHechoesController : ControllerBase
     {
+        private readonly IMemoryCache _cache;
         private readonly DbContextSIIGPP _context;
         private IConfiguration _configuration;
 
-
-
-        public RHechoesController(DbContextSIIGPP context,IConfiguration configuration)
+        public RHechoesController(DbContextSIIGPP context,IConfiguration configuration, IMemoryCache cache)
         {
             _context = context;
             _configuration = configuration;
-
+            _cache = cache;
         }
-
 
         // GET: api/RHechoes/ListarPorId
         [Authorize(Roles = "Administrador,AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,Procurador,AMPO-IL,Recepción")]
@@ -50,11 +49,9 @@ namespace SIIGPP.CAT.Controllers
 
             return Ok(new ListarEntrevistaInicial
             {
-
                 RHechoId = a.IdRHecho,
                 Agenciaid = a.Agenciaid,
-                RAtencionId = a.RAtencionId, 
-                
+                RAtencionId = a.RAtencionId,
                 u_Nombre = a.RAtencion.u_Nombre,
                 u_Puesto = a.RAtencion.u_Puesto,
                 u_Modulo = a.RAtencion.u_Modulo,
@@ -73,22 +70,20 @@ namespace SIIGPP.CAT.Controllers
                 Vanabim = a.Vanabim,
                 Statuscarpeta = a.NUCs.StatusNUC,
                 Etapacarpeta = a.NUCs.Etapanuc
-
-
             });
-
         }
 
         // GET: api/RHechoes/ListarPorModulo
-        //[Authorize(Roles = "AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,Administrador")]
+        [ResponseCache(Duration = 120)]
+        [Authorize(Roles = "AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,Administrador")]
         [HttpGet("[action]/{idModuloServicio}")]
-        public async Task<IEnumerable<ListarMisCarpetasViewModel>> ListarPorModulo([FromRoute] Guid idModuloServicio)
+        public async Task<IEnumerable<ListarMisCarpetasViewModel>> ListarPorModulo2([FromRoute] Guid idModuloServicio)
         {
-            var carpetas = await _context.RHechoes 
+            var carpetas = await _context.RHechoes
                           .Include(a => a.RAtencion)
                           .Include(a => a.NUCs)
                           .Where(a => a.NucId != null)
-                          .Where(a => a.ModuloServicioId == idModuloServicio)          
+                          .Where(a => a.ModuloServicioId == idModuloServicio)
                           .OrderByDescending(a => a.FechaElevaNuc2)
                           .ToListAsync();
 
@@ -108,11 +103,8 @@ namespace SIIGPP.CAT.Controllers
                 nuc = a.NUCs.nucg,
                 FechaElevaNuc = a.FechaElevaNuc,
                 NDenunciaOficio = a.NDenunciaOficio,
-
             });
-
         }
-
 
         // GET: api/RHechoes/ListarTodosRegistros
         //[Authorize(Roles = "Administrador,AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido")]
@@ -1902,12 +1894,111 @@ namespace SIIGPP.CAT.Controllers
 
         }
 
-
-
-
+        //CON CACHÉ
 
         // GET: api/RHechoes/ListarPorModuloCarpetas
-        //[Authorize(Roles = "AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,Administrador")]
+       /* [Authorize(Roles = "AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,Administrador")]
+        [HttpGet("[action]/{idModuloServicio}")]
+        public async Task<IActionResult> ListarPorModuloCarpetas([FromRoute] Guid idModuloServicio, [FromServices] IMemoryCache cache)
+        {
+            string cacheKey = $"carpetas_{idModuloServicio}";
+            
+            //Intentar obtener desde RAM
+            if (cache.TryGetValue(cacheKey, out IEnumerable<ListarMisCarpetasViewModel> items))
+            {
+                Console.WriteLine("Datos obtenidos desde caché en memoria");
+                return Ok(items);
+            }
+
+            Console.WriteLine("Consultando BD/API porque no está en caché...");
+
+            try
+            {
+                var carpetas = await _context.RHechoes
+                              .Include(a => a.RAtencion)
+                              .Include(a => a.NUCs)
+                              .Where(a => a.NucId != null)
+                              .Where(a => a.ModuloServicioId == idModuloServicio)
+                              .OrderByDescending(a => a.FechaElevaNuc2)
+                              //.Take(20)
+                              .ToListAsync();
+
+                var carpetasf = carpetas.Select(a => new ListarMisCarpetasViewModel
+                {
+                    RHechoId = a.IdRHecho,
+                    Agenciaid = a.Agenciaid,
+                    RAtencionId = a.RAtencionId,
+                    u_Nombre = a.RAtencion.u_Nombre,
+                    u_Puesto = a.RAtencion.u_Puesto,
+                    u_Modulo = a.RAtencion.u_Modulo,
+                    DistritoInicial = a.RAtencion.DistritoInicial,
+                    DirSubProcuInicial = a.RAtencion.DirSubProcuInicial,
+                    AgenciaInicial = a.RAtencion.AgenciaInicial,
+                    Status = a.Status,
+                    nucId = a.NucId,
+                    nuc = a.NUCs.nucg,
+                    FechaElevaNuc = a.FechaElevaNuc,
+                    NDenunciaOficio = a.NDenunciaOficio
+                });
+
+                items = new List<ListarMisCarpetasViewModel>();
+
+                foreach (var carpetaf in carpetasf)
+                {
+                    var victima = await _context.RAPs
+                        .Where(a => a.RAtencionId == carpetaf.RAtencionId)
+                        .Where(a => a.PInicio)
+                        .Include(a => a.Persona)
+                        .FirstOrDefaultAsync();
+
+                    var item = new ListarMisCarpetasViewModel{
+                        RHechoId = carpetaf.RHechoId,
+                        Agenciaid = carpetaf.Agenciaid,
+                        RAtencionId = carpetaf.RAtencionId,
+                        u_Nombre = carpetaf.u_Nombre,
+                        u_Puesto = carpetaf.u_Puesto,
+                        u_Modulo = carpetaf.u_Modulo,
+                        DistritoInicial = carpetaf.DistritoInicial,
+                        DirSubProcuInicial = carpetaf.DirSubProcuInicial,
+                        AgenciaInicial = carpetaf.AgenciaInicial,
+                        Status = carpetaf.Status,
+                        nucId = carpetaf.nucId,
+                        nuc = carpetaf.nuc,
+                        FechaElevaNuc = carpetaf.FechaElevaNuc,
+                        NDenunciaOficio = carpetaf.NDenunciaOficio,
+                        Modulo = carpetaf.Modulo,
+                        Victima =  victima != null ? victima.Persona.Nombre + " " + victima.Persona.ApellidoPaterno + " " + victima.Persona.ApellidoMaterno : "Sin registrar V/I"
+                    };
+
+                    items = items.Append(item);
+                }
+
+                //Guardar en RAM por 5 minutos
+                var cacheOptions = new MemoryCacheEntryOptions
+                {
+                    AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(5)
+                };
+                cache.Set(cacheKey, items, cacheOptions);
+
+                return Ok(items);
+            }
+            catch (Exception ex)
+            {
+                var result = new ObjectResult(new
+                {
+                    mensaje = ex.Message,
+                    detail = ex.InnerException == null ? "SIN EXCEPCION INTERNA" : ex.InnerException.Message,
+                    version = "version 1.4"
+                });
+                result.StatusCode = 402;
+                return result;
+            }
+        }*/
+
+        //SIN CACHÉ
+
+        // GET: api/RHechoes/ListarPorModuloCarpetas
+        [Authorize(Roles = "AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,Administrador")]
         [HttpGet("[action]/{idModuloServicio}")]    
         public async Task<IActionResult> ListarPorModuloCarpetas([FromRoute] Guid idModuloServicio)
         {
@@ -1975,12 +2066,10 @@ namespace SIIGPP.CAT.Controllers
                         Modulo = carpetaf.Modulo,
                         Victima =  victima != null ? victima.Persona.Nombre + " " + victima.Persona.ApellidoPaterno + " " + victima.Persona.ApellidoMaterno : "Sin registrar V/I"
                     }});
-
                         return item2;
                     }
                     items = items.Concat(ReadLines());
                 }
-
                 return Ok(items);
             }
             catch (Exception ex)
@@ -1989,7 +2078,6 @@ namespace SIIGPP.CAT.Controllers
                 result.StatusCode = 402;
                 return result;
             }
-
         }
 
 

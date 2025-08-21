@@ -620,8 +620,7 @@ namespace SIIGPP.IL.Controllers
             }
         }
 
-        [HttpGet("[action]")]
-        
+        [HttpGet("[action]")]        
         public async Task<IActionResult> ListarAudiencia()
         {
             try
@@ -717,7 +716,13 @@ namespace SIIGPP.IL.Controllers
             }
             catch (Exception ex)
             {
-                var result = new ObjectResult(new { statusCode = "402", mensaje = ex.InnerException.Message, detail = ex.Message, version = "version 1.0" });
+                var result = new ObjectResult(new
+                {
+                    statusCode = "402",
+                    mensaje = ex.InnerException != null ? ex.InnerException.Message : ex.Message,
+                    detail = ex.ToString(),
+                    version = "version 1.0"
+                });
                 result.StatusCode = 402;
                 return result;
             }

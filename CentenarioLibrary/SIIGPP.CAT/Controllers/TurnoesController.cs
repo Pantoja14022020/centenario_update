@@ -90,7 +90,6 @@ namespace SIIGPP.CAT.Controllers
                 rAtencionId = turnore.Turno.RAtencionId
 
             });
-
         }
 
         // GET: api/Turnoes/ListarTodos
@@ -98,10 +97,12 @@ namespace SIIGPP.CAT.Controllers
         [HttpGet("[action]/{idAgencia}")]
         public async Task<IEnumerable<ListarTurnosViewModel>> ListarTodos([FromRoute] Guid idAgencia)
         {
-            DateTime fecha = System.DateTime.Now;
+            //DateTime fecha = System.DateTime.Now;
+            DateTime fecha = DateTime.Now.Date;
             var turnos = await _context.Turnos
-                                 .Where(a => a.AgenciaId == idAgencia)
-                                 .Where(a => a.FechaHoraInicio.ToString("dd/MM/yyyy") == fecha.ToString("dd/MM/yyyy"))
+                                 /*.Where(a => a.AgenciaId == idAgencia)
+                                 .Where(a => a.FechaHoraInicio.ToString("dd/MM/yyyy") == fecha.ToString("dd/MM/yyyy"))*/
+                                 .Where(a => a.AgenciaId == idAgencia && a.FechaHoraInicio.Date == fecha)
                                  .Include(a => a.AmpoTurnos)
                                  .Include(a => a.Agencia)
                                  .Include(a => a.RAtencion)
