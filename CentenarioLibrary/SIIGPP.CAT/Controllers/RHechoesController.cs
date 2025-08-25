@@ -141,18 +141,14 @@ namespace SIIGPP.CAT.Controllers
                     FechaHoraSuceso = a.FechaHoraSuceso,
                     NDenunciaOficio = a.NDenunciaOficio,
                     Numerooficio = a.RAtencion.ModuloServicio
-
                 });
             }
             catch (DbUpdateConcurrencyException)
             {
-
                 return BadRequest();
             }
-
-
-
         }
+
         // GET: api/RHechoes/ListarPorrAtencionId
         //[Authorize(Roles = " Recepción,Administrador,AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido")]
         [HttpGet("[action]/{rAtencionId}")]
@@ -189,75 +185,65 @@ namespace SIIGPP.CAT.Controllers
                     FechaHoraSuceso = a.FechaHoraSuceso, 
                     NDenunciaOficio = a.NDenunciaOficio,
                     Texto = a.Texto
-
                 });
             }
             catch (DbUpdateConcurrencyException)
-            {
-                
+            {                
                 return BadRequest();
             }
-
-          
-
         }
 
         // GET: api/RHechoes/ComprobarIN
         [Authorize(Roles = "Administrador,AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,AMPO-IL,Recepción")]
         [HttpGet("[action]/{rHechoId}/{rAtencionId}")]
-            public async Task<IActionResult> ComprobarIN([FromRoute] Guid RHechoId, Guid rAtencionId)
+        public async Task<IActionResult> ComprobarIN([FromRoute] Guid RHechoId, Guid rAtencionId)
         {
             try
-                {
-                    String comprobarDatos = @"select 
-                                                    r.IdRAP,
-                                                    h.IdRHecho, 
-                                                    h.FechaHoraSuceso, 
-                                                    d.IdDDelito,
-                                                    r.ClasificacionPersona,
-                                                    n.StatusNUC,
-                                                    n.Etapanuc,
-                                                    p.IdPersona
-                                                    from CAT_RAP as r
-                                                    LEFT JOIN CAT_RATENCON as a on a.IdRAtencion = r.RAtencionId
-                                                    LEFT JOIN CAT_PERSONA as p on p.IdPersona = r.PersonaId
-                                                    LEFT JOIN CAT_RHECHO as h on h.RAtencionId = r.RAtencionId
-                                                    LEFT JOIN CAT_DIRECCION_DELITO as d on d.RHechoId = h.IdRHecho
-                                                    LEFT JOIN NUC as n on n.idNuc = h.NucId
-                                                    where h.IdRHecho = @hechoid and a.IdRAtencion = @ratencionid";
+            {
+                String comprobarDatos = @"select 
+                                            r.IdRAP,
+                                            h.IdRHecho, 
+                                            h.FechaHoraSuceso, 
+                                            d.IdDDelito,
+                                            r.ClasificacionPersona,
+                                            n.StatusNUC,
+                                            n.Etapanuc,
+                                            p.IdPersona
+                                            from CAT_RAP as r
+                                            LEFT JOIN CAT_RATENCON as a on a.IdRAtencion = r.RAtencionId
+                                            LEFT JOIN CAT_PERSONA as p on p.IdPersona = r.PersonaId
+                                            LEFT JOIN CAT_RHECHO as h on h.RAtencionId = r.RAtencionId
+                                            LEFT JOIN CAT_DIRECCION_DELITO as d on d.RHechoId = h.IdRHecho
+                                            LEFT JOIN NUC as n on n.idNuc = h.NucId
+                                            where h.IdRHecho = @hechoid and a.IdRAtencion = @ratencionid";
 
-                    List<SqlParameter> filtrosBusqueda = new List<SqlParameter>();
-                    filtrosBusqueda.Add(new SqlParameter("@hechoid", RHechoId));
-                    filtrosBusqueda.Add(new SqlParameter("@ratencionid", rAtencionId));
+                List<SqlParameter> filtrosBusqueda = new List<SqlParameter>();
+                filtrosBusqueda.Add(new SqlParameter("@hechoid", RHechoId));
+                filtrosBusqueda.Add(new SqlParameter("@ratencionid", rAtencionId));
 
                 var compro = await _context.qComprobarDatos.FromSqlRaw(comprobarDatos, filtrosBusqueda.ToArray()).ToListAsync();
 
-
-
-                    return Ok(compro.Select(a => new ComprobarViewModel
-                    {
-                        IdRAP=a.IdRAP,
-                        IdRHecho =a.IdRHecho,
-                        FechaHoraSuceso=a.FechaHoraSuceso,
-                        IdDDelito=a.IdDDelito,
-                        ClasificacionPersona=a.ClasificacionPersona,
-                        StatusNUC=a.StatusNUC,
-                        Etapanuc=a.Etapanuc,
-                        IdPersona=a.IdPersona                       
-
-                    }));
-                }
-                catch (Exception ex)
+                return Ok(compro.Select(a => new ComprobarViewModel
                 {
-                    var result = new ObjectResult(new { mensaje = ex.Message, detail = ex.InnerException == null ? "SIN EXCEPCION INTERNA" : ex.InnerException.Message , version = "version 1.4.1" });
-                    result.StatusCode = 402;
-                    return result;
-                }
-             
+                    IdRAP=a.IdRAP,
+                    IdRHecho =a.IdRHecho,
+                    FechaHoraSuceso=a.FechaHoraSuceso,
+                    IdDDelito=a.IdDDelito,
+                    ClasificacionPersona=a.ClasificacionPersona,
+                    StatusNUC=a.StatusNUC,
+                    Etapanuc=a.Etapanuc,
+                    IdPersona=a.IdPersona                       
 
-
-
+                }));
+            }
+            catch (Exception ex)
+            {
+                var result = new ObjectResult(new { mensaje = ex.Message, detail = ex.InnerException == null ? "SIN EXCEPCION INTERNA" : ex.InnerException.Message , version = "version 1.4.1" });
+                result.StatusCode = 402;
+                return result;
+            }
         }
+
         // GET: api/RHechoes/ComprobarINX
         [Authorize(Roles = "Administrador,AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,AMPO-IL,Recepción")]
         [HttpGet("[action]/{rHechoId}/{rAtencionId}")]
@@ -266,33 +252,31 @@ namespace SIIGPP.CAT.Controllers
             try
             {
                 String comprobarDatos = @"select 
-                                                    r.IdRAP,
-                                                    h.IdRHecho, 
-                                                    h.FechaHoraSuceso, 
-                                                    d.IdDDelito,
-                                                    r.ClasificacionPersona,
-                                                    n.StatusNUC,
-                                                    n.Etapanuc,
-                                                    p.IdPersona,
-                                                    e.IdRDH,
-                                                    m.idAmpliacion
-                                                    from CAT_RAP as r
-                                                    LEFT JOIN CAT_RATENCON as a on a.IdRAtencion = r.RAtencionId
-                                                    LEFT JOIN CAT_PERSONA as p on p.IdPersona = r.PersonaId
-                                                    LEFT JOIN CAT_RHECHO as h on h.RAtencionId = r.RAtencionId
-                                                    LEFT JOIN CAT_DIRECCION_DELITO as d on d.RHechoId = h.IdRHecho
-                                                    LEFT JOIN NUC as n on n.idNuc = h.NucId
-                                                    LEFT JOIN CAT_RDH AS e on e.RHechoId = h.IdRHecho
-                                                    LEFT JOIN CAT_AMPDEC as m on m.HechoId = h.IdRHecho
-                                                    where h.IdRHecho = @hechoid and a.IdRAtencion = @ratencionid";
+                                        r.IdRAP,
+                                        h.IdRHecho, 
+                                        h.FechaHoraSuceso, 
+                                        d.IdDDelito,
+                                        r.ClasificacionPersona,
+                                        n.StatusNUC,
+                                        n.Etapanuc,
+                                        p.IdPersona,
+                                        e.IdRDH,
+                                        m.idAmpliacion
+                                        from CAT_RAP as r
+                                        LEFT JOIN CAT_RATENCON as a on a.IdRAtencion = r.RAtencionId
+                                        LEFT JOIN CAT_PERSONA as p on p.IdPersona = r.PersonaId
+                                        LEFT JOIN CAT_RHECHO as h on h.RAtencionId = r.RAtencionId
+                                        LEFT JOIN CAT_DIRECCION_DELITO as d on d.RHechoId = h.IdRHecho
+                                        LEFT JOIN NUC as n on n.idNuc = h.NucId
+                                        LEFT JOIN CAT_RDH AS e on e.RHechoId = h.IdRHecho
+                                        LEFT JOIN CAT_AMPDEC as m on m.HechoId = h.IdRHecho
+                                        where h.IdRHecho = @hechoid and a.IdRAtencion = @ratencionid";
 
                 List<SqlParameter> filtrosBusqueda = new List<SqlParameter>();
                 filtrosBusqueda.Add(new SqlParameter("@hechoid", RHechoId));
                 filtrosBusqueda.Add(new SqlParameter("@ratencionid", rAtencionId));
 
                 var compro = await _context.qComprobarDatosR.FromSqlRaw(comprobarDatos, filtrosBusqueda.ToArray()).ToListAsync();
-
-
 
                 return Ok(compro.Select(a => new ComprobarViewModelR
                 {
@@ -306,8 +290,6 @@ namespace SIIGPP.CAT.Controllers
                     IdPersona = a.IdPersona,
                     IdRDH=a.IdRDH,
                     idAmpliacion=a.idAmpliacion
-
-
                 }));
             }
             catch (Exception ex)
@@ -316,7 +298,6 @@ namespace SIIGPP.CAT.Controllers
                 result.StatusCode = 402;
                 return result;
             }
-
         }
 
         // GET: api/RHechoes/ComprobarINX
@@ -327,32 +308,30 @@ namespace SIIGPP.CAT.Controllers
             try
             {
                 String comprobarDatos = @"SELECT 
-                                                    H.IdRHecho,
-                                                    CAST(MAX(CASE WHEN H.FechaHoraSuceso IS NOT NULL THEN 1 ELSE 0 END) AS BIT) AS FechaSuceso,
-                                                    CAST(MAX(CASE WHEN D.IdDDelito IS NOT NULL THEN 1 ELSE 0 END) AS BIT) AS DireccionDelito,
-                                                    CAST(MAX(CASE WHEN R.ClasificacionPersona = 'Imputado' THEN 1 ELSE 0 END) AS BIT) AS Imputado,
-                                                    CAST(MAX(CASE WHEN R.ClasificacionPersona LIKE '%Victima%' THEN 1 ELSE 0 END) AS BIT) AS Victima,
-                                                    CAST(MAX(CASE WHEN N.Etapanuc = 'Inicial' THEN 0 ELSE 1 END) AS BIT) AS Estatus,
-                                                    CAST(MAX(CASE WHEN E.IdRDH IS NOT NULL THEN 1 ELSE 0 END) AS BIT) AS Delito,
-                                                    CAST(MAX(CASE WHEN M.idAmpliacion IS NOT NULL THEN 1 ELSE 0 END) AS BIT) AS Entrevista
-                                                FROM 
-                                                    CAT_RHECHO AS H
-                                                LEFT JOIN CAT_RAP AS R ON H.RAtencionId = R.RAtencionId
-                                                LEFT JOIN CAT_DIRECCION_DELITO AS D ON D.RHechoId = H.IdRHecho
-                                                LEFT JOIN NUC AS N ON N.idNuc = H.NucId
-                                                LEFT JOIN CAT_RDH AS E ON E.RHechoId = H.IdRHecho
-                                                LEFT JOIN CAT_AMPDEC AS M ON M.HechoId = H.IdRHecho
-                                                WHERE 
-                                                    H.IdRHecho = @hechoid 
-                                                GROUP BY 
-                                                    H.IdRHecho";
+                                                H.IdRHecho,
+                                                CAST(MAX(CASE WHEN H.FechaHoraSuceso IS NOT NULL THEN 1 ELSE 0 END) AS BIT) AS FechaSuceso,
+                                                CAST(MAX(CASE WHEN D.IdDDelito IS NOT NULL THEN 1 ELSE 0 END) AS BIT) AS DireccionDelito,
+                                                CAST(MAX(CASE WHEN R.ClasificacionPersona = 'Imputado' THEN 1 ELSE 0 END) AS BIT) AS Imputado,
+                                                CAST(MAX(CASE WHEN R.ClasificacionPersona LIKE '%Victima%' THEN 1 ELSE 0 END) AS BIT) AS Victima,
+                                                CAST(MAX(CASE WHEN N.Etapanuc = 'Inicial' THEN 0 ELSE 1 END) AS BIT) AS Estatus,
+                                                CAST(MAX(CASE WHEN E.IdRDH IS NOT NULL THEN 1 ELSE 0 END) AS BIT) AS Delito,
+                                                CAST(MAX(CASE WHEN M.idAmpliacion IS NOT NULL THEN 1 ELSE 0 END) AS BIT) AS Entrevista
+                                            FROM 
+                                                CAT_RHECHO AS H
+                                            LEFT JOIN CAT_RAP AS R ON H.RAtencionId = R.RAtencionId
+                                            LEFT JOIN CAT_DIRECCION_DELITO AS D ON D.RHechoId = H.IdRHecho
+                                            LEFT JOIN NUC AS N ON N.idNuc = H.NucId
+                                            LEFT JOIN CAT_RDH AS E ON E.RHechoId = H.IdRHecho
+                                            LEFT JOIN CAT_AMPDEC AS M ON M.HechoId = H.IdRHecho
+                                            WHERE 
+                                                H.IdRHecho = @hechoid 
+                                            GROUP BY 
+                                                H.IdRHecho";
 
                 List<SqlParameter> filtrosBusqueda = new List<SqlParameter>();
                 filtrosBusqueda.Add(new SqlParameter("@hechoid", RHechoId));
 
                 var compro = await _context.qComprobarDatosNuc.FromSqlRaw(comprobarDatos, filtrosBusqueda.First()).FirstOrDefaultAsync();
-
-
 
                 return Ok( new ComprobarNucViewModel
                 {
@@ -363,10 +342,7 @@ namespace SIIGPP.CAT.Controllers
                     Victima = compro.Victima,
                     Estatus = compro.Estatus,
                     Delito = compro.Delito,
-                    Entrevista = compro.Entrevista,
-
-
-
+                    Entrevista = compro.Entrevista
                 });
             }
             catch (Exception ex)
@@ -375,10 +351,7 @@ namespace SIIGPP.CAT.Controllers
                 result.StatusCode = 402;
                 return result;
             }
-
         }
-
-
 
         // GET: api/RHechoes/ComprobarRemision
         [Authorize(Roles = "Administrador,AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,Recepción,AMPO-IL")]
@@ -405,21 +378,14 @@ namespace SIIGPP.CAT.Controllers
                 FechaElevaNuc = a.FechaElevaNuc,
                 FechaHoraSuceso = a.FechaHoraSuceso,
                 RBreve = a.RBreve,
-                ModuloServicioId=a.ModuloServicioId,
-
-
-
-
+                ModuloServicioId=a.ModuloServicioId
             });
-
         }
-
 
         // POST: api/RHechoes/CrearPI
         //[Authorize(Roles = " AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,Administrador")]
         [HttpPost("[action]")]
         public async Task<IActionResult> CrearPI(CrearViewModelH model)
-
         {
             if (!ModelState.IsValid)
             {
@@ -427,8 +393,6 @@ namespace SIIGPP.CAT.Controllers
             }
 
             DateTime fecha = System.DateTime.Now;
-
-            
 
             RHecho InsertarRH = new RHecho
             {
@@ -442,35 +406,24 @@ namespace SIIGPP.CAT.Controllers
                 Texto = model.Texto,
                 Observaciones = model.Observaciones,
                 FechaHoraSuceso2 = new DateTime(0002, 1, 1, 0, 02, 0)
-
             };
 
-
-
             _context.RHechoes.Add(InsertarRH);
-
-
-         
 
             try
             {
                 await _context.SaveChangesAsync();
-
-                //**********************************************************************
             }
-#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+            #pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
-#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+            #pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
                 return BadRequest();
             }
-
             //return Ok(new { idRAH = InsertarRAH.IdRAH, idRH = InsertarRH.IdRHecho });
             return Ok(new { idRH = InsertarRH.IdRHecho });
         }
 
-        /*---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-        /*---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
         // PUT: api/RHechoes/ActualizarResenaBreve
         [Authorize(Roles = " AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,Administrador,Recepción")]
         [HttpPost("[action]")]
@@ -502,15 +455,8 @@ namespace SIIGPP.CAT.Controllers
                 // Guardar Excepción
                 return BadRequest();
             }
-
             return Ok();
         }
-
-        /*---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-        /*---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-
-
-
 
         // PUT: api/RHechoes/ActualizarNUC
         [Authorize(Roles = " AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,Administrador,Recepción")]
@@ -545,8 +491,6 @@ namespace SIIGPP.CAT.Controllers
             }
             bajaRAC.StatusRegistro = true;
             //******************************************************************************************
-
-
             try
             {
                 await _context.SaveChangesAsync();
@@ -556,7 +500,6 @@ namespace SIIGPP.CAT.Controllers
                 // Guardar Excepción
                 return BadRequest();
             }
-
             return Ok();
         }
 
@@ -569,8 +512,6 @@ namespace SIIGPP.CAT.Controllers
             {
                 return BadRequest(ModelState);
             }
-
- 
             //actualizamos la fecha y hora del suceso 
             //******************************************************************************************
             var actualizamosFHS = await _context.RHechoes.FirstOrDefaultAsync(a => a.IdRHecho == model.IdRHecho);
@@ -584,7 +525,6 @@ namespace SIIGPP.CAT.Controllers
             actualizamosFHS.FechaHoraSuceso2 = model.fechaHoraSuceso;
             //******************************************************************************************
           
-
             try
             {
                 await _context.SaveChangesAsync();
@@ -597,6 +537,7 @@ namespace SIIGPP.CAT.Controllers
 
             return Ok();
         }
+
         // PUT: api/RHechoes/ActualizarNarrativa
         [Authorize(Roles = "Administrador,AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,Recepción")]
         [HttpPut("[action]")]
@@ -606,7 +547,6 @@ namespace SIIGPP.CAT.Controllers
             {
                 return BadRequest(ModelState);
             }
-
 
             //actualizamos la fecha y hora del suceso 
             //******************************************************************************************
@@ -620,7 +560,6 @@ namespace SIIGPP.CAT.Controllers
             actualizamosN.NarrativaHechos = model.narrativaHechos;
             //******************************************************************************************
 
-
             try
             {
                 await _context.SaveChangesAsync();
@@ -630,10 +569,8 @@ namespace SIIGPP.CAT.Controllers
                 // Guardar Excepción
                 return BadRequest();
             }
-
             return Ok();
         }
-
 
         // GET: api/RHechoes/ListarporIdNUC
         [Authorize(Roles = "AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,Administrador,AMPO-IL,Recepción")]
@@ -664,7 +601,6 @@ namespace SIIGPP.CAT.Controllers
                 IdAgenciaFusion = rhec.Agenciaid,
                 IdModuloFusion = rhec.ModuloServicioId
             });
-
         }
 
         // PUT: api/RHechoes/ActualizarVanabim
@@ -676,8 +612,6 @@ namespace SIIGPP.CAT.Controllers
             {
                 return BadRequest(ModelState);
             }
-
-
 
             var rhecho = await _context.RHechoes.FirstOrDefaultAsync(a => a.IdRHecho == model.IdRHecho);
 
@@ -732,18 +666,12 @@ namespace SIIGPP.CAT.Controllers
                 nucId = a.NucId,
                 nuc = a.NUCs.nucg,
                 FechaElevaNuc = a.FechaElevaNuc,
-                Modulo = a.ModuloServicio.Nombre,
-              
-               
-
+                Modulo = a.ModuloServicio.Nombre
             });
-
         }
-
 
         //GET: api/RHechoes/ContarCarpetasiniciadas/fechai/fechaf
         //[Authorize(Roles = "Director, Administrador, Coordinador, Jurídico, Recepción, Facilitador, Notificador")]
-
         [Authorize(Roles = "Administrador,Director,Coordinador,")]
         [HttpGet("[action]/{iddsp}/{fechai}/{fechaf}")]
         public async Task<IEnumerable<EstadisticasModuloViewModel>> ContarCarpetasiniciadas([FromRoute]Guid iddsp, DateTime fechai, DateTime fechaf)
@@ -770,7 +698,6 @@ namespace SIIGPP.CAT.Controllers
 
         //GET: api/RHechoes/ContarCarpetasiniciadasFechaMes/fechai/fechaf
         //[Authorize(Roles = "Director, Administrador, Coordinador, Jurídico, Recepción, Facilitador, Notificador")]
-
         [Authorize(Roles = "Administrador,Director,Coordinador,")]
         [HttpGet("[action]/{iddsp}/{fechai}/{fechaf}")]
         public async Task<IEnumerable<EstadisticasFechaViewModel>> ContarCarpetasiniciadasFechaMes([FromRoute]Guid iddsp, DateTime fechai, DateTime fechaf)
@@ -789,9 +716,7 @@ namespace SIIGPP.CAT.Controllers
             {
                 Fecha = v.etiqueta,
                 Ciniciadas = v.valor1
-            }
-
-            );
+            });
         }
         public string mes(int a)
         {
@@ -807,12 +732,10 @@ namespace SIIGPP.CAT.Controllers
             if (a == 10) return "Octubre";
             if (a == 11) return "Noviembre";
             else return "Diciembre";
-
         }
 
         //GET: api/RHechoes/ContarCarpetasiniciadasFechaAño/fechai/fechaf
         //[Authorize(Roles = "Director, Administrador, Coordinador, Jurídico, Recepción, Facilitador, Notificador")]
-
         [Authorize(Roles = "Administrador,Director,Coordinador,")]
         [HttpGet("[action]/{iddsp}/{fechai}/{fechaf}")]
         public async Task<IEnumerable<EstadisticasFechaViewModel>> ContarCarpetasiniciadasFechaAño([FromRoute]Guid iddsp, DateTime fechai, DateTime fechaf)
@@ -838,7 +761,6 @@ namespace SIIGPP.CAT.Controllers
 
         //GET: api/RHechoes/ContarCarpetasiniciadasFechaAños/fechai/fechaf
         //[Authorize(Roles = "Director, Administrador, Coordinador, Jurídico, Recepción, Facilitador, Notificador")]
-
         [Authorize(Roles = "Administrador,Director,Coordinador,")]
         [HttpGet("[action]/{iddsp}/{fechai}/{fechaf}")]
         public async Task<IEnumerable<EstadisticasFechaViewModel>> ContarCarpetasiniciadasFechaAños([FromRoute]Guid iddsp, DateTime fechai, DateTime fechaf)
@@ -864,15 +786,12 @@ namespace SIIGPP.CAT.Controllers
 
         // PUT: api/RHechoes/ActualizarModuloyAgencia
         [Authorize(Roles = "Administrador,AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,Recepción,AMPO-IL,Recepción")]
-        [HttpPut("[action]")]
-        public async Task<IActionResult> ActualizarModuloyAgencia([FromBody] ActualizarAgenciayModulo model)
+        [HttpPut("[action]")]        public async Task<IActionResult> ActualizarModuloyAgencia([FromBody] ActualizarAgenciayModulo model)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-
-
 
             var rhecho = await _context.RHechoes.FirstOrDefaultAsync(a => a.IdRHecho == model.IdRHecho);
 
@@ -883,7 +802,6 @@ namespace SIIGPP.CAT.Controllers
 
             rhecho.ModuloServicioId = model.moduloServicioId;
             rhecho.Agenciaid = model.agenciaId;
-            
 
             try
             {
@@ -950,8 +868,8 @@ namespace SIIGPP.CAT.Controllers
                 AgenciaId = disOrigen.Agencia.IdAgencia,
 
             });
-
         }
+
         // PUT: api/RHechoes/ActualizarModuloyAgenciaRechazo
         [Authorize(Roles = "Administrador,AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,Recepción,AMPO-IL")]
         [HttpPut("[action]")]
@@ -987,9 +905,7 @@ namespace SIIGPP.CAT.Controllers
                 result.StatusCode = 402;
                 return result;
             }
-
         }
-
 
         // GET: api/RHechoes/ListarPorModuloRACS
         //[Authorize(Roles = "AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,Administrador")]
@@ -1019,10 +935,7 @@ namespace SIIGPP.CAT.Controllers
                 NDenunciaOficio = a.NDenunciaOficio,
                 RAC = a.RAtencion.RACs.racg,
                 Modulos = a.ModuloServicio.Nombre
-
-
             });
-
         }
 
         // GET: api/RHechoes/ListarPorIdRACS
@@ -1042,7 +955,6 @@ namespace SIIGPP.CAT.Controllers
 
             return Ok(new ListarEntrevistaInicial
             {
-
                 RHechoId = a.IdRHecho,
                 Agenciaid = a.Agenciaid,
                 RAtencionId = a.RAtencionId,
@@ -1060,9 +972,7 @@ namespace SIIGPP.CAT.Controllers
                 NarrativaHechos = a.NarrativaHechos,
                 Vanabim = a.Vanabim,
                 Modulos = a.ModuloServicio.Nombre
-
             });
-
         }
 
         // GET: api/RHechoes/ListarPorAgenciaRACS
@@ -1093,12 +1003,8 @@ namespace SIIGPP.CAT.Controllers
                 NDenunciaOficio = a.NDenunciaOficio,
                 RAC = a.RAtencion.RACs.racg,
                 Modulos = a.ModuloServicio.Nombre
-
-
             });
-
         }
-
 
         // GET: api/RHechoes/ListarPorrAtencionId2
         [Authorize(Roles = " Recepción,Administrador,AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,Recepción")]
@@ -1133,28 +1039,19 @@ namespace SIIGPP.CAT.Controllers
                     FechaHoraSuceso = a.FechaHoraSuceso,
                     NDenunciaOficio = a.NDenunciaOficio,
                     Texto = a.Texto
-
                 });
             }
             catch (DbUpdateConcurrencyException)
             {
-
                 return BadRequest();
             }
-
-
-
         }
-
-
 
         // GET: api/RHechoes/ListarPorFechayDistritoyStatus
         //[Authorize(Roles = "AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,Administrador")]
         [HttpGet("[action]/{fechai}/{fechaf}/{distrito}/{status}/{fechhrinicio}/{fechhrfin}/{etapa}")]
         public async Task<IEnumerable<EstadisticaViewModelH>> ListarPorFechayDistritoyStatus([FromRoute] DateTime fechai, DateTime fechaf, string distrito,string status, DateTime fechhrinicio, DateTime fechhrfin,string etapa)
         {
-
-            
             var carpetas = await _context.RHechoes
                           .Include(a => a.RAtencion)
                           .Include(a => a.RAtencion.RACs)
@@ -1180,14 +1077,13 @@ namespace SIIGPP.CAT.Controllers
                 RAtencionId = a.RAtencionId,
                 Fechah = a.FechaHoraSuceso2
             });
-
         }
+
         // GET: api/RHechoes/CarpetasAgenciaProceso
         [Authorize(Roles = "Administrador, AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,Recepción")]
         [HttpGet("[action]/{distrito}/{dsp}/{agencia}/{distritoactivo}/{dspactivo}/{agenciaactivo}/{fechai}/{fechaf}/{nostatus}/{status1}/{status2}/{status3}/{status4}/{status5}/{status6}/{status7}/{status8}/{status9}/{status10}/{status11}/{status12}/{status13}/{status14}/{status15}")]
         public async Task<IActionResult> CarpetasAgenciaProceso([FromRoute] Guid distrito, Guid dsp, Guid agencia, Boolean distritoactivo, Boolean dspactivo, Boolean agenciaactivo, DateTime fechai, DateTime fechaf, int nostatus, string status1, string status2, string status3, string status4, string status5, string status6, string status7, string status8, string status9, string status10, string status11, string status12, string status13, string status14, string status15)
         {
-
             var delitos = await _context.RHechoes
                 .Where(a => a.NucId != null)
                 .Where(a => a.FechaHoraSuceso2.Year >= fechai.Year)
@@ -1223,7 +1119,6 @@ namespace SIIGPP.CAT.Controllers
                 mes = a.mes.First()
             });
 
-
             int enero = 0, febrero = 0, marzo = 0, abril = 0, mayo = 0, junio = 0, julio = 0, agosto = 0, septiembre = 0, octubre = 0, noviembre = 0, diciembre = 0, total = 0;
 
             foreach (var registro in tx)
@@ -1243,14 +1138,9 @@ namespace SIIGPP.CAT.Controllers
                 else if (registro.mes == 12) diciembre++;
 
                 total++;
-
-
             }
-
             return Ok(new { delito = "Total de carpetas de investigación vinculadas a proceso", enero = enero, febrero = febrero, marzo = marzo, abril = abril, mayo = mayo, junio = junio, julio = julio, agosto = agosto, septiembre = septiembre, octubre = octubre, noviembre = noviembre, diciembre = diciembre, total = total });
-
         }
-
 
         // GET: api/RHechoes/CarpetasAgenciaProcesoMujeres
         [Authorize(Roles = "Administrador, AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,Recepción")]
@@ -1322,20 +1212,15 @@ namespace SIIGPP.CAT.Controllers
 
                     total++;
                 }
-
             }
-
             return Ok(new { delito = "Total de carpetas de investigación vinculadas a proceso(Mujeres)", enero = enero, febrero = febrero, marzo = marzo, abril = abril, mayo = mayo, junio = junio, julio = julio, agosto = agosto, septiembre = septiembre, octubre = octubre, noviembre = noviembre, diciembre = diciembre, total = total });
-
         }
-
 
         // GET: api/RHechoes/CarpetasAgenciaStatusIL
         [Authorize(Roles = "Administrador, AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,Recepción")]
         [HttpGet("[action]/{distrito}/{dsp}/{agencia}/{distritoactivo}/{dspactivo}/{agenciaactivo}/{fechai}/{fechaf}/{eventoIl}/{statusil}")]
         public async Task<IActionResult> CarpetasAgenciaStatusIL([FromRoute] Guid distrito, Guid dsp, Guid agencia, Boolean distritoactivo, Boolean dspactivo, Boolean agenciaactivo, DateTime fechai, DateTime fechaf, string eventoIl, string statusil)
         {
-
             var delitos = await _context.RHechoes
                  .Where(a => a.FechaHoraSuceso2.Year >= fechai.Year)
                  .Where(a => a.FechaHoraSuceso2.Year <= fechaf.Year)
@@ -1355,7 +1240,6 @@ namespace SIIGPP.CAT.Controllers
                 Rhechoid = a.rhechoid,
                 mes = a.mes.First()
             });
-
 
             int enero = 0, febrero = 0, marzo = 0, abril = 0, mayo = 0, junio = 0, julio = 0, agosto = 0, septiembre = 0, octubre = 0, noviembre = 0, diciembre = 0, total = 0;
 
@@ -1385,11 +1269,8 @@ namespace SIIGPP.CAT.Controllers
                     total++;
 
                 }
-
             }
-
             return Ok(new { delito = "Total de Sentencias Condenatorias", enero = enero, febrero = febrero, marzo = marzo, abril = abril, mayo = mayo, junio = junio, julio = julio, agosto = agosto, septiembre = septiembre, octubre = octubre, noviembre = noviembre, diciembre = diciembre, total = total });
-
         }
 
         // GET: api/RHechoes/CarpetasInvestigadasIniciadasDSP
@@ -1397,7 +1278,6 @@ namespace SIIGPP.CAT.Controllers
         [HttpGet("[action]/{distrito}/{dsp}/{agencia}/{distritoactivo}/{dspactivo}/{agenciaactivo}/{fechai}/{fechaf}")]
         public async Task<IActionResult> CarpetasInvestigadasIniciadasDSP([FromRoute] Guid distrito, Guid dsp, Guid agencia, Boolean distritoactivo, Boolean dspactivo, Boolean agenciaactivo, DateTime fechai, DateTime fechaf)
         {
-
             var delitos = await _context.RHechoes
                 .Where(a => a.FechaHoraSuceso2.Year >= fechai.Year)
                 .Where(a => a.FechaHoraSuceso2.Year <= fechaf.Year)
@@ -1418,12 +1298,10 @@ namespace SIIGPP.CAT.Controllers
                 mes = a.mes.First()
             });
 
-
             int enero = 0, febrero = 0, marzo = 0, abril = 0, mayo = 0, junio = 0, julio = 0, agosto = 0, septiembre = 0, octubre = 0, noviembre = 0, diciembre = 0, total = 0;
 
             foreach (var registro in tx)
             {
-
                 if (registro.mes == 01) enero++;
                 else if (registro.mes == 02) febrero++;
                 else if (registro.mes == 03) marzo++;
@@ -1439,11 +1317,8 @@ namespace SIIGPP.CAT.Controllers
 
                 total++;
 
-
             }
-
             return Ok(new { delito = "Total de carpetas de investigación iniciadas", enero = enero, febrero = febrero, marzo = marzo, abril = abril, mayo = mayo, junio = junio, julio = julio, agosto = agosto, septiembre = septiembre, octubre = octubre, noviembre = noviembre, diciembre = diciembre, total = total });
-
         }
 
         // GET: api/RHechoes/CarpetasInvestigadasIniciadasDSPMujeres
@@ -1501,12 +1376,9 @@ namespace SIIGPP.CAT.Controllers
 
                     total++;
                 }
-
             }
-
             return Ok(new { delito = "Total de carpetas de investigación iniciadas (mujeres)", enero = enero, febrero = febrero, marzo = marzo, abril = abril, mayo = mayo, junio = junio, julio = julio, agosto = agosto, septiembre = septiembre, octubre = octubre, noviembre = noviembre, diciembre = diciembre, total = total });
         }
-
 
         // GET: api/RHechoes/ListarporDspyStatus
         //[Authorize(Roles = "AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,Administrador")]
@@ -1532,9 +1404,7 @@ namespace SIIGPP.CAT.Controllers
                 status = z.etiqueta,
                 Total = z.total
             });
-
         }
-
 
         // GET: api/RHechoes/ListarPorModuloAdminDirector
         //[Authorize(Roles = "AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,Administrador")]
@@ -1612,14 +1482,9 @@ namespace SIIGPP.CAT.Controllers
 
                         return item2;
                     }
-
                     items = items.Concat(ReadLines());
-
-
             }
-
             return items;
-
         }
         public Tuple<string, List <SqlParameter>> getFiltros(Models.Nuc.BuscarCarpetasDistritoFiltro model,Boolean isRac)
         {
@@ -1680,6 +1545,7 @@ namespace SIIGPP.CAT.Controllers
 
             return new Tuple <string, List < SqlParameter > >(Filtros, filtrosBusqueda);
         }
+
         // POST: api/RHechoes/BuscarBuscarCarpetasPorDistrito
         //[Authorize(Roles = "AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,Administrador")]
         [HttpPost("[action]")]
@@ -1752,8 +1618,7 @@ namespace SIIGPP.CAT.Controllers
                     distritoactual = a.distritoactual,
                     dspactual = a.dspactual,
                     agenciaactual = a.agenciaactual,
-                    moduloactual = a.moduloactual,
-                    
+                    moduloactual = a.moduloactual
                 }));
             }
             catch (Exception ex)
@@ -1764,6 +1629,7 @@ namespace SIIGPP.CAT.Controllers
             }
 
         }
+
         // POST: api/RHechoes/BuscarBuscarCarpetasPorDistrito
         //[Authorize(Roles = "AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,Administrador")]
         [HttpPost("[action]")]
@@ -1842,9 +1708,7 @@ namespace SIIGPP.CAT.Controllers
                 result.StatusCode = 402;
                 return result;
             }
-
         }
-
 
         // POST: api/RHechoes/BuscarRACPorDistrito
         //[Authorize(Roles = "AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,Administrador")]
@@ -1891,27 +1755,13 @@ namespace SIIGPP.CAT.Controllers
                 result.StatusCode = 402;
                 return result;
             }
-
         }
 
-        //CON CACHÉ
-
         // GET: api/RHechoes/ListarPorModuloCarpetas
-       /* [Authorize(Roles = "AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,Administrador")]
-        [HttpGet("[action]/{idModuloServicio}")]
-        public async Task<IActionResult> ListarPorModuloCarpetas([FromRoute] Guid idModuloServicio, [FromServices] IMemoryCache cache)
+        [Authorize(Roles = "AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,Administrador")]
+        [HttpGet("[action]/{idModuloServicio}")]    
+        public async Task<IActionResult> ListarPorModuloCarpetas([FromRoute] Guid idModuloServicio)
         {
-            string cacheKey = $"carpetas_{idModuloServicio}";
-            
-            //Intentar obtener desde RAM
-            if (cache.TryGetValue(cacheKey, out IEnumerable<ListarMisCarpetasViewModel> items))
-            {
-                Console.WriteLine("Datos obtenidos desde caché en memoria");
-                return Ok(items);
-            }
-
-            Console.WriteLine("Consultando BD/API porque no está en caché...");
-
             try
             {
                 var carpetas = await _context.RHechoes
@@ -1939,98 +1789,6 @@ namespace SIIGPP.CAT.Controllers
                     nuc = a.NUCs.nucg,
                     FechaElevaNuc = a.FechaElevaNuc,
                     NDenunciaOficio = a.NDenunciaOficio
-                });
-
-                items = new List<ListarMisCarpetasViewModel>();
-
-                foreach (var carpetaf in carpetasf)
-                {
-                    var victima = await _context.RAPs
-                        .Where(a => a.RAtencionId == carpetaf.RAtencionId)
-                        .Where(a => a.PInicio)
-                        .Include(a => a.Persona)
-                        .FirstOrDefaultAsync();
-
-                    var item = new ListarMisCarpetasViewModel{
-                        RHechoId = carpetaf.RHechoId,
-                        Agenciaid = carpetaf.Agenciaid,
-                        RAtencionId = carpetaf.RAtencionId,
-                        u_Nombre = carpetaf.u_Nombre,
-                        u_Puesto = carpetaf.u_Puesto,
-                        u_Modulo = carpetaf.u_Modulo,
-                        DistritoInicial = carpetaf.DistritoInicial,
-                        DirSubProcuInicial = carpetaf.DirSubProcuInicial,
-                        AgenciaInicial = carpetaf.AgenciaInicial,
-                        Status = carpetaf.Status,
-                        nucId = carpetaf.nucId,
-                        nuc = carpetaf.nuc,
-                        FechaElevaNuc = carpetaf.FechaElevaNuc,
-                        NDenunciaOficio = carpetaf.NDenunciaOficio,
-                        Modulo = carpetaf.Modulo,
-                        Victima =  victima != null ? victima.Persona.Nombre + " " + victima.Persona.ApellidoPaterno + " " + victima.Persona.ApellidoMaterno : "Sin registrar V/I"
-                    };
-
-                    items = items.Append(item);
-                }
-
-                //Guardar en RAM por 5 minutos
-                var cacheOptions = new MemoryCacheEntryOptions
-                {
-                    AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(5)
-                };
-                cache.Set(cacheKey, items, cacheOptions);
-
-                return Ok(items);
-            }
-            catch (Exception ex)
-            {
-                var result = new ObjectResult(new
-                {
-                    mensaje = ex.Message,
-                    detail = ex.InnerException == null ? "SIN EXCEPCION INTERNA" : ex.InnerException.Message,
-                    version = "version 1.4"
-                });
-                result.StatusCode = 402;
-                return result;
-            }
-        }*/
-
-        //SIN CACHÉ
-
-        // GET: api/RHechoes/ListarPorModuloCarpetas
-        [Authorize(Roles = "AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,Administrador")]
-        [HttpGet("[action]/{idModuloServicio}")]    
-        public async Task<IActionResult> ListarPorModuloCarpetas([FromRoute] Guid idModuloServicio)
-        {
-            try
-            {
-                var carpetas = await _context.RHechoes
-                              .Include(a => a.RAtencion)
-                              .Include(a => a.NUCs)
-
-                              .Where(a => a.NucId != null)
-                              .Where(a => a.ModuloServicioId == idModuloServicio)
-                              .OrderByDescending(a => a.FechaElevaNuc2)
-                              //.Take(20)
-                              .ToListAsync();
-
-                var carpetasf = carpetas.Select(a => new ListarMisCarpetasViewModel
-                {
-                    RHechoId = a.IdRHecho,
-                    Agenciaid = a.Agenciaid,
-                    RAtencionId = a.RAtencionId,
-                    u_Nombre = a.RAtencion.u_Nombre,
-                    u_Puesto = a.RAtencion.u_Puesto,
-                    u_Modulo = a.RAtencion.u_Modulo,
-                    DistritoInicial = a.RAtencion.DistritoInicial,
-                    DirSubProcuInicial = a.RAtencion.DirSubProcuInicial,
-                    AgenciaInicial = a.RAtencion.AgenciaInicial,
-                    Status = a.Status,
-                    nucId = a.NucId,
-                    nuc = a.NUCs.nucg,
-                    FechaElevaNuc = a.FechaElevaNuc,
-                    NDenunciaOficio = a.NDenunciaOficio,
-
                 });
 
                 IEnumerable<ListarMisCarpetasViewModel> items = new ListarMisCarpetasViewModel[] { };
@@ -2114,10 +1872,7 @@ namespace SIIGPP.CAT.Controllers
                 NDenunciaOficio = a.NDenunciaOficio,
                 RAC = a.RAtencion.RACs.racg,
                 Modulos = a.ModuloServicio.Nombre
-
-
             });
-
         }
 
         // GET: api/RHechoes/ListarPorAgenciaNUCS
@@ -2150,10 +1905,7 @@ namespace SIIGPP.CAT.Controllers
                 RAC = a.RAtencion.RACs.racg,
                 Modulos = a.ModuloServicio.Nombre,
                 nuc = a.NUCs.nucg
-
-
             });
-
         }
 
         // PUT: api/RHechoes/ActualizarNUCMCaptura
@@ -2190,7 +1942,6 @@ namespace SIIGPP.CAT.Controllers
             bajaRAC.StatusRegistro = true;
             //******************************************************************************************
 
-
             try
             {
                 await _context.SaveChangesAsync();
@@ -2200,7 +1951,6 @@ namespace SIIGPP.CAT.Controllers
                 // Guardar Excepción
                 return BadRequest();
             }
-
             return Ok();
         }
 
@@ -2246,7 +1996,6 @@ namespace SIIGPP.CAT.Controllers
 
                     if (persona != null)
                     {
-
                         IEnumerable<ListarMisCarpetasViewModel> ReadLines()
                         {
                             IEnumerable<ListarMisCarpetasViewModel> item2;
@@ -2258,11 +2007,8 @@ namespace SIIGPP.CAT.Controllers
 
                             return item2;
                         }
-
                         items = items.Concat(ReadLines());
-
                     }
-
                 }
                 carpetaf = items;
             }
@@ -2293,11 +2039,8 @@ namespace SIIGPP.CAT.Controllers
 
                             return item2;
                         }
-
                         items2 = items2.Concat(ReadLines());
-
                     }
-
                 }
                 carpetaf = items2;
             }
@@ -2342,11 +2085,8 @@ namespace SIIGPP.CAT.Controllers
 
                             return item2;
                         }
-
                         items3 = items3.Concat(ReadLines());
-
                     }
-
                 }
                 carpetaf = items3;
             }
@@ -2393,12 +2133,8 @@ namespace SIIGPP.CAT.Controllers
                 DirSubProcuInicial = a.ModuloServicio.Agencia.DSP.NombreSub,
                 AgenciaInicial = a.ModuloServicio.Agencia.Nombre,
                 u_Modulo = a.ModuloServicio.Nombre
-
-
             });
-
         }
-
 
         // GET: api/RHechoes/NUCSRACSEstadisticaef
         [Authorize(Roles = "Administrador,AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido, Recepción")]
@@ -2413,7 +2149,6 @@ namespace SIIGPP.CAT.Controllers
                 .Where(a => a.FechaElevaNuc2 >= NucsRacsEstadistica.DatosGenerales.Fechadesde)
                 .Where(a => a.FechaElevaNuc2 <= NucsRacsEstadistica.DatosGenerales.Fechahasta)
                 .ToListAsync();
-
 
             var racs = await _context.RHechoes
                 .Where(a => !a.Status)
@@ -2441,9 +2176,7 @@ namespace SIIGPP.CAT.Controllers
             items = items.Concat(ReadLines(nucs.Count, "Total de Nucs"));
             items = items.Concat(ReadLines(racs.Count, "Total de Racs"));
 
-
             return items;
-
         }
 
         // GET: api/RHechoes/ListarPorNucMC
@@ -2512,13 +2245,9 @@ namespace SIIGPP.CAT.Controllers
 
                         return item2;
                     }
-
                     items = items.Concat(ReadLines());
-
             }
-
             return items;
-
         }
 
         // GET: api/RHechoes/ValidarNuc
@@ -2533,7 +2262,8 @@ namespace SIIGPP.CAT.Controllers
 
             try
             {
-                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + distritoId.ToString().ToUpper())).Options;
+                //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + distritoId.ToString().ToUpper())).Options;
+                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion")).Options;
 
                 using (var ctx = new DbContextSIIGPP(options))
                 {
@@ -2545,7 +2275,6 @@ namespace SIIGPP.CAT.Controllers
                     {
                         NucActivo = nucActivo
                     });
-
                 }
             }
             catch (Exception ex)
@@ -2562,8 +2291,6 @@ namespace SIIGPP.CAT.Controllers
         [HttpGet("[action]/{ListaNucsEstadistica}")]
         public async Task<IEnumerable<EstadisticaListaCarpetasViewModel>> EstadisticaListaCarpetas([FromQuery] ListaNucsEstadistica ListaNucsEstadistica)
         {
-
-
             var carpetas = await _context.RDHs
                           .Include(a => a.RHecho.ModuloServicio.Agencia.DSP.Distrito)
                           .Include(a => a.RHecho.ModuloServicio.Agencia.DSP)
@@ -2667,9 +2394,7 @@ namespace SIIGPP.CAT.Controllers
                     }
 
                     items = items.Concat(ReadLines());
-
-                }              
-                    
+                }
             }
 
             carpetasf = items;

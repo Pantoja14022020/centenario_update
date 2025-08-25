@@ -178,14 +178,16 @@ namespace SIIGPP.JR.Controllers
         public async Task<IEnumerable<GET_MisEnviosViewModel>> ListarMisEnvios([FromRoute] Guid moduloServicioId)
         {
             var Tabla = await _context.AsignacionEnvios
-                            .Include(a => a.Envio.Expediente.RHecho)
-                            .Include(a => a.Envio.Expediente.RHecho.NUCs)
-                            .Include(a => a.ModuloServicio)
-                            .Where(a => a.ModuloServicioId == moduloServicioId)
-                            .GroupBy(a => a.Envio.IdEnvio) // Agrupa por el Id de Envio
-                            .Select(g => g.FirstOrDefault()) // Toma el primer elemento de cada grupo
-                            .OrderBy(a => a.Envio.IdEnvio) // Ordena por el Id de Envio
-                            .ToListAsync();
+                        .Include(a => a.Envio.Expediente.RHecho)
+                        .Include(a => a.Envio.Expediente.RHecho.NUCs)
+                        .Include(a => a.ModuloServicio)
+                        .Where(a => a.ModuloServicioId == moduloServicioId)
+                        .OrderBy(a => a.Envio.IdEnvio) // Ordena por el Id de Envio
+                        .ToListAsync();
+            Tabla = Tabla
+                    .GroupBy(a => a.Envio.IdEnvio) // Agrupa por el Id de Envio
+                    .Select(g => g.First()) // Toma el primer elemento de cada grupo
+                    .ToList();
 
             if (Tabla.Count == 0)
             {
@@ -211,13 +213,11 @@ namespace SIIGPP.JR.Controllers
                     ContadorNODerivacion = a.Envio.ContadorNODerivacion,
                     FechaRegistro = a.Envio.FechaRegistro,
                     NoSolicitantes = a.Envio.NoSolicitantes,
-
                     RHechoId = a.Envio.Expediente.RHechoId,
                     NoExpediente = a.Envio.Expediente.NoExpediente,
                     NoDerivacion = a.Envio.Expediente.NoDerivacion,
                     StatusGeneral = a.Envio.StatusGeneral,
                     FechaRegistroExpediente = a.Envio.Expediente.FechaRegistroExpediente,
-
                     NUC = a.Envio.Expediente.RHecho.NUCs.nucg,
                     FechaHoraSuceso = a.Envio.Expediente.RHecho.FechaHoraSuceso,
                     ReseñaBreve = a.Envio.Expediente.RHecho.RBreve,

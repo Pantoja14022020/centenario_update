@@ -1,68 +1,94 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Caching.Distributed;
+using Microsoft.Extensions.Configuration;
 using System.IO;
 
 namespace CentenarioLibrary
 {
     public class ResponseCacheMiddleware
     {
-        private readonly RequestDelegate _next; //Referencia al siguiente middleware en la tubería (pipeline).
-        private readonly IDistributedCache _cache; //Servicio de caché distribuida (en éste caso es Redis).
+        private readonly RequestDelegate _next;
+        private readonly IDistributedCache _cache;
+        private readonly Dictionary<string, int> _durations;
 
-        //Inyecta el siguiente middleware y el servicio de caché.
-        public ResponseCacheMiddleware(RequestDelegate next, IDistributedCache cache)
+        public ResponseCacheMiddleware(RequestDelegate next, IDistributedCache cache, IConfiguration configuration)
         {
             _next = next;
             _cache = cache;
+
+            // Cargar CacheDurations de appsettings.json en un diccionario case-insensitive
+            _durations = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
+            configuration.GetSection("CacheDurations").Bind(_durations);
         }
 
-
-        //Este método se ejecuta en cada request.
         public async Task InvokeAsync(HttpContext context)
         {
-            //Crea una llave de caché basada en la URL solicitada (/api/usuarios → CACHE_/api/usuarios).
-            var cacheKey = $"CACHE_{context.Request.Path}";
+            var path = Normalize(context.Request.Path.Value ?? "/");
 
-            //Busca si ya existe en caché
+            // 🔑 Clave de caché (incluye querystring si lo deseas)
+            // var cacheKey = $"CACHE_{path}{context.Request.QueryString}";
+            var cacheKey = $"CACHE_{path}";
+
+            // 1) Intentar leer de caché
             var cachedResponse = await _cache.GetStringAsync(cacheKey);
-
-            //Si la respuesta ya está en caché en Redis, la devuelve directo.
             if (!string.IsNullOrEmpty(cachedResponse))
             {
                 context.Response.ContentType = "application/json";
                 await context.Response.WriteAsync(cachedResponse);
-                Console.WriteLine("Datos obtenidos desde caché en memoria");
+                Console.WriteLine($"[CACHE HIT] {path}");
                 return;
             }
 
-            //Capturar la respuesta si no está en caché
-            Console.WriteLine("Consultando BD/API porque no está en caché...");
-            //Guarda el stream original de la respuesta.
+            Console.WriteLine($"[CACHE MISS] {path}");
             var originalBodyStream = context.Response.Body;
-            //Reemplaza temporalmente el Response.Body con un MemoryStream.
             using var memoryStream = new MemoryStream();
             context.Response.Body = memoryStream;
 
-            //Llama al siguiente middleware/controlador, que genera la respuesta normalmente, pero en lugar de mandarla al cliente, se queda en el memoryStream.
+            // 2) Ejecutar pipeline
             await _next(context);
 
-            //Guarda la respuesta en Redis
-            //Lee el contenido de la respuesta desde memoryStream.
+            // 3) Leer respuesta generada
             memoryStream.Seek(0, SeekOrigin.Begin);
-            var responseBody = new StreamReader(memoryStream).ReadToEnd();
-            //Lo guarda en Redis bajo la llave cacheKey.
+            var responseBody = await new StreamReader(memoryStream).ReadToEndAsync();
+
+            // 4) Resolver TTL desde appsettings
+            var seconds = ResolveTtlSeconds(path);
+            Console.WriteLine($"[CACHE SET] {path} -> {seconds}s");
+
             await _cache.SetStringAsync(cacheKey, responseBody,
                 new DistributedCacheEntryOptions
                 {
-                    //Establece un tiempo de vida de 5 minutos
-                    AbsoluteExpirationRelativeToNow = TimeSpan.FromSeconds(30)
+                    AbsoluteExpirationRelativeToNow = TimeSpan.FromSeconds(seconds)
                 });
 
-            //Devolver la respuesta al cliente
-            //Regresa al inicio del memoryStream.
+            // 5) Devolver la respuesta al cliente
             memoryStream.Seek(0, SeekOrigin.Begin);
-            //Copia la respuesta capturada al Response.Body original.
+            context.Response.Body = originalBodyStream;
             await memoryStream.CopyToAsync(originalBodyStream);
+        }
+
+        private static string Normalize(string path)
+            => (path ?? "/").TrimEnd('/').ToLowerInvariant();
+
+        private int ResolveTtlSeconds(string normalizedPath)
+        {
+            // 1) Match exacto
+            if (_durations.TryGetValue(normalizedPath, out var ttlExact))
+                return ttlExact;
+
+            // 2) Match con comodines "/*"
+            foreach (var kv in _durations)
+            {
+                if (kv.Key.EndsWith("/*", StringComparison.Ordinal))
+                {
+                    var prefix = kv.Key[..^2].TrimEnd('/');
+                    if (normalizedPath.StartsWith(prefix, StringComparison.OrdinalIgnoreCase))
+                        return kv.Value;
+                }
+            }
+
+            // 3) Default
+            return 30;
         }
     }
 }

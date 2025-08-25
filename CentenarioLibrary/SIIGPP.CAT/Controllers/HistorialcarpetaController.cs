@@ -132,7 +132,6 @@ namespace SIIGPP.CAT.Controllers
                 UPuesto = model.UPuesto,
                 UModulo = model.UModulo,
                 Fechasys = model.Fechasys
-
             };
 
             _context.HistorialCarpetas.Add(hi);
@@ -149,9 +148,10 @@ namespace SIIGPP.CAT.Controllers
 
             return Ok();
         }
+
+        // POST: api/Historialcarpeta/Clonar
         [Authorize(Roles = "Administrador,AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,Recepción,AMPO-IL")]
         [HttpPost("[action]")]
-        // POST: api/Historialcarpeta/Clonar
         public async Task<IActionResult> Clonar([FromBody] Models.Rac.ClonarViewModel model)
         {
 
@@ -162,12 +162,9 @@ namespace SIIGPP.CAT.Controllers
 
             var historialCarpeta = await _context.HistorialCarpetas.Where(x => x.RHechoId == model.IdRHecho).ToListAsync();
 
-
-
             if (historialCarpeta == null)
             {
                 return Ok();
-
             }
 
             try
@@ -175,11 +172,8 @@ namespace SIIGPP.CAT.Controllers
                 var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.IdDistrito.ToString().ToUpper())).Options;
                 using (var ctx = new DbContextSIIGPP(options))
                 {
-
-
                     foreach (HistorialCarpeta historialActual in historialCarpeta)
                     {
-
                         var insertarHistorial = await ctx.HistorialCarpetas.FirstOrDefaultAsync(a => a.IdHistorialcarpetas == historialActual.IdHistorialcarpetas);
 
                         if (insertarHistorial == null)
@@ -215,6 +209,5 @@ namespace SIIGPP.CAT.Controllers
                 return result;
             }
         }
-
     }
 }
