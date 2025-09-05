@@ -58,8 +58,10 @@ namespace SIIGPP.CAT.Controllers
 
             }
 
-            
-                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.IdDistrito.ToString().ToUpper())).Options;
+
+                //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.IdDistrito.ToString().ToUpper())).Options;
+                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion")).Options;
+
                 using (var ctx = new DbContextSIIGPP(options))
                 {
 
@@ -119,8 +121,10 @@ namespace SIIGPP.CAT.Controllers
                 {
                     return BadRequest(ModelState);
                 }
-            
-                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.IdDistrito.ToString().ToUpper())).Options;
+
+                //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.IdDistrito.ToString().ToUpper())).Options;
+                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion")).Options;
+
                 using (var ctx = new DbContextSIIGPP(options))
                 {
                     var insertarEnvio = await ctx.Envios.FirstOrDefaultAsync(a => a.IdEnvio == listaEnvios.IdEnvio);
@@ -188,8 +192,10 @@ namespace SIIGPP.CAT.Controllers
                 {
                     return Ok();
                 }
-            
-                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.IdDistrito.ToString().ToUpper())).Options;
+
+                //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.IdDistrito.ToString().ToUpper())).Options;
+                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion")).Options;
+
                 using (var ctx = new DbContextSIIGPP(options))
                 {
                     foreach (ConjuntoDerivaciones conjuntoActual in listaConjuntos)
@@ -254,7 +260,9 @@ namespace SIIGPP.CAT.Controllers
 
                 }
             
-                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.IdDistrito.ToString().ToUpper())).Options;
+                //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.IdDistrito.ToString().ToUpper())).Options;
+                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion")).Options;
+
                 using (var ctx = new DbContextSIIGPP(options))
                 {
                     foreach (SolicitanteRequerido solReqActual in listaSolReq)
@@ -306,8 +314,10 @@ namespace SIIGPP.CAT.Controllers
             if (listaDelitosD == null)
             {
                 return Ok();
-            }            
-                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.IdDistrito.ToString().ToUpper())).Options;
+            }
+                //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.IdDistrito.ToString().ToUpper())).Options;
+                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion")).Options;
+
                 using (var ctx = new DbContextSIIGPP(options))
                 {
                     foreach (DelitoDerivado delitoDActual in listaDelitosD)

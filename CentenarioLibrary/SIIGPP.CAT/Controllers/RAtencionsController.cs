@@ -77,7 +77,6 @@ namespace SIIGPP.CAT.Controllers
                 return BadRequest(ModelState);
             }
 
-     
             DateTime fecha = System.DateTime.Now;
             var ra = await _context.RAtencions.FirstOrDefaultAsync(a => a.IdRAtencion == model.idRatencion);
 
@@ -101,9 +100,9 @@ namespace SIIGPP.CAT.Controllers
                 // Guardar Excepción
                 return BadRequest();
             }
-
             return Ok();
         }
+
         //ACTUALIZA LA HORA DE CIERRE
         // PUT: api/RAtencions/AHCierre
         [Authorize(Roles = "Administrador,AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,Recepción")]
@@ -115,7 +114,6 @@ namespace SIIGPP.CAT.Controllers
                 return BadRequest(ModelState);
             }
 
-       
             DateTime fecha = System.DateTime.Now;
             var ra = await _context.RAtencions.FirstOrDefaultAsync(a => a.IdRAtencion == model.idRatencion);
 
@@ -125,8 +123,7 @@ namespace SIIGPP.CAT.Controllers
             }
 
             ra.FechaHoraCierre = fecha;
-             
-
+            
             try
             {
                 await _context.SaveChangesAsync();
@@ -136,7 +133,6 @@ namespace SIIGPP.CAT.Controllers
                 // Guardar Excepción
                 return BadRequest();
             }
-
             return Ok();
         }
 
@@ -173,16 +169,10 @@ namespace SIIGPP.CAT.Controllers
                 u_Nombre = model.Usuario,
                 u_Puesto = model.Puesto,
                 u_Modulo = model.Modulo,
-                
             };
-
-           
             try
             {
                 _context.RAtencions.Add(InsertarRA);
-
-
-
 
                 Persona InsertarPersona = new Persona
                 {
@@ -221,8 +211,6 @@ namespace SIIGPP.CAT.Controllers
                     Edad = model.Edad,
                     Relacion = model.Relacion,
                     DocPoderNotarial = model.DocPoderNotarial
-
-
                 }; 
 
                 _context.Personas.Add(InsertarPersona);
@@ -233,7 +221,6 @@ namespace SIIGPP.CAT.Controllers
 
                 DireccionPersonal InsertarDP = new DireccionPersonal
                 {
-
                     Calle = model.Calle,
                     NoExt = model.NoExt,
                     NoInt = model.NoInt,
@@ -248,13 +235,10 @@ namespace SIIGPP.CAT.Controllers
                     PersonaId = idP,
                     lat = model.lat,
                     lng = model.lng
-                    
-
                 };
 
                 _context.DireccionPersonals.Add(InsertarDP);
             
-
                 RAP InsertarRAP = new RAP
                 {
                     RAtencionId = idRA,
@@ -265,9 +249,7 @@ namespace SIIGPP.CAT.Controllers
 
                 _context.RAPs.Add(InsertarRAP);
 
-
                 //**********************************************************************
-
 
                 Guid idagencia = model.agenciaId; 
 
@@ -278,14 +260,11 @@ namespace SIIGPP.CAT.Controllers
                                  .Take(1)
                                  .FirstOrDefaultAsync();
 
-               
-
                 if (turno != null)
                 {
                     serie = turno.Serie;
                     noturno = turno.NoTurno + 1;
                 }
-
 
                 Turno InsertarTurno = new Turno
                 {
@@ -316,8 +295,6 @@ namespace SIIGPP.CAT.Controllers
                     CP = model.CP,
                     lat = model.lat,
                     lng = model.lng
-
-
                 };
 
                 _context.DireccionEscuchas.Add(InsertarDE);
@@ -337,8 +314,6 @@ namespace SIIGPP.CAT.Controllers
             }
 
             return Ok(new {  notu = noturno, fh = fecha.ToString("dd/MM/yyyy hh:mm:ss"), idrap = idR,personaid = idpersona, idatencion = idratencion, mesa = model.Modulo });
-
-            
         }
 
         // POST: api/RAtencions/CrearSinTurno
@@ -346,8 +321,6 @@ namespace SIIGPP.CAT.Controllers
         [HttpPost("[action]")]
         public async Task<IActionResult> CrearSinTurno(CrearViewModel model)
         {
-
-
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -377,13 +350,9 @@ namespace SIIGPP.CAT.Controllers
                 MedioLlegada = model.MedioLlegada
             };
 
-
             try
             {
                 _context.RAtencions.Add(InsertarRA);
-
-
-
 
                 Persona InsertarPersona = new Persona
                 {
@@ -429,11 +398,9 @@ namespace SIIGPP.CAT.Controllers
                     Relacion = model.Relacion,
                     DocPoderNotarial = model.DocPoderNotarial,
                     InicioDetenido = model.InicioDetenido
-
-                    
-
-
                 };
+
+                Console.WriteLine(InsertarPersona.Edad);
 
                 _context.Personas.Add(InsertarPersona);
                 //***********************************************************************
@@ -443,7 +410,6 @@ namespace SIIGPP.CAT.Controllers
 
                 DireccionPersonal InsertarDP = new DireccionPersonal
                 {
-
                     Calle = model.Calle,
                     NoExt = model.NoExt,
                     NoInt = model.NoInt,
@@ -455,7 +421,7 @@ namespace SIIGPP.CAT.Controllers
                     Municipio = model.Municipio,
                     Localidad = model.Localidad,
                     CP = model.CP,
-                    PersonaId = idP,
+                    Persona = InsertarPersona,
                     lat = model.lat,
                     lng = model.lng,
                     TipoVialidad = model.tipoVialidad,
@@ -464,23 +430,21 @@ namespace SIIGPP.CAT.Controllers
 
                 _context.DireccionPersonals.Add(InsertarDP);
 
-
                 RAP InsertarRAP = new RAP
                 {
-                    RAtencionId = idRA,
-                    PersonaId = idP,
+                    RAtencion = InsertarRA,
+                    Persona = InsertarPersona,
                     ClasificacionPersona = model.ClasificacionPersona,
                     PInicio = model.PInicio,
                 };
 
                 _context.RAPs.Add(InsertarRAP);
 
-                
                 //**********************************************************************
 
                 DireccionEscucha InsertarDE = new DireccionEscucha
                 {
-                    RAPId = InsertarRAP.IdRAP,
+                    RAP = InsertarRAP,
                     Calle = model.Calle,
                     NoExt = model.NoExt,
                     NoInt = model.NoInt,
@@ -514,10 +478,7 @@ namespace SIIGPP.CAT.Controllers
                 return result;
             }
             return Ok(new { idRatencion = InsertarRA.IdRAtencion , idrap = idrap,personaid = idpersona, idatencion = idratencion });
-
         }
-
-
 
         //[HttpPost("Post/{nombre}" )]
         //[Authorize(Roles = "Administrador, AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido")]
@@ -526,9 +487,6 @@ namespace SIIGPP.CAT.Controllers
         {
             try
             {
-
-
-              
                 //***********************************************************************************
                 string patchp = Path.Combine(_environment.ContentRootPath, "Carpetas\\" + nombreCarpeta);
               
@@ -539,18 +497,13 @@ namespace SIIGPP.CAT.Controllers
 
                     extension = Path.GetExtension(file.FileName);
 
-                   
                 var filePath = Path.Combine(_environment.ContentRootPath, "Carpetas\\" + nombreCarpeta, nombreArchivo + extension);
                 var path = ("https://localhost:44394/Carpetas/" + nombreCarpeta + "/" + nombreArchivo + extension);
                 if (file.Length > 0)
                         using (var stream = new FileStream(filePath, FileMode.Create))
                             await file.CopyToAsync(stream);
  
-               
-
                 return Ok(new { count = 1, ruta = path });
-
-
             }
 #pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
@@ -592,9 +545,7 @@ namespace SIIGPP.CAT.Controllers
                 u_Nombre = model.Usuario,
                 u_Puesto = model.Puesto,
                 u_Modulo = model.Modulo,
-
             };
-
 
             try
             {
@@ -610,10 +561,7 @@ namespace SIIGPP.CAT.Controllers
                 result.StatusCode = 402;
                 return result;
             }
-
             return Ok(new { notu = noturno, fh = fecha.ToString("dd/MM/yyyy hh:mm:ss"), idatencion = idratencion });
-
-
         }
 
         // GET: api/RAtencions/ListarPorrac
@@ -632,20 +580,15 @@ namespace SIIGPP.CAT.Controllers
 
             return Ok(new RegistroViewModel
             {
-
                 IdRAtencion = a.IdRAtencion,
                 FechaHoraRegistro = a.FechaHoraRegistro
-
             });
-
         }
-
-
 
         // POST: api/RAtencions/CrearMCaptura
         [Authorize(Roles = "Administrador, Recepción,AMPO-AMP Mixto, AMPO-AMP Detenido,AMPO-AMP,Recepción")]
         [HttpPost("[action]")]
-        public async Task<IActionResult> CrearMCaptura(CrearViewModel model)
+        public async Task<IActionResult> CrearMCaptura([FromBody]CrearViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -654,9 +597,7 @@ namespace SIIGPP.CAT.Controllers
 
             DateTime fecha = System.DateTime.Now;
 
-#pragma warning disable CS0168 // La variable 'idrap' se ha declarado pero nunca se usa
-            Guid idrap;
-
+            //Guid idrap;
 
             RAtencion InsertarRA = new RAtencion
             {
@@ -676,22 +617,18 @@ namespace SIIGPP.CAT.Controllers
                 MedioLlegada = model.MedioLlegada
             };
 
-
             try
             {
                 _context.RAtencions.Add(InsertarRA);
                 await _context.SaveChangesAsync();
             }
-#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
-#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
                 var result = new ObjectResult(new { statusCode = "402", mensaje = ex.InnerException.Message, detail = ex.Message, version = "version 1.0" });
                 result.StatusCode = 402;
                 return result;
             }
             return Ok(new { idRatencion = InsertarRA.IdRAtencion });
-
         }
 
         //PATCH: api/RAtencions/modNANDP
@@ -810,14 +747,10 @@ namespace SIIGPP.CAT.Controllers
             return Ok(new { res = "success", men = "Perosona que atendió carpeta modificada correctamente" });
         }
 
-
-
-
         private bool RAtencionExists(Guid id)
         {
             return _context.RAtencions.Any(e => e.IdRAtencion == id);
         }
-
 
         [Authorize(Roles = "Administrador,AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,Recepción,AMPO-IL")]
         [HttpPost("[action]")]
@@ -830,24 +763,21 @@ namespace SIIGPP.CAT.Controllers
             }
             try
             { 
-
-                var consultaAtencion = await _context.RAtencions
+var consultaAtencion = await _context.RAtencions
                                    .Where(x => x.IdRAtencion == model.IdRAtencion)
                                    .Take(1)
                                    .FirstOrDefaultAsync();
 
-
-                
-
                 if (consultaAtencion == null)
                 {
                     return BadRequest(ModelState);
-
                 }
-                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.IdDistrito.ToString().ToUpper())).Options;
+
+                //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.IdDistrito.ToString().ToUpper())).Options;
+                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion")).Options;
+
                 using (var ctx = new DbContextSIIGPP(options))
                 {
-
                     var InsertarRA = await ctx.RAtencions.FirstOrDefaultAsync(a => a.IdRAtencion == consultaAtencion.IdRAtencion);
 
                     if (InsertarRA == null)
@@ -855,7 +785,6 @@ namespace SIIGPP.CAT.Controllers
                         InsertarRA = new RAtencion();
                         ctx.RAtencions.Add(InsertarRA);
                     }
-
 
                     InsertarRA.IdRAtencion = consultaAtencion.IdRAtencion;
                     InsertarRA.DistritoInicial = consultaAtencion.DistritoInicial;
@@ -874,15 +803,10 @@ namespace SIIGPP.CAT.Controllers
                     InsertarRA.u_Modulo = consultaAtencion.u_Modulo;
                     InsertarRA.MedioLlegada = consultaAtencion.MedioLlegada;
 
-
-                    
-
                     await ctx.SaveChangesAsync();
-
 
                     return Ok();
                 }
-
             }
             catch (Exception ex)
             {
@@ -890,9 +814,6 @@ namespace SIIGPP.CAT.Controllers
                 result.StatusCode = 402;
                 return result;
             }
-
         }
-
-
     }
 }

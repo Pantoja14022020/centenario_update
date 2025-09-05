@@ -7,7 +7,6 @@ namespace SIIGPP.CAT.Models.Ampliacion
 {
     public class CrearViewModel
     {
-
         public Guid HechoId { get; set; }
         public Guid PersonaId { get; set; }
         public string Tipo { get; set; }

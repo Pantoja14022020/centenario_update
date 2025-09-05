@@ -138,7 +138,9 @@ namespace SIIGPP.JR.Controllers
         [HttpGet("[action]/{expedienteId}/{envioId}/{distritoId}")]
         public async Task<IActionResult> InformacionExpedienteXDistrito([FromRoute] Guid expedienteId, Guid envioId, Guid distritoId)
         {
-            var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + distritoId.ToString().ToUpper())).Options;
+            //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + distritoId.ToString().ToUpper())).Options;
+            var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion")).Options;
+
             using (var ctx = new DbContextSIIGPP(options))
             {
                 var Tabla = await ctx.Envios
@@ -493,7 +495,8 @@ namespace SIIGPP.JR.Controllers
                                             .Where(a => a.IdExpediente == model.IdExpediente)
                                             .Take(1).FirstOrDefaultAsync();
 
-                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.distritoOrigen.ToString().ToUpper())).Options;
+                //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.distritoOrigen.ToString().ToUpper())).Options;
+                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion")).Options;
 
                 using (var ctx = new DbContextSIIGPP(options))
                 {
@@ -610,7 +613,8 @@ namespace SIIGPP.JR.Controllers
                                             .Where(a => a.IdExpediente == model.IdExpediente)
                                             .Take(1).FirstOrDefaultAsync();
 
-                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.distritoOrigen.ToString().ToUpper())).Options;
+                //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.distritoOrigen.ToString().ToUpper())).Options;
+                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion")).Options;
 
                 using (var ctx = new DbContextSIIGPP(options))
                 {

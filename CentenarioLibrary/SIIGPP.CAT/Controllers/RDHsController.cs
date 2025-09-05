@@ -97,12 +97,9 @@ namespace SIIGPP.CAT.Controllers
         [Authorize(Roles = "Administrador,AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,AMPO-IL,Recepción")]
         [HttpGet("[action]/{RHechoId}/{idMProteccion}")]
         public async Task<IActionResult> ListarPorHechoDE([FromRoute] Guid RHechoId, Guid idMProteccion)
-
         {
-
             try
             {
-
                 String busquedaDelitosM = @"select 
                                                 r.IdRDH,
                                                 r.RHechoId,
@@ -176,10 +173,7 @@ namespace SIIGPP.CAT.Controllers
                     Observaciones = a.Observaciones,
                     Fechasys = a.Fechasys,
                     Hipotesis = a.Hipotesis,
-                    DelitoEspecifico = a.DelitoEspecifico,
-
-
-
+                    DelitoEspecifico = a.DelitoEspecifico
                 }));
             }
             catch (Exception ex)
@@ -188,26 +182,20 @@ namespace SIIGPP.CAT.Controllers
                 result.StatusCode = 402;
                 return result;
             }
-
-
         }
 
         // POST: api/RDHs/Crear
         [Authorize(Roles = "Administrador,AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,AMPO-IL,Recepción")]
         [HttpPost("[action]")]
         public async Task<IActionResult> Crear(CrearViewModel model)
-
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-
-
             RDH InsertarRDH = new RDH
             {
-
                 RHechoId = model.RHechoId,
                 DelitoId = model.DelitoId,
                 TipoFuero = model.TipoFuero,
@@ -236,17 +224,13 @@ namespace SIIGPP.CAT.Controllers
                 MedioDigital = model.MedioDigital,
                 InstrumentosComision = model.InstrumentosComision,
                 GradoDelito = model.GradoDelito
-
             };
 
             _context.RDHs.Add(InsertarRDH);
 
-
-
             try
             {
                 await _context.SaveChangesAsync();
-
             }
             catch (Exception ex)
             {
@@ -4026,24 +4010,19 @@ namespace SIIGPP.CAT.Controllers
             {
                 var delitos = await _context.RDHs.Where(a => a.RHechoId == model.IdRHecho).ToListAsync();
 
-
-
                 if (delitos == null)
                 {
                     return Ok();
-
                 }
-                
 
+                //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.IdDistrito.ToString().ToUpper())).Options;
+                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion")).Options;
 
-                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.IdDistrito.ToString().ToUpper())).Options;
                 using (var ctx = new DbContextSIIGPP(options))
                 {
 
-
                     foreach (RDH rdhActual in delitos)
                     {
-
                         var insertarRDH = await ctx.RDHs.FirstOrDefaultAsync(a => a.IdRDH == rdhActual.IdRDH);
 
                         if (insertarRDH == null)
@@ -4083,20 +4062,17 @@ namespace SIIGPP.CAT.Controllers
                         insertarRDH.InstrumentosComision = rdhActual.InstrumentosComision;
                         insertarRDH.GradoDelito = rdhActual.GradoDelito;
 
-
                         await ctx.SaveChangesAsync();
                     }
                     return Ok();
                 }
             }
-
             catch (Exception ex)
             {
                 var result = new ObjectResult(new { statusCode = "402", mensaje = ex.InnerException.Message });
                 result.StatusCode = 402;
                 return result;
             }
-
         }
 
         // GET: api/RDHs/ListarPorHecho

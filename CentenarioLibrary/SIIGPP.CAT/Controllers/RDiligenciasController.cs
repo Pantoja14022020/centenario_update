@@ -123,16 +123,13 @@ namespace SIIGPP.CAT.Controllers
             {
                 return BadRequest(ex);
             }
-
         }
 
         // POST: api/RDiligencias/CrearPI
         [Authorize(Roles = " Administrador,AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,AMPO-IL,Recepción")]
         [HttpPost("[action]")]
         public async Task<IActionResult> CrearPI(CrearViewModel model)
-
         {
-
             var EI = await _context.HistorialCarpetas
                 .Where(a => a.RHechoId == model.rHechoId)
                 .Where(a => a.Detalle == "VINCULACION APROCESO")
@@ -144,7 +141,6 @@ namespace SIIGPP.CAT.Controllers
             if (EI != null) eic = true;
             else eic = false;
 
-
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -154,7 +150,6 @@ namespace SIIGPP.CAT.Controllers
 
             RDiligencias InsertarRD = new RDiligencias
             {
-
                 FechaSolicitud = model.FechaSolicitud,
                 Dirigidoa = model.Dirigidoa,
                 DirSubPro = model.DirSubPro,
@@ -185,13 +180,9 @@ namespace SIIGPP.CAT.Controllers
                 EtapaInicial = eic,
                 DSPDEstino = model.DSPDEstino,
                 DistritoId = model.DistritoId
-
             };
 
-
-
             _context.RDiligencias.Add(InsertarRD);
-
 
             try
             {
@@ -199,16 +190,11 @@ namespace SIIGPP.CAT.Controllers
                 return Ok(new { iddili = InsertarRD.IdRDiligencias });
                 //**********************************************************************
             }
-#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
-#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
-                return BadRequest();
+                return BadRequest(ex);
             }
-
-#pragma warning disable CS0162 // Se detectó código inaccesible
             return Ok();
-#pragma warning restore CS0162 // Se detectó código inaccesible
         }
 
         // GET: api/RDiligencias/ListarTodos
@@ -666,7 +652,9 @@ namespace SIIGPP.CAT.Controllers
             }
             try
             {
-                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.IdDistrito.ToString().ToUpper())).Options;
+                //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.IdDistrito.ToString().ToUpper())).Options;
+                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion")).Options;
+
                 using (var ctx = new DbContextSIIGPP(options))
                 {
                     foreach (RDiligencias diligenciaActual in diligenciaBuscadas)

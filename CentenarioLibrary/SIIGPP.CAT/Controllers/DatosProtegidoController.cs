@@ -113,10 +113,7 @@ namespace SIIGPP.CAT.Controllers
                 Telefono1 = a.Telefono1,
                 Telefono2 = a.Telefono2,
                 direc=a.direc
-
-
             }));
-
         }
 
         // POST: api/DatosProtegido/Crear ddddd
@@ -161,7 +158,6 @@ namespace SIIGPP.CAT.Controllers
 
                 else
                 {
-
                     consultaDato.RAPId = model.RAPId;
                     consultaDato.Nombre = model.Nombre;
                     consultaDato.APaterno = model.APaterno;
@@ -177,24 +173,17 @@ namespace SIIGPP.CAT.Controllers
                     consultaDato.UPuesto = model.UPuesto;
                     consultaDato.UModulo = model.UModulo;
                     consultaDato.Fechasys = System.DateTime.Now;
-
-
-
                 }
                 await _context.SaveChangesAsync();
             }
-#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
-#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
                 var result = new ObjectResult(new { statusCode = "402", mensaje = ex.InnerException.Message, detail = ex.Message, version = "version 1.0" });
                 result.StatusCode = 402;
                 return result;
             }
-
             return Ok();
         }
-
 
         //Nueva API de actualizar para caso donde se requiere modificar datos de un dato protegido pero no se quiere volver a ingresar nombre y apellidos de la persona
         //Nombre y apellidos los deja intactos y actualiza los otros datos
@@ -257,13 +246,14 @@ namespace SIIGPP.CAT.Controllers
                                             .Take(1)
                                             .FirstOrDefaultAsync();
 
-
                 if (consultaDatoProtegido == null)
                 {
                     return Ok();
-
                 }
-                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.IdDistrito.ToString().ToUpper())).Options;
+
+                //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.IdDistrito.ToString().ToUpper())).Options;
+                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion")).Options;
+
                 using (var ctx = new DbContextSIIGPP(options))
                 {
 
@@ -274,7 +264,6 @@ namespace SIIGPP.CAT.Controllers
                         InsertarDP = new DatoProtegido();
                         ctx.DatoProtegidos.Add(InsertarDP);
                     }
-
 
                     InsertarDP.IdDatosProtegidos = consultaDatoProtegido.IdDatosProtegidos;
                     InsertarDP.RAPId = consultaDatoProtegido.RAPId;

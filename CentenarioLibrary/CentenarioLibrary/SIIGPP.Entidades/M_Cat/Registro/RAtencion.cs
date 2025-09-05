@@ -9,7 +9,6 @@ namespace SIIGPP.Entidades.M_Cat.Registro
 {
     public class RAtencion
     {
-
         public Guid IdRAtencion { get; set; } 
         public DateTime FechaHoraRegistro { get; set; }
         public DateTime? FechaHoraAtencion { get; set; }
@@ -26,9 +25,11 @@ namespace SIIGPP.Entidades.M_Cat.Registro
         public Boolean ContencionVicitma { get; set; }
         public Guid racId { get; set; }
         public Rac RACs { get; set; }
-        public List<RAP> RAPs { get; set; }
         public string ModuloServicio { get; set; }
         public string MedioLlegada { get; set; }
+
+        //FOREIGN KEY
+        public List<RAP> RAP { get; set; }
 
     }
 }

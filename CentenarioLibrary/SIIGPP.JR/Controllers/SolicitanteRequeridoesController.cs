@@ -290,7 +290,9 @@ namespace SIIGPP.JR.Controllers
         {
             try
             {
-                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + distritoId.ToString().ToUpper())).Options;
+                //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + distritoId.ToString().ToUpper())).Options;
+                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion")).Options;
+
                 using (var ctx = new DbContextSIIGPP(options))
                 {
                     var listaC = await ctx.ConjuntoDerivaciones.Where(a => a.EnvioId == idEnvio).ToListAsync();

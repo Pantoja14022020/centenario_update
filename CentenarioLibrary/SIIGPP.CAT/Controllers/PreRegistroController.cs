@@ -64,7 +64,9 @@ namespace SIIGPP.CAT.Controllers
                 return Ok(new { error = "No se encontró la clave del distrito" });
             }
 
-            var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.distritoId.ToString().ToUpper())).Options;
+            //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.distritoId.ToString().ToUpper())).Options;
+            var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion")).Options;
+
             using (var ctx = new DbContextSIIGPP(options))
             {
 

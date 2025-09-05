@@ -352,7 +352,9 @@ namespace SIIGPP.JR.Controllers
             try
             {
                 //Por medio de esta conexion se hace la conexion a la ip del otro servidor, comprobar que la cadena de conexiones del back de jr tenga todas las conexiones
-                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + distritoId.ToString().ToUpper())).Options;
+                //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + distritoId.ToString().ToUpper())).Options;
+                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion")).Options;
+
                 using (var ctx = new DbContextSIIGPP(options))
                 {
                     // Realizar la consulta deseada
@@ -421,7 +423,9 @@ namespace SIIGPP.JR.Controllers
                 if (derivacion != null)
                 {
                     //Por medio de esta conexion se hace la conexion a la ip del otro servidor, comprobar que la cadena de conexiones del back de jr tenga todas las conexiones
-                    var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + derivacion[0].ToString().ToUpper())).Options;
+                    //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + derivacion[0].ToString().ToUpper())).Options;
+                    var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion")).Options;
+
                     using (var ctx = new DbContextSIIGPP(options))
                     {
                         string busquedaAR = @"select * from JR_ACUERDOREPARATORIO ja join JR_ACUERDOS_CONJUNTOS jac  on ja.IdAcuerdoReparatorio = jac.AcuerdoReparatorioId where EnvioId in (select IdEnvio from JR_ENVIO je where ExpedienteId in (select IdExpediente from JR_EXPEDIENTE je where RHechoId = @rhId)) and ja.StatusRespuestaCoordinadorJuridico = 'Autorizado'";

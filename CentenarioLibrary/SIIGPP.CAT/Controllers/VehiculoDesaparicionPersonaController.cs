@@ -145,7 +145,9 @@ namespace SIIGPP.CAT.Controllers
 
                 if (consultaVehiculosInvolucrados != null)
                 {
-                    var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.IdDistrito.ToString().ToUpper())).Options;
+                    //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.IdDistrito.ToString().ToUpper())).Options;
+                    var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion" + model.IdDistrito.ToString().ToUpper())).Options;
+
                     using (var ctx = new DbContextSIIGPP(options))
                     {
                         foreach (VehiculoPersonaDesap vehiculoPersonaDesapActual in consultaVehiculosInvolucrados)

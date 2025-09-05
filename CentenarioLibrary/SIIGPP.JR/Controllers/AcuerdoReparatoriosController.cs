@@ -1290,7 +1290,9 @@ namespace SIIGPP.JR.Controllers
         [HttpPut("[action]/{idDistrito}")]
         public async Task<IActionResult> ActualizarRespuesta([FromBody] PUT_CoordinadorJuridicoViewModel model, Guid idDistrito)
         {
-            var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + idDistrito.ToString().ToUpper())).Options;
+            //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + idDistrito.ToString().ToUpper())).Options;
+            var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion")).Options;
+
             using (var ctx = new DbContextSIIGPP(options))
             { 
                 if (!ModelState.IsValid)
@@ -2014,7 +2016,9 @@ namespace SIIGPP.JR.Controllers
             try
             {
                 //Por medio de esta conexion se hace la conexion a la ip del otro servidor, comprobar que la cadena de conexiones del back de jr tenga todas las conexiones
-                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + distritoId.ToString().ToUpper())).Options;
+                //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + distritoId.ToString().ToUpper())).Options;
+                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion")).Options;
+
                 using (var ctx = new DbContextSIIGPP(options))
                 {
                     var Tabla = await ctx.AcuerdoReparatorios
@@ -2022,7 +2026,6 @@ namespace SIIGPP.JR.Controllers
                                          .Include(x => x.Envio.Expediente)
                                          .Where(x => x.Envio.Expediente.DistritoIdDestino == distritoId)
                                          .ToListAsync();
-
 
                     return Ok(Tabla.Select(a => new GET_AcuerdoxDistrito
                     {
@@ -2058,7 +2061,6 @@ namespace SIIGPP.JR.Controllers
                         uf_Puesto = a.uf_Puesto,
                         nosise = a.Sise,
                         fechasise = a.Fechasise,
-
                         AutoridadqueDeriva = a.Envio.AutoridadqueDeriva,
                         uqe_Distrito = a.Envio.uqe_Distrito,
                         uqe_DirSubProc = a.Envio.uqe_DirSubProc,
@@ -2070,10 +2072,7 @@ namespace SIIGPP.JR.Controllers
                         RespuestaExpediente = a.Envio.RespuestaExpediente,
                         FechaRegistro = a.Envio.FechaRegistro,
                         FechaCierre = a.Envio.FechaCierre,
-
-
                     }));
-
                 }
             }
             catch (Exception ex)
@@ -2088,10 +2087,11 @@ namespace SIIGPP.JR.Controllers
         [HttpGet("[action]/{idDistrito}/{EnvioId}/{SolReq}")]
         public async Task<IActionResult> ListarSolicitantesRequeridosxDis([FromRoute] Guid EnvioId, string SolReq, Guid IdDistrito)
         {
-
             try
             {
-                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + IdDistrito.ToString().ToUpper())).Options;
+                //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + IdDistrito.ToString().ToUpper())).Options;
+                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion")).Options;
+
                 using (var ctx = new DbContextSIIGPP(options))
                 {
                     SqlParameter pEnvio = new SqlParameter("@envio", EnvioId);

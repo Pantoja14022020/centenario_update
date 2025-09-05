@@ -96,7 +96,6 @@ namespace SIIGPP.CAT.Controllers
 
             DocumentosPesona docs = new DocumentosPesona
             {
-
                 PersonaId = model.PersonaId,
                 TipoDocumento = model.TipoDocumento,
                 NombreDocumento = model.NombreDocumento,
@@ -108,8 +107,6 @@ namespace SIIGPP.CAT.Controllers
                 Agencia = model.Agencia,
                 Usuario = model.Usuario,
                 Puesto = model.Puesto
-
-
             };
 
             _context.DocumentosPesonas.Add(docs);
@@ -117,15 +114,12 @@ namespace SIIGPP.CAT.Controllers
             {
                 await _context.SaveChangesAsync();
             }
-#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
-#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
                 var result = new ObjectResult(new { statusCode = "402", mensaje = ex.InnerException.Message, detail = ex.Message, version = "version 1.0" });
                 result.StatusCode = 402;
                 return result;
             }
-
             return Ok();
         }
 

@@ -70,15 +70,12 @@ namespace SIIGPP.CAT.Controllers
                 tipoVialidad = dp.TipoVialidad,
                 tipoAsentamiento = dp.TipoAsentamiento,
             });
-
         }
-
 
         // POST: api/DireccionDelitoes/Crear
         [Authorize(Roles = " Administrador,AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,Recepción")]
         [HttpPost("[action]")]
         public async Task<IActionResult> Crear(CrearViewModel model)
-
         {
             if (!ModelState.IsValid)
             {
@@ -87,7 +84,6 @@ namespace SIIGPP.CAT.Controllers
 
             try
             {
-
                 DireccionDelito InsertarDD = new DireccionDelito
                 {
                     RHechoId = model.IdRHecho,
@@ -117,19 +113,16 @@ namespace SIIGPP.CAT.Controllers
 
                 //**********************************************************************
             }
-#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+            #pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
-#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+            #pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
                 var result = new ObjectResult(new { statusCode = "402", mensaje = ex.InnerException.Message, detail = ex.Message, version = "version 1.0" });
                 result.StatusCode = 402;
                 return result;
             }
             return Ok();
-
-
         }
-
 
         // POST: api/DireccionDelitoes/Actualizar
         [Authorize(Roles = " Administrador,AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido, AMPO-IL,Recepción")]
@@ -231,10 +224,12 @@ namespace SIIGPP.CAT.Controllers
                     return Ok();
 
                 }
-                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.IdDistrito.ToString().ToUpper())).Options;
+                
+                //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.IdDistrito.ToString().ToUpper())).Options;
+                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion")).Options;
+
                 using (var ctx = new DbContextSIIGPP(options))
                 {
-
                     var InsertarDD = await ctx.DireccionDelitos.FirstOrDefaultAsync(a => a.RHechoId == consultadDDelito.RHechoId);
 
                     if (InsertarDD == null)
@@ -242,7 +237,6 @@ namespace SIIGPP.CAT.Controllers
                         InsertarDD = new DireccionDelito();
                         ctx.DireccionDelitos.Add(InsertarDD);
                     }
-
 
                     InsertarDD.IdDDelito = consultadDDelito.IdDDelito;
                     InsertarDD.RHechoId = consultadDDelito.RHechoId;
@@ -266,10 +260,7 @@ namespace SIIGPP.CAT.Controllers
                     await ctx.SaveChangesAsync();
 
                     return Ok();
-
                 }
-
-
             }
             catch (Exception ex)
             {
@@ -277,14 +268,11 @@ namespace SIIGPP.CAT.Controllers
                 result.StatusCode = 402;
                 return result;
             }
-
-
         }
 
         private bool DireccionDelitoExists(Guid id)
         {
             return _context.DireccionDelitos.Any(e => e.IdDDelito == id);
         }
-
     }
 }

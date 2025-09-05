@@ -337,7 +337,9 @@ namespace SIIGPP.CAT.Controllers
             try
             {
                 //Conexion a base de datos
-                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.distritoId.ToString().ToUpper())).Options;
+                //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.distritoId.ToString().ToUpper())).Options;
+                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion")).Options;
+                
                 using (var ctx = new DbContextSIIGPP(options))
                 {
 
@@ -657,17 +659,15 @@ namespace SIIGPP.CAT.Controllers
                 if (remisionesCarpeta == null)
                 {
                     return Ok();
-
                 }
 
-                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.IdDistrito.ToString().ToUpper())).Options;
+                //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.IdDistrito.ToString().ToUpper())).Options;
+                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion")).Options;
+
                 using (var ctx = new DbContextSIIGPP(options))
                 {
-
-
                     foreach (RemisionUI remisionActual in remisionesCarpeta)
                     {
-
                         var insertarRemision = await ctx.RemisionUIs.FirstOrDefaultAsync(a => a.IdRemisionUI == remisionActual.IdRemisionUI);
 
                         if (insertarRemision == null)
@@ -699,8 +699,6 @@ namespace SIIGPP.CAT.Controllers
                         insertarRemision.EnvioExitosoTF = remisionActual.EnvioExitosoTF;
 
                         await ctx.SaveChangesAsync();
-
-
                     }
                     return Ok();
                 }
@@ -711,10 +709,6 @@ namespace SIIGPP.CAT.Controllers
                 result.StatusCode = 402;
                 return result;
             }
-
-
         }
-
-
     }
 }

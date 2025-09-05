@@ -8,12 +8,11 @@ namespace SIIGPP.CAT.Models.Registro
 {
     public class CrearViewModel
     {
+        public Guid RAtencionId { get; set; }
         //REGISTRO DE ATENCION
-       
         public string DistritoInicial { get; set; }
         public string DirSubProcuInicial { get; set; }
-        public string AgenciaInicial { get; set; } 
-        
+        public string AgenciaInicial { get; set; }
         public Boolean StatusAtencion { get; set; }
         public Boolean StatusRegistro { get; set; }
         public Guid racid { get; set; } 
@@ -35,6 +34,7 @@ namespace SIIGPP.CAT.Models.Registro
         public string EntidadFederativa { get; set; }
         public string DocIdentificacion { get; set; }
         public string CURP { get; set; }
+
         //Integraciones que no estan en todos lados por ser nuevas
         public Boolean PoblacionAfro { get; set; }
         public string RangoEdad { get; set; }
@@ -63,6 +63,7 @@ namespace SIIGPP.CAT.Models.Registro
         public Boolean Relacion { get; set; }
         public int Edad { get; set; }
         public string Parentesco { get; set; }
+
         //DOCUMENTOS DE PERSON 
         public string TipoDocumento { get; set; }
         public string NombreDocumento { get; set; }
@@ -97,8 +98,5 @@ namespace SIIGPP.CAT.Models.Registro
         public string DocPoderNotarial { get; set; }
         public string MedioDenuncia { get; set; }
         public Boolean InicioDetenido { get; set; }
-
-
-
     }
 }

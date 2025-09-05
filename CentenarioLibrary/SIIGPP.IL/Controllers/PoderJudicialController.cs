@@ -133,29 +133,27 @@ namespace SIIGPP.IL.Controllers
 
                 var listadoPJudicial = JsonSerializer.Deserialize<RespuestaPJAPIViewModel>(result);
 
-                /////                
-
                 if(listadoPJudicial.ListaResultados != null)
                 { 
                 foreach (PoderJudicialAPIViewModel soliciTudActual in listadoPJudicial.ListaResultados)
                 {
-                    var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + soliciTudActual.ClavePGJ.ToString().ToUpper())).Options;
+                    //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + soliciTudActual.ClavePGJ.ToString().ToUpper())).Options;
+                    var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion")).Options;
+
                     using (var ctx = new DbContextSIIGPP(options))
                     {
-
                         var actualizarSolilitud = await ctx.Agendas
-                                                            .Join(ctx.Usuarios, agendas => agendas.Usuario, usuarios => usuarios.nombre, (agendas, usuarios) => new { agendas, usuarios })
-                                                            .Where(a => a.agendas.Nuc == soliciTudActual.NUC)
-                                                            .Where(a => a.agendas.NumeroOficio == soliciTudActual.Causa)
-                                                            .Take(1)
-                                                            .FirstOrDefaultAsync();
+                                                        .Join(ctx.Usuarios, agendas => agendas.Usuario, usuarios => usuarios.nombre, (agendas, usuarios) => new { agendas, usuarios })
+                                                        .Where(a => a.agendas.Nuc == soliciTudActual.NUC)
+                                                        .Where(a => a.agendas.NumeroOficio == soliciTudActual.Causa)
+                                                        .Take(1)
+                                                        .FirstOrDefaultAsync();
                         if (actualizarSolilitud == null)
                         {
                             //HACER UN CONTROLADOR NUEVO PARA INSERTAR LOS ERRORES, SE NECESITA OTRO CONTROLADOR
                         }
                         else
                         {
-
                             // REAL
                             actualizarSolilitud.agendas.FechaCitacion = soliciTudActual.FechaAudi;
                             actualizarSolilitud.agendas.LugarCitacion = soliciTudActual.Juzgado;
@@ -175,7 +173,6 @@ namespace SIIGPP.IL.Controllers
 
                                 MailRequest recordatorio = new MailRequest
                                 {
-
                                     ToEmail = actualizarSolilitud.usuarios.email,
                                     Subject = "FECHA PARA AUDIENCIA ACEPTADA NUC: " + actualizarSolilitud.agendas.Nuc,
                                     Body = "<p> Buenas Tardes: </p>" +
@@ -197,7 +194,6 @@ namespace SIIGPP.IL.Controllers
                         }
                     }
                 }
-
                 return Ok(new {mensaje = "Solicitudes actualizadas" });
                 //return Content(responseString);
             }

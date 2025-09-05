@@ -7,7 +7,6 @@ namespace SIIGPP.CAT.Models.RDHechos
 {
     public class CrearViewModel
     {
-        
         public Guid DelitoId { get; set; } 
         public Guid RHechoId { get; set; } 
         public string TipoFuero { get; set; }

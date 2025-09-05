@@ -121,14 +121,10 @@ namespace SIIGPP.CAT.Controllers
                 nombreAgencia = a.Agencia.Nombre,
                 rAtencionId = a.RAtencionId,
                 atendidopor = a.RAtencion.u_Nombre,
-                modulo = a.Modulo,
-
-
-
-
-
+                modulo = a.Modulo
             });
         }
+
         // PUT: api/Turnoes/Actualizar
         [Authorize(Roles = "AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,Administrador,Recepción")]
         [HttpPut("[action]")]
@@ -194,10 +190,9 @@ namespace SIIGPP.CAT.Controllers
             return Ok();
         }
 
-
+        // POST: api/Turnoes/Clonar
         [Authorize(Roles = "Administrador,AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,Recepción,AMPO-IL")]
         [HttpPost("[action]")]
-        // POST: api/Turnoes/Clonar
         public async Task<IActionResult> Clonar([FromBody] Models.Rac.ClonarViewModel model)
         {
             if (!ModelState.IsValid)
@@ -213,16 +208,13 @@ namespace SIIGPP.CAT.Controllers
             if (consultaTurno == null)
             {
                 return Ok();
-
             }
 
+            //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.IdDistrito.ToString().ToUpper())).Options;
+            var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion")).Options;
 
-
-            var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.IdDistrito.ToString().ToUpper())).Options;
             using (var ctx = new DbContextSIIGPP(options))
             {
-
-
                 var elTurno = await ctx.Turnos.FirstOrDefaultAsync(a => a.IdTurno == consultaTurno.IdTurno);
 
                 if (elTurno == null)

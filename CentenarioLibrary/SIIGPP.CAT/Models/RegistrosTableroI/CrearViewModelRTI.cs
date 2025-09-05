@@ -7,7 +7,6 @@ namespace SIIGPP.CAT.Models.RegistrosTableroI
 {
     public class CrearViewModelRTI
     {
-     
         public Guid RHechoId { get; set; }
         public string TipoRegistroTableroI { get; set; }
         public string Distrito { get; set; }

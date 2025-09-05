@@ -213,7 +213,6 @@ namespace SIIGPP.CAT.Controllers
             }
             try
             {
-
                 var consultaEntrevistaInicial = await _context.AmpDecs.Where(a => a.idAmpliacion == model.infoBorrado.registroId)
                                           .Take(1).FirstOrDefaultAsync();
 
@@ -224,14 +223,12 @@ namespace SIIGPP.CAT.Controllers
 
                 else
                 {
-
                     var consultaEntrevista = await _context.AmpDecs.Where(a => a.HechoId == model.infoBorrado.rHechoId).Where(a => a.EntrevistaInicial == true)
                                               .Take(1).FirstOrDefaultAsync();
 
                     var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("LOG")).Options;
                     using (var ctx = new DbContextSIIGPP(options))
                     {
-
                         Guid gLog = Guid.NewGuid();
                         DateTime fecha = System.DateTime.Now;
                         LogAdmon laRegistro = new LogAdmon
@@ -248,11 +245,8 @@ namespace SIIGPP.CAT.Controllers
 
                         ctx.Add(laRegistro);
 
-
-
                         if (consultaEntrevista != null)
                         {
-
                             LogAmpDec ampDec = new LogAmpDec
                             {
                                 LogAdmonId = gLog,
@@ -294,7 +288,6 @@ namespace SIIGPP.CAT.Controllers
                             consultaEntrevista.EntrevistaInicial = false;
                         }
 
-
                         LogAmpDec ampDecInicial = new LogAmpDec
                         {
                             LogAdmonId = gLog,
@@ -332,15 +325,13 @@ namespace SIIGPP.CAT.Controllers
                             CURPA = consultaEntrevistaInicial.CURPA,
                             EntrevistaInicial = consultaEntrevistaInicial.EntrevistaInicial
                         };
+
                         ctx.Add(ampDecInicial);
 
                         consultaEntrevistaInicial.EntrevistaInicial = true;
 
-
-
                         await _context.SaveChangesAsync();
                         await ctx.SaveChangesAsync();
-
                     }
                 }
             }
@@ -353,9 +344,6 @@ namespace SIIGPP.CAT.Controllers
             // FIN DEL PROCESO
             return Ok(new { res = "success", men = "Entrevista definida como inicial" });
         }
-
-        
-
 
         // POST: api/AmpDecs/Crear
         [Authorize(Roles = " Administrador,AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,AMPO-IL,Recepción")]
@@ -371,11 +359,9 @@ namespace SIIGPP.CAT.Controllers
             }
 
             DateTime fecha = System.DateTime.Now;
-        
-
+            
             AmpDec InsertarAmpDec = new AmpDec
             {
-
                 HechoId = model.HechoId,
                 PersonaId = model.PersonaId,
                 Tipo = model.Tipo,
@@ -533,7 +519,9 @@ namespace SIIGPP.CAT.Controllers
         {
             try
             {
-                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + distritoId.ToString().ToUpper())).Options;
+                //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + distritoId.ToString().ToUpper())).Options;
+                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion")).Options;
+                
                 using (var ctx = new DbContextSIIGPP(options))
                 {
                 
@@ -640,7 +628,9 @@ namespace SIIGPP.CAT.Controllers
 
                 }
 
-                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.IdDistrito.ToString().ToUpper())).Options;
+                //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.IdDistrito.ToString().ToUpper())).Options;
+                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion")).Options;
+
                 using (var ctx = new DbContextSIIGPP(options))
                 {
                     foreach (AmpDec ampdecActual in entrevistasCarpeta)

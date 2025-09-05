@@ -10,7 +10,6 @@ namespace SIIGPP.Entidades.M_Cat.Direcciones
 {
     public class DireccionEscucha
     {
-     
         public Guid IdDEscucha { get; set; }  
         public string Calle { get; set; }
         public string NoInt { get; set; }

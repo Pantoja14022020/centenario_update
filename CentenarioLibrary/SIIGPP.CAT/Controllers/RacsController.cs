@@ -182,10 +182,10 @@ namespace SIIGPP.CAT.Controllers
             // FIN DEL PROCESO
             return Ok(new { res = "success", men = "RAC eliminado Correctamente" });
         }
+
         // POST: api/Racs/GenerarRac
         [HttpPost("[action]")]
         [Authorize(Roles= "Administrador,Recepción,AMPO-AMP Mixto, AMPO-AMP Detenido,AMPO-AMP,Recepción")]
-       
         public async Task<IActionResult> GenerarRac([FromBody] RacViewModel model)
         {
             if (!ModelState.IsValid)
@@ -196,7 +196,6 @@ namespace SIIGPP.CAT.Controllers
             }
             try
             {
-                  
                 var ncd = 1;
                 var nca = 1;
                 DateTime fechaActual = DateTime.Today;
@@ -209,13 +208,11 @@ namespace SIIGPP.CAT.Controllers
                                .Include(a => a.DSP)
                                .Include(a => a.DSP.Distrito)
                                .FirstOrDefaultAsync();
-
                
                 if (selectClave != null)
                 {
                     dcve = selectClave.DSP.Distrito.Clave;
                     acve = selectClave.Clave;
-
                 }
                 else
                 {
@@ -276,18 +273,14 @@ namespace SIIGPP.CAT.Controllers
                             .Where(x => x.AgenciaId == agenciaid)
                             .ToListAsync();
 
-
             return dil.Select(a => new ListarViewModel
-
             {
                 /*********************************************/
                 Idrac = a.idRac,
                 RAC = a.racg,
                 Asignado = a.Asignado,
                 Ndenuncia = a.Ndenuncia,
-           
             });
-
         }
 
         // PUT: api/Racs/Actualizar
@@ -300,7 +293,6 @@ namespace SIIGPP.CAT.Controllers
                 return BadRequest(ModelState);
             }
 
-
             var actualizamosN = await _context.Racs.FirstOrDefaultAsync(a => a.idRac == model.Idrac);
 
             if (actualizamosN == null)
@@ -309,8 +301,7 @@ namespace SIIGPP.CAT.Controllers
             }
 
             actualizamosN.Asignado = true;
-                
-
+            
             try
             {
                 await _context.SaveChangesAsync();
@@ -321,15 +312,12 @@ namespace SIIGPP.CAT.Controllers
                 result.StatusCode = 402;
                 return result;
             }
-
             return Ok();
         }
-
 
         // POST: api/Racs/GenerarRacModuloCaptura
         [HttpPost("[action]")]
         //[Authorize(Roles= "Administrador,Recepción,AMPO-AMP Mixto, AMPO-AMP Detenido")]
-
         public async Task<IActionResult> GenerarRacModuloCaptura([FromBody] RacViewModelMCaptura model)
         {
             if (!ModelState.IsValid)
@@ -354,7 +342,6 @@ namespace SIIGPP.CAT.Controllers
             {
                 dcve = selectClave.DSP.Distrito.Clave;
                 acve = selectClave.Clave;
-
             }
             else
             {
@@ -372,7 +359,6 @@ namespace SIIGPP.CAT.Controllers
             {
                 ncd = consultarac.DConsecutivo + 1;
                 nca = consultarac.AConsecutivo + 1;
-
             }
 
             Rac rac = new Rac
@@ -389,20 +375,15 @@ namespace SIIGPP.CAT.Controllers
                 racg = "R-" + dcve + "-" + año + "-" + ncd.ToString("D5"),
                 Ndenuncia = model.Ndenuncia,
                 Asignado = model.Asignado
-
             };
-
 
             _context.Racs.Add(rac);
 
             try
             {
                 await _context.SaveChangesAsync();
-
             }
-#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
-#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
                 var result = new ObjectResult(new { statusCode = "402", mensaje = ex.InnerException.Message, detail = ex.Message, version = "version 1.0" });
                 result.StatusCode = 402;
@@ -493,10 +474,6 @@ namespace SIIGPP.CAT.Controllers
             return Ok(new { res = "success", men = "Número de RAC modificado Correctamente" });
         }
 
-
-
-
-
         //PARA REMISIONES DE CARPETA INTRADISTRITALES
 
         [Authorize(Roles = "Administrador,AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,Recepción,AMPO-IL")]
@@ -521,7 +498,10 @@ namespace SIIGPP.CAT.Controllers
                     return BadRequest(ModelState);
 
                 }
-                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.IdDistrito.ToString().ToUpper())).Options;
+
+                //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.IdDistrito.ToString().ToUpper())).Options;
+                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion")).Options;
+
                 using (var ctx = new DbContextSIIGPP(options))
                 {
 

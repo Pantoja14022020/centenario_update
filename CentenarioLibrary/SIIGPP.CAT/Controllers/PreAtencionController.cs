@@ -44,12 +44,12 @@ namespace SIIGPP.CAT.Controllers
             }
 
             DateTime fecha = System.DateTime.Now;
-           
 
-            var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.distritoId.ToString().ToUpper())).Options;
+            ////var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.distritoId.ToString().ToUpper())).Options; var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion")).Options;
+            var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion")).Options;
+
             using (var ctx = new DbContextSIIGPP(options))
             {
-
                     Persona InsertarPersona;
                     Guid dirPersona,idRAP, idP;
                     PreAtencion InsertarPA = new PreAtencion
@@ -62,13 +62,9 @@ namespace SIIGPP.CAT.Controllers
                     ContencionVicitma = false
                     };
 
-
                 try
                 {
                     ctx.PreAtenciones.Add(InsertarPA);
-
-
-
 
                     InsertarPersona = new Persona
                     {
@@ -83,7 +79,6 @@ namespace SIIGPP.CAT.Controllers
                         StatusAlias = model.StatusAlias,
                         FechaNacimiento = model.FechaNacimiento,
                         EntidadFederativa = model.EntidadFederativa,
-                        
                         CURP = model.CURP,
                         Sexo = model.Sexo,
                         EstadoCivil = model.EstadoCivil,
@@ -103,14 +98,10 @@ namespace SIIGPP.CAT.Controllers
                         Parentesco = model.Parentesco,
                         Edad = model.Edad,
                         Relacion = model.Relacion
-
-
                     };
 
                     ctx.Personas.Add(InsertarPersona);
                     //********************************************************
-
-                   
 
                     DireccionPersonal InsertarDP = new DireccionPersonal
                     {
@@ -133,8 +124,6 @@ namespace SIIGPP.CAT.Controllers
 
                     ctx.DireccionPersonals.Add(InsertarDP);
                     
-                    
-
                     PreRap InsertarRAP = new PreRap
                     {
                         PAtencionId = InsertarPA.IdPAtencion,
@@ -145,29 +134,20 @@ namespace SIIGPP.CAT.Controllers
 
                     ctx.PreRaps.Add(InsertarRAP);
                    
-
                     await ctx.SaveChangesAsync();
                     var idPA = InsertarPA.IdPAtencion;
                     idP = InsertarPersona.IdPersona;
                     dirPersona = InsertarDP.IdDPersonal;
                     idRAP = InsertarRAP.IdPRap;
-
                 }
-
                 catch (Exception ex)
                 {
                     var result = new ObjectResult(new { mensaje = ex.Message, detail = ex.InnerException == null ? "SIN EXCEPCION INTERNA" : ex.InnerException.Message, version = "version 1.4" });
                     result.StatusCode = 402;
                     return result;
                 }
-
                 return Ok(new { idpatencion = InsertarPA.IdPAtencion, personaid = idP, direccionPersonal=dirPersona,rap=idRAP });
-
             }
         }
-
-
-
     }
-
-}
+}  

@@ -1,29 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Data.SqlClient;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.Blazor;
+using SIIGPP.CAT.FilterClass;
+using SIIGPP.CAT.Models.AdminInfo;
+using SIIGPP.CAT.Models.Persona;
 using SIIGPP.CAT.Models.Registro;
 using SIIGPP.CAT.Models.Victimas;
 using SIIGPP.Datos;
+using SIIGPP.Entidades.M_Administracion;
 using SIIGPP.Entidades.M_Cat.Direcciones;
+using SIIGPP.Entidades.M_Cat.MedAfiliacion;
+using SIIGPP.Entidades.M_Cat.MedFiliacionDesaparecido;
+using SIIGPP.Entidades.M_Cat.PersonaDesap;
 using SIIGPP.Entidades.M_Cat.Registro;
 using SIIGPP.Entidades.M_Cat.Turnador;
-using SIIGPP.Entidades.M_Cat.PersonaDesap;
-using SIIGPP.Entidades.M_Cat.MedAfiliacion;
-using SIIGPP.CAT.FilterClass;
-using SIIGPP.CAT.Models.AdminInfo;
-using SIIGPP.Entidades.M_Administracion;
-using SIIGPP.CAT.Models.Persona;
 //using MoreLinq;
 using SIIGPP.Entidades.M_Configuracion.Cat_Estructura;
-using SIIGPP.Entidades.M_Cat.MedFiliacionDesaparecido;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace SIIGPP.CAT.Controllers
 {
@@ -610,7 +611,6 @@ namespace SIIGPP.CAT.Controllers
             }
         }
 
-
         // GET: api/RAPs/ListarFull/id
         [Authorize(Roles = "Administrador, Recepción,AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,AMPO-IL,Recepción")]
         [HttpGet("[action]/{rAtencionId}")]     
@@ -681,10 +681,9 @@ namespace SIIGPP.CAT.Controllers
                 CumpleRequisitoLey = a.Persona.CumpleRequisitoLey,
                 DecretoLibertad = a.Persona.DecretoLibertad,
                 DispusoLibertad = a.Persona.DispusoLibertad
-
             });
-
         }
+
         // GET: api/RAPs/ListarRegistroPorPersona
         [Authorize(Roles = "Administrador,Recepción,AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,Recepción")]
         [HttpGet("[action]/{personaId}")]
@@ -713,7 +712,6 @@ namespace SIIGPP.CAT.Controllers
         [Authorize(Roles = "Administrador,Recepción,AMPO-AMP Mixto, AMPO-AMP Detenido,AMPO-AMP")]
         [HttpPost("[action]")]
         public async Task<IActionResult> CrearRAP(CrearRAPViewModel model)
-
         {
             if (!ModelState.IsValid)
             {
@@ -724,8 +722,6 @@ namespace SIIGPP.CAT.Controllers
             int noturno = 1;
             try
             {
-
-
                 RAtencion InsertarRA = new RAtencion
                 {
                     DistritoInicial = model.DistritoInicial,
@@ -759,15 +755,11 @@ namespace SIIGPP.CAT.Controllers
                                  .Take(1)
                                  .FirstOrDefaultAsync();
 
-
-
                 if (turno != null)
                 {
                     serie = turno.Serie;
                     noturno = turno.NoTurno + 1;
                 }
-
-
 
                 Turno InsertarTurno = new Turno
                 {
@@ -787,17 +779,12 @@ namespace SIIGPP.CAT.Controllers
 
                 //**********************************************************************
             }
-#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
-#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
-                return BadRequest();
+                return BadRequest(ex);
             }
             return Ok(new { notu = noturno, fh = fecha.ToString("dd/MM/yyyy hh:mm:ss") });
-
-
         }
-
 
         // POST: api/RAPs/Crear
         [Authorize(Roles = "Administrador,AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido, AMPO-IL,Recepción")]
@@ -812,8 +799,10 @@ namespace SIIGPP.CAT.Controllers
 
             Guid personaid;
             Guid idrap;
+
             try
             {
+                //Console.WriteLine(model);
                 Persona InsertarPersona = new Persona
                 {
                     StatusAnonimo = model.StatusAnonimo,
@@ -861,18 +850,15 @@ namespace SIIGPP.CAT.Controllers
                     CumpleRequisitoLey = model.CumpleRequisitoLey,
                     DecretoLibertad = model.DecretoLibertad,
                     DispusoLibertad = model.DispusoLibertad
-
                 };
 
                 _context.Personas.Add(InsertarPersona);
-
 
                 var idRA = model.RAtencionId;
                 var idP = InsertarPersona.IdPersona;
 
                 DireccionPersonal InsertarDP = new DireccionPersonal
                 {
-
                     Calle = model.Calle,
                     NoExt = model.NoExt,
                     NoInt = model.NoInt,
@@ -886,19 +872,17 @@ namespace SIIGPP.CAT.Controllers
                     CP = model.CP,
                     lat = model.lat,
                     lng = model.lng,
-                    PersonaId = idP,
-                    TipoVialidad = model.tipoVialidad,
-                    TipoAsentamiento = model.tipoAsentamiento,
+                    Persona = InsertarPersona,
+                    TipoVialidad = model.TipoVialidad,
+                    TipoAsentamiento = model.TipoAsentamiento,
                 };
 
                 _context.DireccionPersonals.Add(InsertarDP);
 
-
-
                 RAP InsertarRAP = new RAP
                 {
-                    RAtencionId = idRA,
-                    PersonaId = idP,
+                    RAtencionId = model.RAtencionId,
+                    Persona = InsertarPersona,
                     ClasificacionPersona = model.ClasificacionPersona,
                     PInicio = model.PInicio,
                 };
@@ -907,7 +891,6 @@ namespace SIIGPP.CAT.Controllers
 
                 DireccionEscucha InsertarDE = new DireccionEscucha
                 {
-                    RAPId = InsertarRAP.IdRAP,
                     Calle = model.de_Calle,
                     NoExt = model.de_NoExt,
                     NoInt = model.de_NoInt,
@@ -923,24 +906,25 @@ namespace SIIGPP.CAT.Controllers
                     lng = model.de_lng,
                     TipoVialidad = model.de_tipoVialidad,
                     TipoAsentamiento = model.de_tipoAsentamiento,
+
+                    RAP = InsertarRAP
                 };
 
                 _context.DireccionEscuchas.Add(InsertarDE);
-                //********************************************************************** 
 
+                //**********************************************************************
                 await _context.SaveChangesAsync();
                 personaid = InsertarPersona.IdPersona;
                 idrap = InsertarRAP.IdRAP;
                 //**********************************************************************
+
                 return Ok(new { personaid = personaid ,  idrap = idrap });
             }
-#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
-#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
                 var result = new ObjectResult(new { mensaje = ex.Message, detail = ex.InnerException == null ? "SIN EXCEPCION INTERNA" : ex.InnerException.Message, version = "version 1.4" });
                 result.StatusCode = 402;
-                return result;
+                return result;        
             }
         }
 
@@ -959,7 +943,6 @@ namespace SIIGPP.CAT.Controllers
 
             try
             {
-
                 RAP InsertarRAP = new RAP
                 {
                     RAtencionId = model.RAtencionId,
@@ -1337,7 +1320,9 @@ namespace SIIGPP.CAT.Controllers
         {
             try
             {
-                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + idDistrito.ToString().ToUpper())).Options;
+                //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + idDistrito.ToString().ToUpper())).Options;
+                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion")).Options;
+
                 using (var ctx = new DbContextSIIGPP(options))
                 {
                     var dp = await ctx.DireccionPersonals
@@ -2804,8 +2789,8 @@ namespace SIIGPP.CAT.Controllers
                     lat = model.lat,
                     lng = model.lng,
                     PersonaId = idP,
-                    TipoVialidad = model.tipoVialidad,
-                    TipoAsentamiento = model.tipoAsentamiento,
+                    TipoVialidad = model.TipoVialidad,
+                    TipoAsentamiento = model.TipoAsentamiento,
                 };
 
                 _context.DireccionPersonals.Add(InsertarDP);
@@ -3693,12 +3678,9 @@ namespace SIIGPP.CAT.Controllers
                     InstitutoPolicial = model.InstitutoPolicial,
                     InformePolicial = model.InformePolicial,
                     PoliciaDetuvo = model.PoliciaDetuvo,
-
-
                 };
 
                 _context.Personas.Add(InsertarPersona);
-
 
                 var idRA = model.RAtencionId;
                 var idP = InsertarPersona.IdPersona;
@@ -4276,7 +4258,10 @@ namespace SIIGPP.CAT.Controllers
                     return Ok();
 
                 }
-                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.IdDistrito.ToString().ToUpper())).Options;
+
+                //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.IdDistrito.ToString().ToUpper())).Options;
+                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion")).Options;
+
                 using (var ctx = new DbContextSIIGPP(options))
                 {
 

@@ -544,8 +544,6 @@ namespace SIIGPP.CAT.Controllers
         // POST: api/Vehiculos/Clonar
         public async Task<IActionResult> Clonar([FromBody] Models.Rac.ClonarViewModel model)
         {
-
-           
             var listaVehiculo = await _context.Vehiculos.Where(x => x.RHechoId == model.IdRHecho).ToListAsync();
 
             try
@@ -554,21 +552,18 @@ namespace SIIGPP.CAT.Controllers
                 {
                     return BadRequest(ModelState);
                 }
-
                 if (listaVehiculo == null)
                 {
                     return Ok();
-
                 }
 
-                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.IdDistrito.ToString().ToUpper())).Options;
+                //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.IdDistrito.ToString().ToUpper())).Options;
+                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion")).Options;
+
                 using (var ctx = new DbContextSIIGPP(options))
                 {
-
-
                     foreach (Vehiculo vehiculoActual in listaVehiculo)
                     {
-
                         var insertarVehiculo = await ctx.Vehiculos.FirstOrDefaultAsync(a => a.IdVehiculo == vehiculoActual.IdVehiculo);
 
                         if (insertarVehiculo == null)
@@ -576,7 +571,6 @@ namespace SIIGPP.CAT.Controllers
                             insertarVehiculo = new Vehiculo();
                             ctx.Vehiculos.Add(insertarVehiculo);
                         }
-
 
                         insertarVehiculo.IdVehiculo = vehiculoActual.IdVehiculo;
                         insertarVehiculo.RHechoId = vehiculoActual.RHechoId;
@@ -624,7 +618,6 @@ namespace SIIGPP.CAT.Controllers
                         {
                             foreach (DevolucionVehiculo vehiculoActualDevolver in consultaVehiculoDevolver)
                             {
-
                                 var insertarVehiculoDevolver = await ctx.DevolucionVehiculos.FirstOrDefaultAsync(a => a.IdDevolucionVehiculo == vehiculoActualDevolver.IdDevolucionVehiculo);
 
                                 if (insertarVehiculoDevolver == null)
@@ -656,19 +649,13 @@ namespace SIIGPP.CAT.Controllers
                                 insertarVehiculoDevolver.FirmasVoBo = vehiculoActualDevolver.FirmasVoBo;
                                 insertarVehiculoDevolver.TextoDevolucion = vehiculoActualDevolver.TextoDevolucion;
                                 insertarVehiculoDevolver.Fechasys = vehiculoActualDevolver.Fechasys;
-
                             }
-
                         }
-
                         await ctx.SaveChangesAsync();
-
-
                     }
                     return Ok();
                 }
             }
-
             catch (Exception ex)
             {
                 var result = new ObjectResult(new { mensaje = ex.Message, detail = ex.InnerException == null ? "SIN EXCEPCION INTERNA" : ex.InnerException.Message, version = "version 1.4" });
@@ -676,6 +663,5 @@ namespace SIIGPP.CAT.Controllers
                 return result;
             }
         }
-
     }
 }

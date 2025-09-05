@@ -29,7 +29,7 @@ namespace SIIGPP.Entidades.M_Cat.Orientacion
         public string RBreve { get; set; }
         public  string NarrativaHechos { get; set; }
         public Guid? NucId { get; set; }
-        [Required]
+       // [Required]
         public Nuc NUCs { get; set; } 
         public DateTime? FechaElevaNuc { get; set; }
         public DateTime FechaElevaNuc2 { get; set; }

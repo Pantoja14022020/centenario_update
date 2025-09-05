@@ -65,7 +65,9 @@ namespace SIIGPP.ControlAcceso.Controllers
                 if (model.Caso == 2)
                 {
                     Console.Write("entra caso 2");
-                    var option = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_config.GetConnectionString("C-" + model.IdDistrito.ToString().ToUpper())).Options;
+
+                    //var option = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_config.GetConnectionString("C-" + model.IdDistrito.ToString().ToUpper())).Options;
+                    var option = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_config.GetConnectionString("Conexion")).Options;
 
                     using (var ctx = new DbContextSIIGPP(option))
                     {
@@ -105,7 +107,8 @@ namespace SIIGPP.ControlAcceso.Controllers
                         Console.Write("entra for");
                         if (i == 0)
                         {
-                            var option = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_config.GetConnectionString("C-" + model.IdDistritoO.ToString().ToUpper())).Options;
+                            //var option = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_config.GetConnectionString("C-" + model.IdDistritoO.ToString().ToUpper())).Options;
+                            var option = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_config.GetConnectionString("Conexion")).Options;
 
                             using (var ctx = new DbContextSIIGPP(option))
                             {
@@ -139,7 +142,8 @@ namespace SIIGPP.ControlAcceso.Controllers
                         }
                         if (i == 1)
                         {
-                            var option = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_config.GetConnectionString("C-" + model.IdDistritoD.ToString().ToUpper())).Options;
+                            //var option = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_config.GetConnectionString("C-" + model.IdDistritoD.ToString().ToUpper())).Options;
+                            var option = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_config.GetConnectionString("Conexion")).Options;
 
                             using (var ctx = new DbContextSIIGPP(option))
                             {
@@ -1277,7 +1281,9 @@ namespace SIIGPP.ControlAcceso.Controllers
                 var consultausuario = await _context.Usuarios.FirstOrDefaultAsync(u => u.IdUsuario == model.IdUsuario);
 
                 //Se establece la conexion con la base de datos foranea
-                var option = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_config.GetConnectionString("C-" + model.IdDistrito.ToString().ToUpper())).Options;
+                //var option = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_config.GetConnectionString("C-" + model.IdDistrito.ToString().ToUpper())).Options;
+                var option = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_config.GetConnectionString("Conexion")).Options;
+
                 using (var ctx = new DbContextSIIGPP(option))
                 {
                     //Una vez establecida la conecion se procede a corroborar la existencia del usuario

@@ -534,7 +534,6 @@ namespace SIIGPP.CAT.Controllers
                 // Guardar Excepción
                 return BadRequest();
             }
-
             return Ok();
         }
 
@@ -879,7 +878,9 @@ namespace SIIGPP.CAT.Controllers
             try
             {
                 //Conexion a base de datos
-                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.distritoId.ToString().ToUpper())).Options;
+                //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.distritoId.ToString().ToUpper())).Options;
+                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion")).Options;
+                
                 using (var ctx = new DbContextSIIGPP(options))
                 {
 
@@ -1759,7 +1760,7 @@ namespace SIIGPP.CAT.Controllers
 
         // GET: api/RHechoes/ListarPorModuloCarpetas
         [Authorize(Roles = "AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,Administrador")]
-        [HttpGet("[action]/{idModuloServicio}")]    
+        [HttpGet("[action]/{idModuloServicio}")]
         public async Task<IActionResult> ListarPorModuloCarpetas([FromRoute] Guid idModuloServicio)
         {
             try
@@ -1837,6 +1838,96 @@ namespace SIIGPP.CAT.Controllers
                 return result;
             }
         }
+
+
+
+
+        // GET: api/RHechoes/ListarPorModuloCarpetas2
+        [Authorize(Roles = "AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,Administrador")]
+        [HttpGet("[action]/{idModuloServicio}")]
+        public async Task<IActionResult> ListarPorModuloCarpetas2(
+            [FromRoute] Guid idModuloServicio,
+            [FromQuery] int page = 1,
+            [FromQuery] int pageSize = 20)
+        {
+            try
+            {
+                // Query base
+                var query = _context.RHechoes
+                    .Include(a => a.RAtencion)
+                    .Include(a => a.NUCs)
+                    .Where(a => a.NucId != null)
+                    .Where(a => a.ModuloServicioId == idModuloServicio);
+
+                // Total de registros
+                var totalRegistros = await query.CountAsync();
+
+                // Paginación
+                var carpetas = await query
+                    .OrderByDescending(a => a.FechaElevaNuc2)
+                    .Skip((page - 1) * pageSize)
+                    .Take(pageSize)
+                    .ToListAsync();
+
+                // Extraer los Ids de RAtencion para buscar víctimas en lote
+                var rAtencionIds = carpetas
+                    .Select(c => c.RAtencionId)
+                    .Distinct()
+                    .ToList();
+
+                // Buscar todas las víctimas asociadas en una sola consulta
+                var victimas = await _context.RAPs
+                    .Where(r => r.PInicio && rAtencionIds.Contains(r.RAtencionId))
+                    .Include(r => r.Persona)
+                    .GroupBy(r => r.RAtencionId)
+                    .Select(g => new {
+                        RAtencionId = g.Key,
+                        Victima = g.FirstOrDefault()
+                    })
+                    .ToDictionaryAsync(x => x.RAtencionId, x => x.Victima);
+
+                // Construcción del resultado
+                var items = carpetas.Select(a => new ListarMisCarpetasViewModel
+                {
+                    RHechoId = a.IdRHecho,
+                    Agenciaid = a.Agenciaid,
+                    RAtencionId = a.RAtencionId,
+                    u_Nombre = a.RAtencion.u_Nombre,
+                    u_Puesto = a.RAtencion.u_Puesto,
+                    u_Modulo = a.RAtencion.u_Modulo,
+                    DistritoInicial = a.RAtencion.DistritoInicial,
+                    DirSubProcuInicial = a.RAtencion.DirSubProcuInicial,
+                    AgenciaInicial = a.RAtencion.AgenciaInicial,
+                    Status = a.Status,
+                    nucId = a.NucId,
+                    nuc = a.NUCs?.nucg,
+                    FechaElevaNuc = a.FechaElevaNuc,
+                    NDenunciaOficio = a.NDenunciaOficio,
+                    Victima = victimas.ContainsKey(a.RAtencionId) && victimas[a.RAtencionId] != null
+                        ? $"{victimas[a.RAtencionId].Persona.Nombre} {victimas[a.RAtencionId].Persona.ApellidoPaterno} {victimas[a.RAtencionId].Persona.ApellidoMaterno}"
+                        : "Sin registrar V/I"
+                }).ToList();
+
+                return Ok(new
+                {
+                    data = items,
+                    total = totalRegistros
+                });
+            }
+            catch (Exception ex)
+            {
+                var result = new ObjectResult(new
+                {
+                    mensaje = ex.Message,
+                    detail = ex.InnerException?.Message ?? "SIN EXCEPCION INTERNA",
+                    version = "version 1.6"
+                });
+                result.StatusCode = 500;
+                return result;
+            }
+        }
+
+
 
 
         // GET: api/RHechoes/ListarPorModuloRACSAdminDirector
@@ -1927,11 +2018,12 @@ namespace SIIGPP.CAT.Controllers
             {
                 return NotFound();
             }
+
             elevaNUC.NucId = model.nucId;
             elevaNUC.Status = true;
             elevaNUC.FechaElevaNuc = model.FechaElevacion;
             elevaNUC.FechaElevaNuc2 = model.FechaElevacion;
-            //******************************************************************************************
+
             // ACTUALIZAMOS EL REGISTRO   DE ATENCION 
             // El Campo statusRegistro simpre  se registra en TRUE hasta que se eleva a NUC o se  queda como RAC
             var bajaRAC = await _context.RAtencions.FirstOrDefaultAsync(a => a.IdRAtencion == model.ratencionId);
@@ -2533,9 +2625,9 @@ namespace SIIGPP.CAT.Controllers
 
         }
 
+        // POST: api/RHechoes/Clonar
         [Authorize(Roles = "Administrador,AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,Recepción,AMPO-IL")]
         [HttpPost("[action]")]
-        // POST: api/RHechoes/Clonar
         public async Task<IActionResult> Clonar([FromBody] Models.Rac.ClonarViewModel model)
         {
             if (!ModelState.IsValid)
@@ -2549,18 +2641,16 @@ namespace SIIGPP.CAT.Controllers
                                .Take(1)
                                .FirstOrDefaultAsync();
 
-
-
-
             if (consultaHecho == null)
             {
                 return BadRequest(ModelState);
-
             }
-            var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.IdDistrito.ToString().ToUpper())).Options;
+
+                //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.IdDistrito.ToString().ToUpper())).Options;
+                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion")).Options;
+
                 using (var ctx = new DbContextSIIGPP(options))
                 {
-
                     var InsertarRH = await ctx.RHechoes.FirstOrDefaultAsync(a => a.IdRHecho == consultaHecho.IdRHecho);
 
                     if (InsertarRH == null)
@@ -2568,7 +2658,6 @@ namespace SIIGPP.CAT.Controllers
                         InsertarRH = new RHecho();
                         ctx.RHechoes.Add(InsertarRH);
                     }
-
 
                     InsertarRH.IdRHecho = consultaHecho.IdRHecho;
                     InsertarRH.RAtencionId = consultaHecho.RAtencionId;
@@ -2588,14 +2677,10 @@ namespace SIIGPP.CAT.Controllers
                     InsertarRH.Observaciones = consultaHecho.Observaciones;
                     InsertarRH.FechaHoraSuceso2 = consultaHecho.FechaHoraSuceso2;
 
-                   
                     await ctx.SaveChangesAsync();
 
                     return Ok();
-
                 }
-
-                
             }
             catch (Exception ex)
             {
@@ -2603,10 +2688,6 @@ namespace SIIGPP.CAT.Controllers
                 result.StatusCode = 402;
                 return result;
             }
-
-
         }
-
     }
-
 }

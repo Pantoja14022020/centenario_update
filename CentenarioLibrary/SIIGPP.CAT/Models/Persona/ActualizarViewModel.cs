@@ -26,6 +26,7 @@ namespace SIIGPP.CAT.Models.Persona
         public Boolean PoblacionAfro { get; set; }
         public string RangoEdad { get; set; }
         public Boolean RangoEdadTF { get; set; }
+        public Guid PoliciaDetuvo { get; set; }
         //--------------------------------------------------------
         public string sexo { get; set; }
         public string docIdentificacion { get; set; }

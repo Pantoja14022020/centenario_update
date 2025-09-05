@@ -947,7 +947,9 @@ namespace SIIGPP.CAT.Controllers
             try
             {
                 //AGREGAR EN LA BD DEL DISTRITO DESTINO
-                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.DistritoRecibe.ToString().ToUpper())).Options;
+                //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.DistritoRecibe.ToString().ToUpper())).Options;
+                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion")).Options;
+
                 using (var ctxDestino = new DbContextSIIGPP(options))
                 {
                     RDiligenciasForaneas InsertarRDForaneo = InsertarRD;
@@ -1043,7 +1045,9 @@ namespace SIIGPP.CAT.Controllers
             try
             {
                 //AGREGAR EN LA BD DEL DISTRITO DESTINO
-                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.DistritoRecibe.ToString().ToUpper())).Options;
+                //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.DistritoRecibe.ToString().ToUpper())).Options;
+                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion")).Options;
+
                 using (var ctxDestino = new DbContextSIIGPP(options))
                 {
                     RDiligenciasForaneas InsertarRDForaneo = InsertarRD;
@@ -1578,8 +1582,9 @@ namespace SIIGPP.CAT.Controllers
         {
             try
             {
+                //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + idDistrito.ToString().ToUpper())).Options;
+                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion")).Options;
 
-                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + idDistrito.ToString().ToUpper())).Options;
                 using (var ctx = new DbContextSIIGPP(options))
                 {
                     var da = await ctx.RDiligenciasForaneas

@@ -10,7 +10,6 @@ using SIIGPP.Configuracion.Models.Cat_SpPi_Ligaciones;
 using SIIGPP.Datos;
 using SIIGPP.Entidades.M_Configuracion.Cat_SpPi_Ligaciones;
 
-
 namespace SIIGPP.Configuracion.Controllers.Cat_SpPi_Ligaciones
 {
     [Route("api/[controller]")]
@@ -42,9 +41,7 @@ namespace SIIGPP.Configuracion.Controllers.Cat_SpPi_Ligaciones
                 Dspn = a.DSP.NombreSubDir,
                 Paneln = a.PanelControl.Nombre
             });
-
         }
-
 
         // PUT: api/SpPiLigaciones/Actualizar
         [Authorize(Roles = " Administrador")]
@@ -55,8 +52,6 @@ namespace SIIGPP.Configuracion.Controllers.Cat_SpPi_Ligaciones
             {
                 return BadRequest(ModelState);
             }
-
-
 
             var sppi = await _context.SPPiligaciones.FirstOrDefaultAsync(a => a.IdSPPiligaciones == model.IdSPPiligaciones);
 
@@ -78,10 +73,8 @@ namespace SIIGPP.Configuracion.Controllers.Cat_SpPi_Ligaciones
                 // Guardar Excepción
                 return BadRequest();
             }
-
             return Ok();
         }
-
 
         // POST: api/SpPiLigaciones/Crear
         [Authorize(Roles = " Administrador")]
@@ -95,11 +88,9 @@ namespace SIIGPP.Configuracion.Controllers.Cat_SpPi_Ligaciones
 
             SPPiligaciones sppi = new SPPiligaciones
             {
-
                 PanelControlId = model.PanelControlId,
                 DSPId = model.DSPId,
                 Direccion = model.Direccion,
-
             };
 
             _context.SPPiligaciones.Add(sppi);
@@ -113,19 +104,17 @@ namespace SIIGPP.Configuracion.Controllers.Cat_SpPi_Ligaciones
             {
                 return BadRequest();
             }
-
             return Ok();
         }
 
-
         // GET: api/SpPiLigaciones/ListarPertenecienteyGeneralSP
         [HttpGet("[action]/{idmodulo}")]
-        public async Task<IEnumerable<SpPiLigacionesViewModel>> ListarPertenecienteyGeneralSP([FromRoute]Guid idmodulo)
+        public async Task<IEnumerable<SpPiLigacionesViewModel>> ListarPertenecienteyGeneralSP([FromRoute] Guid idmodulo)
         {
             var sppi = await _context.SPPiligaciones
                 .Include(a => a.DSP)
                 .Include(a => a.PanelControl)
-                .Where(a => a.Direccion == true || a.PanelControl.Clave == idmodulo )
+                .Where(a => a.Direccion == true || a.PanelControl.Clave == idmodulo)
                 .Where(a => a.DSP.Tipo == "SP")
                 .ToListAsync();
 
@@ -138,12 +127,11 @@ namespace SIIGPP.Configuracion.Controllers.Cat_SpPi_Ligaciones
                 Dspn = a.DSP.NombreSubDir,
                 Paneln = a.PanelControl.Nombre
             });
-
         }
 
         // GET: api/SpPiLigaciones/ListarPertenecienteyGeneralPI
         [HttpGet("[action]/{idmodulo}")]
-        public async Task<IEnumerable<SpPiLigacionesViewModel>> ListarPertenecienteyGeneralPI([FromRoute]Guid idmodulo)
+        public async Task<IEnumerable<SpPiLigacionesViewModel>> ListarPertenecienteyGeneralPI([FromRoute] Guid idmodulo)
         {
             var sppi = await _context.SPPiligaciones
                 .Include(a => a.DSP)
@@ -163,13 +151,11 @@ namespace SIIGPP.Configuracion.Controllers.Cat_SpPi_Ligaciones
                 Paneln = a.PanelControl.Nombre,
                 DistritoId = a.DSP.DistritoId
             });
-
         }
-
 
         // GET: api/SpPiLigaciones/ListarPertenecienteyGeneralSPDistrito
         [HttpGet("[action]/{idmodulo}/{iddistrito}")]
-        public async Task<IEnumerable<SpPiLigacionesViewModel>> ListarPertenecienteyGeneralSPDistrito([FromRoute] Guid idmodulo,Guid iddistrito)
+        public async Task<IEnumerable<SpPiLigacionesViewModel>> ListarPertenecienteyGeneralSPDistrito([FromRoute] Guid idmodulo, Guid iddistrito)
         {
             var sppi = await _context.SPPiligaciones
                 .Include(a => a.DSP)
@@ -188,9 +174,7 @@ namespace SIIGPP.Configuracion.Controllers.Cat_SpPi_Ligaciones
                 Dspn = a.DSP.NombreSubDir,
                 Paneln = a.PanelControl.Nombre
             });
-
         }
-
 
         // GET: api/SpPiLigaciones/ListarPertenecienteyGeneralPIDistrito
         [HttpGet("[action]/{idmodulo}/{iddistrito}")]
@@ -215,8 +199,6 @@ namespace SIIGPP.Configuracion.Controllers.Cat_SpPi_Ligaciones
                 Paneln = a.PanelControl.Nombre,
                 DistritoId = a.DSP.DistritoId
             });
-
         }
-
     }
 }

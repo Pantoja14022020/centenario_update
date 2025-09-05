@@ -7,7 +7,6 @@ namespace SIIGPP.CAT.Models.Historialcarpetas
 {
     public class CrearViewModel
     {
-     
         public Guid RHechoId { get; set; }
         public string Detalle { get; set; }
         public string DetalleEtapa { get; set; }

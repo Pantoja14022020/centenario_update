@@ -8,12 +8,12 @@ namespace SIIGPP.CAT.Models.Victimas
     public class CrearVicitmaViewModel
     {
         public Guid RAtencionId { get; set; }
+        
         //PERSONA
         public Boolean StatusAnonimo { get; set; }
         public string TipoPersona { get; set; }
         public string RFC { get; set; }
         public string RazonSocial { get; set; }
-        public string ClasificacionPersona { get; set; }
         public string Nombre { get; set; }
         public string ApellidoPaterno { get; set; }
         public string ApellidoMaterno { get; set; }
@@ -28,7 +28,7 @@ namespace SIIGPP.CAT.Models.Victimas
         public string RangoEdad { get; set; }
         public Boolean RangoEdadTF { get; set; }
         public Guid PoliciaDetuvo { get; set; }
-        //----------------------------------------------
+        //----------------------------------------------------------
         public string Sexo { get; set; }
         public string Genero { get; set; }
         public Boolean Registro { get; set; }
@@ -46,11 +46,13 @@ namespace SIIGPP.CAT.Models.Victimas
         public string Religion { get; set; }
         public Boolean Discapacidad { get; set; }
         public string TipoDiscapacidad { get; set; }
-        public Boolean PInicio { get; set; }
         public Boolean Relacion { get; set; }
         public int Edad { get; set; }
         public string Parentesco { get; set; }
 
+        //RAP
+        public string ClasificacionPersona { get; set; }
+        public Boolean PInicio { get; set; }
 
         //DIRECCION PERSONAL
         public string Calle { get; set; }
@@ -66,8 +68,9 @@ namespace SIIGPP.CAT.Models.Victimas
         public int CP { get; set; }
         public string lat { get; set; }
         public string lng { get; set; }
-        public int? tipoVialidad { get; set; }
-        public int? tipoAsentamiento { get; set; }
+        public int? TipoVialidad { get; set; }
+        public int? TipoAsentamiento { get; set; }
+
         //DIRECCION ESCUCHA 
         public string de_Calle { get; set; }
         public string de_NoInt { get; set; }
@@ -84,15 +87,14 @@ namespace SIIGPP.CAT.Models.Victimas
         public string de_lng { get; set; }
         public int? de_tipoVialidad { get; set; }
         public int? de_tipoAsentamiento { get; set; }
+
         public Boolean DatosProtegidos { get; set; }
         public string InstitutoPolicial { get; set; }
         public string InformePolicial { get; set; }
-
         public string DocPoderNotarial { get; set; }
         public Boolean InicioDetenido { get; set; }
         public string CumpleRequisitoLey { get; set; }
         public string DecretoLibertad { get; set; }
         public string DispusoLibertad { get; set; }
-
     }
 }

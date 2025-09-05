@@ -164,12 +164,13 @@ namespace SIIGPP.JR.Controllers
         [HttpGet("[action]/{envioid}/{distritoId}")]
         public async Task<IActionResult> ObtenerExistenciaConjuntoXDistrito([FromRoute] Guid envioid, Guid distritoId)
         {
-            var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + distritoId.ToString().ToUpper())).Options;
+            //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + distritoId.ToString().ToUpper())).Options;
+            var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion")).Options;
+
             using (var ctx = new DbContextSIIGPP(options))
             {
                 try
                 {
-
                     //Primer filtro para saber si existe por lo menos un acuerdo reparatorio, asi se de un conjunto o de uno sin conjunto
                     var searcAcuerdo = await ctx.AcuerdoReparatorios
                                     .Where(a => a.EnvioId == envioid).
@@ -178,7 +179,6 @@ namespace SIIGPP.JR.Controllers
                     //Evalua el resultado y si hay acuerdo hace el siguiente proceso, si no retorna una variable que en front sera evaluada
                     if (searcAcuerdo.Count > 0)
                     {
-
                         //Esta consulta busca los conjuntos de laa derivacion y caso de no haber se da por entendido que es una derivacion anterior a la implementacion de conjuntos
                         var serchConjunto = await ctx.AcuerdosConjuntos
                                         .Include(a => a.AcuerdoReparatorio)
@@ -651,7 +651,9 @@ namespace SIIGPP.JR.Controllers
         {
             try
             {
-                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + distritoId.ToString().ToUpper())).Options;
+                //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + distritoId.ToString().ToUpper())).Options;
+                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion")).Options;
+
                 using (var ctx = new DbContextSIIGPP(options))
                 {
                     //En realidad es una api muy sencilla, simplemente muestra el seguimiento del acuerdo  dependiendo el conjunto, cuyo conjunto tiene su propio id de acuerdo
@@ -1153,7 +1155,9 @@ namespace SIIGPP.JR.Controllers
             try
             {
                 //Por medio de esta conexion se hace la conexion a la ip del otro servidor, comprobar que la cadena de conexiones del back de jr tenga todas las conexiones
-                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + distritoId.ToString().ToUpper())).Options;
+                //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + distritoId.ToString().ToUpper())).Options;
+                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion")).Options;
+
                 using (var ctx = new DbContextSIIGPP(options))
                 {
                     var Tabla = await _context.SeguimientoCumplimientos
@@ -1238,7 +1242,9 @@ namespace SIIGPP.JR.Controllers
             try
             {
                 //Por medio de esta conexion se hace la conexion a la ip del otro servidor, comprobar que la cadena de conexiones del back de jr tenga todas las conexiones
-                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + distritoId.ToString().ToUpper())).Options;
+                //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + distritoId.ToString().ToUpper())).Options;
+                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion")).Options;
+
                 using (var ctx = new DbContextSIIGPP(options))
                 {
                     var Tabla = await _context.SeguimientoCumplimientos
@@ -1323,7 +1329,9 @@ namespace SIIGPP.JR.Controllers
             try
             {
                 //Por medio de esta conexion se hace la conexion a la ip del otro servidor, comprobar que la cadena de conexiones del back de jr tenga todas las conexiones
-                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + distritoId.ToString().ToUpper())).Options;
+                //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + distritoId.ToString().ToUpper())).Options;
+                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion")).Options;
+
                 using (var ctx = new DbContextSIIGPP(options))
                 {
 

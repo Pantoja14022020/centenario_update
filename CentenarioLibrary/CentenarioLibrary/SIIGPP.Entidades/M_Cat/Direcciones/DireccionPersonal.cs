@@ -9,7 +9,6 @@ namespace SIIGPP.Entidades.M_Cat.Direcciones
 {
     public class DireccionPersonal
     {
-       
         public Guid IdDPersonal { get; set; }
         public string Calle { get; set; }
         public string NoInt { get; set; }
@@ -24,7 +23,6 @@ namespace SIIGPP.Entidades.M_Cat.Direcciones
         public int? CP { get; set; }
         public Persona Persona { get; set; }
         public Guid PersonaId { get; set; }
-
         public string lat { get; set; }
         public string lng { get; set; }
         public int? TipoVialidad { get; set; }

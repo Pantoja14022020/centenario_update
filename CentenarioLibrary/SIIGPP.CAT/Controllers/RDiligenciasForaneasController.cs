@@ -119,23 +119,20 @@ namespace SIIGPP.CAT.Controllers
                 Dirigido = a.Dirigido,
                 RecibidoF = a.RecibidoF,
                 FechaRecibidoF = a.FechaRecibidoF,
-                EtapaInicial = a.EtapaInicial,
-
+                EtapaInicial = a.EtapaInicial
             });
-
         }
-
 
         // GET: api/RDiligenciasForaneas/ObtenernumeroMaximoporDistrito
         [Authorize(Roles = "Administrador,AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,AMPO-IL,Recepción")]
         [HttpGet("[action]/{Ndistrito}/{idDistrito}")]
         public async Task<IActionResult> ObtenernumeroMaximoporDistrito([FromRoute] String Ndistrito,[FromRoute] Guid idDistrito)
         {
-
             try
             {
+                //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + idDistrito.ToString().ToUpper())).Options;
+                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion")).Options;
 
-                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + idDistrito.ToString().ToUpper())).Options;
                 using (var ctx = new DbContextSIIGPP(options))
                 {
                     var da = await ctx.RDiligenciasForaneas
@@ -240,7 +237,9 @@ namespace SIIGPP.CAT.Controllers
             try
             {
                 //AGREGAR EN LA BD DEL DISTRITO DESTINO
-                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.AgenciaRecibe.ToString().ToUpper())).Options;
+                //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.AgenciaRecibe.ToString().ToUpper())).Options;
+                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion")).Options;
+
                 using (var ctxDestino = new DbContextSIIGPP(options))
                 {
                     RDiligenciasForaneas InsertarRDForaneo = InsertarRD;
@@ -297,7 +296,9 @@ namespace SIIGPP.CAT.Controllers
             try
             {
                 //AGREGAR EN LA BD DEL DISTRITO DESTINO
-                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.AgenciaRecibe.ToString().ToUpper())).Options;
+                //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.AgenciaRecibe.ToString().ToUpper())).Options;
+                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion")).Options;
+
                 using (var ctxDestino = new DbContextSIIGPP(options))
                 {
                     var DiligenciaClonar = await _context.RDiligenciasForaneas.FirstOrDefaultAsync(a => a.IdRDiligenciasForaneas == model.IdRDiligenciasForaneas);
@@ -453,7 +454,10 @@ namespace SIIGPP.CAT.Controllers
                 rdili.StatusRespuesta = model.StatusRespuesta;
                 rdili.Respuesta = model.Respuesta;
                 await _context.SaveChangesAsync();
-                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.AgenciaEnvia.ToString().ToUpper())).Options;
+
+                //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.AgenciaEnvia.ToString().ToUpper())).Options;
+                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion")).Options;
+
                 using (var ctx = new DbContextSIIGPP(options))
                 {
                     rdili = await ctx.RDiligenciasForaneas.FirstOrDefaultAsync(a => a.IdRDiligenciasForaneas == model.IdRDiligenciasForaneas);
@@ -524,7 +528,10 @@ namespace SIIGPP.CAT.Controllers
                 rdili.StatusRespuesta = model.StatusRespuesta;
                 rdili.Respuestas = model.Respuestas;
                 await _context.SaveChangesAsync();
-                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.AgenciaEnvia.ToString().ToUpper())).Options;
+
+                //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.AgenciaEnvia.ToString().ToUpper())).Options;
+                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion")).Options;
+
                 using (var ctx = new DbContextSIIGPP(options))
                 {
                     var rdilif = await ctx.RDiligenciasForaneas.FirstOrDefaultAsync(a => a.IdRDiligenciasForaneas == model.IdRDiligenciasForaneas);
@@ -593,22 +600,25 @@ namespace SIIGPP.CAT.Controllers
             }
             try
             { 
-            var rdili = await _context.RDiligenciasForaneas.FirstOrDefaultAsync(a => a.IdRDiligenciasForaneas == model.IdRDiligenciasForaneas);
-            rdili.RecibidoF = true;
-            rdili.FechaRecibidoF = System.DateTime.Now;
-            await _context.SaveChangesAsync();
-            var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.AgenciaEnvia.ToString().ToUpper())).Options;
-            using (var ctx = new DbContextSIIGPP(options))
-            {
-                var rdilif = await ctx.RDiligenciasForaneas.FirstOrDefaultAsync(a => a.IdRDiligenciasForaneas == model.IdRDiligenciasForaneas);
-                if (rdilif == null)
+                var rdili = await _context.RDiligenciasForaneas.FirstOrDefaultAsync(a => a.IdRDiligenciasForaneas == model.IdRDiligenciasForaneas);
+                rdili.RecibidoF = true;
+                rdili.FechaRecibidoF = System.DateTime.Now;
+                await _context.SaveChangesAsync();
+
+                //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.AgenciaEnvia.ToString().ToUpper())).Options;
+                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion")).Options;
+
+                using (var ctx = new DbContextSIIGPP(options))
                 {
-                    return NotFound();
+                    var rdilif = await ctx.RDiligenciasForaneas.FirstOrDefaultAsync(a => a.IdRDiligenciasForaneas == model.IdRDiligenciasForaneas);
+                    if (rdilif == null)
+                    {
+                        return NotFound();
+                    }
+                    rdilif.RecibidoF = true;
+                    rdilif.FechaRecibidoF = System.DateTime.Now;
+                    await ctx.SaveChangesAsync();
                 }
-                rdilif.RecibidoF = true;
-                rdilif.FechaRecibidoF = System.DateTime.Now;
-                await ctx.SaveChangesAsync();
-            }
             }
             catch (Exception ex)
             {

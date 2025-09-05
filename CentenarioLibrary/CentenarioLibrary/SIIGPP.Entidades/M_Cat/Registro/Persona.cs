@@ -1,19 +1,12 @@
-﻿ 
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using SIIGPP.Entidades.M_Cat.Direcciones;
-using System.Text;
+﻿using SIIGPP.Entidades.M_Cat.Direcciones;
 using SIIGPP.Entidades.M_JR.RSolicitanteRequerido;
 
 namespace SIIGPP.Entidades.M_Cat.Registro
 {
     public class Persona
     {
- 
         public Guid IdPersona { get; set; }
-        public  Boolean StatusAnonimo { get; set; }
+        public Boolean StatusAnonimo { get; set; }
         public string TipoPersona { get; set; }
         public string RFC { get; set; }
         public string RazonSocial { get; set; } 
@@ -26,11 +19,11 @@ namespace SIIGPP.Entidades.M_Cat.Registro
         public string EntidadFederativa { get; set; }
         public string DocIdentificacion { get; set; }
         public string CURP { get; set; }
-        //Integraciones nuevas
+        //Integraciones que no estan en todos lados por ser nuevas
         public Boolean? PoblacionAfro { get; set; }
         public string RangoEdad { get; set; }
         public Boolean? RangoEdadTF { get; set; }
-        public Guid? PoliciaDetuvo { get; set; }
+        public Guid PoliciaDetuvo { get; set; }
         //----------------------------------------------------------
         public string Sexo { get; set; }
         public string Genero { get; set; }
@@ -49,21 +42,23 @@ namespace SIIGPP.Entidades.M_Cat.Registro
         public string Religion { get; set; }
         public Boolean Discapacidad { get; set; }
         public string TipoDiscapacidad { get; set; }
+        public Boolean Relacion { get; set; }
+        public int Edad { get; set; }
         public string Parentesco { get; set; }
         public Boolean DatosProtegidos { get; set; }
-        public List<RAP> RAPs { get; set; }
         public string Numerornd { get; set; }
         public string InstitutoPolicial { get; set; }
         public string InformePolicial { get; set; }
-        public Boolean Relacion { get; set; }
-        public int Edad { get; set; }
         public Boolean DatosFalsos { get; set; } = false;
         public string DocPoderNotarial { get; set; }
         public Boolean InicioDetenido { get; set; }
         public string CumpleRequisitoLey { get; set; }
         public string DecretoLibertad { get; set; }
-        public string   DispusoLibertad { get; set; }
+        public string DispusoLibertad { get; set; }
+
+        //FOREIGN KEY
         public DireccionPersonal DireccionPersonal { get; set; }
+        public List<RAP> RAPs { get; set; }        
         public SolicitanteRequerido SolicitanteRequerido { get; set; }
     }
 }

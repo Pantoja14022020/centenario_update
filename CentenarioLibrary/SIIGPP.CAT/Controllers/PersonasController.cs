@@ -144,6 +144,7 @@ namespace SIIGPP.CAT.Controllers
                 persona.FechaNacimiento = model.fechaNacimiento;
                 persona.RangoEdad = model.RangoEdad;
                 persona.RangoEdadTF = model.RangoEdadTF;
+                persona.PoliciaDetuvo = model.PoliciaDetuvo;
                 persona.EntidadFederativa = model.entidadFederativa;
                 persona.DocIdentificacion = model.docIdentificacion;
                 persona.CURP = model.curp;

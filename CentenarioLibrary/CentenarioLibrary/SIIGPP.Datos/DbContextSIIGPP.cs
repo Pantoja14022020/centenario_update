@@ -280,7 +280,6 @@ namespace SIIGPP.Datos
 {
     public class DbContextSIIGPP : DbContext
     {
-
         //MODULO CAT
         public DbSet<Rac> Racs { get; set; }
         public DbSet<Nuc> Nucs { get; set; }
@@ -288,7 +287,7 @@ namespace SIIGPP.Datos
         public DbSet<RAP> RAPs { get; set; }
         public DbSet<Persona> Personas { get; set; }
         public DbSet<DireccionPersonal> DireccionPersonals { get; set; }
-        public DbSet<DireccionEscucha> DireccionEscuchas { get; set; }
+        public DbSet<DireccionEscucha> DireccionEscuchas {  get; set; }
         public DbSet<MediaAfiliacion> MediaAfiliacions { get; set; }
         public DbSet<ArchivosMediaAfiliacion> ArchivosMediaAfiliacions { get; set; }
         public DbSet<MedidasCautelares> MedidasCautelares { get; set; }

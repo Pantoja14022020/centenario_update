@@ -41,8 +41,6 @@ namespace SIIGPP.CAT.Controllers
                 return BadRequest(ModelState);
             }
 
-
-
             RegistroTableroI hi = new RegistroTableroI
             {
                 RHechoId = model.RHechoId,
@@ -55,7 +53,6 @@ namespace SIIGPP.CAT.Controllers
                 UsuarioId = model.UsuarioId,
                 NombreUsuario = model.NombreUsuario,
                 FechaRegistro = System.DateTime.Now,
-
             };
 
             _context.RegistrosTableroI.Add(hi);
@@ -64,28 +61,22 @@ namespace SIIGPP.CAT.Controllers
                 await _context.SaveChangesAsync();
                 return Ok(new { id = hi.IdRegistroTableroI });
             }
-#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
-#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
                 var result = new ObjectResult(new { statusCode = "402", mensaje = ex.InnerException.Message, detail = ex.Message, version = "version 1.0" });
                 result.StatusCode = 402;
                 return result;
             }
-
         }
 
         // GET: api/RegistroTableroI/Listar
         [HttpGet("[action]/{rHechoId}")]
         public async Task<IEnumerable<ListarViewModel>> Listar([FromRoute] Guid rHechoId)
-        
         {
-
             var hi = await _context.RegistrosTableroI
                 .Where(a => a.RHechoId == rHechoId)
                 .OrderByDescending(a => a.FechaRegistro)
                 .ToListAsync();
-
 
             return hi.Select(a => new ListarViewModel
             {
@@ -99,20 +90,14 @@ namespace SIIGPP.CAT.Controllers
                 Modulo = a.Modulo,
                 UsuarioId = a.UsuarioId,
                 NombreUsuario = a.NombreUsuario,
-                FechaRegistro = a.FechaRegistro,
-
+                FechaRegistro = a.FechaRegistro
             });
-
-
-
-
         }
 
         // GET: api/RegistroTableroI/ListarI
         [HttpGet("[action]/{rHechoId}")]
         public async Task<IActionResult> ListarI([FromRoute] Guid rHechoId)
         {
-
             string nucm = "00000000-0000-0000-0000-000000000000";
 
             var hi = await _context.RegistrosTableroI
@@ -163,10 +148,8 @@ namespace SIIGPP.CAT.Controllers
                     NombreUsuario = hi.NombreUsuario,
                     FechaRegistro = hi.FechaRegistro,
                     NucId = Guid.Parse(nucm)
-
                 });
             }
-
 
             return Ok(new ListarViewModel
             {
@@ -182,13 +165,9 @@ namespace SIIGPP.CAT.Controllers
                 NombreUsuario = hi.NombreUsuario,
                 FechaRegistro = hi.FechaRegistro,
                 NucId = nu.NUCs.idNuc
-
             });
-            
-
-
-
         }
+
         // GET: api/RegistroTableroI/ListarI
         [Authorize(Roles = "Administrador,AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,Procurador,Recepción")]
         [HttpGet("[action]/{u_idagencia}")]
@@ -259,7 +238,6 @@ namespace SIIGPP.CAT.Controllers
                     FechaReporte = a.FechaReporte,
                     Fecha_del_Ultimo_Registro = a.Fecha_del_Ultimo_Registro,
                     Dias_Inactiva = a.Dias_Inactiva
-
                 }));
             }
             catch (Exception ex)
@@ -269,6 +247,7 @@ namespace SIIGPP.CAT.Controllers
                 return result;
             }
         }
+
         // GET: api/RegistroTableroI/ListarI
         [Authorize(Roles = "Administrador,AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,Procurador")]
         [HttpGet("[action]/{u_idagencia}/{modulou}")]
@@ -340,7 +319,6 @@ namespace SIIGPP.CAT.Controllers
                     FechaReporte = a.FechaReporte,
                     Fecha_del_Ultimo_Registro = a.Fecha_del_Ultimo_Registro,
                     Dias_Inactiva = a.Dias_Inactiva
-
                 }));
             }
             catch (Exception ex)
@@ -694,7 +672,8 @@ namespace SIIGPP.CAT.Controllers
 
             try
             {
-                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.IdDistrito.ToString().ToUpper())).Options;
+                //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.IdDistrito.ToString().ToUpper())).Options;
+                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion")).Options;
 
                 using (var ctx = new DbContextSIIGPP(options))
                 {

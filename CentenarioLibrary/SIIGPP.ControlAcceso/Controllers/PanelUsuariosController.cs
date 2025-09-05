@@ -48,7 +48,8 @@ namespace SIIGPP.ControlAcceso.Controllers
 
             try
             {
-                var option = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_config.GetConnectionString("C-" + model.IdDistrito.ToString().ToUpper())).Options;
+                //var option = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_config.GetConnectionString("C-" + model.IdDistrito.ToString().ToUpper())).Options;
+                var option = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_config.GetConnectionString("Conexion")).Options;
 
                 using (var ctx = new DbContextSIIGPP(option))
                 {
@@ -103,7 +104,8 @@ namespace SIIGPP.ControlAcceso.Controllers
 
                 if (model.Caso == 2)
                 {
-                    var option = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_config.GetConnectionString("C-" + model.IdDistrito.ToString().ToUpper())).Options;
+                    //var option = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_config.GetConnectionString("C-" + model.IdDistrito.ToString().ToUpper())).Options;
+                    var option = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_config.GetConnectionString("Conexion")).Options;
 
                     using (var ctx = new DbContextSIIGPP(option))
                     {
@@ -131,7 +133,8 @@ namespace SIIGPP.ControlAcceso.Controllers
                 }
                 else if (model.Caso == 3)
                 {
-                    var option = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_config.GetConnectionString("C-" + model.IdDistritoD.ToString().ToUpper())).Options;
+                    //var option = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_config.GetConnectionString("C-" + model.IdDistritoD.ToString().ToUpper())).Options;
+                    var option = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_config.GetConnectionString("Conexion")).Options;
 
                     using (var ctx = new DbContextSIIGPP(option))
                     {
@@ -157,7 +160,6 @@ namespace SIIGPP.ControlAcceso.Controllers
                     }
                     return Ok();
                 }
-
                 return BadRequest("No se Puede");
             }
             catch (Exception ex)

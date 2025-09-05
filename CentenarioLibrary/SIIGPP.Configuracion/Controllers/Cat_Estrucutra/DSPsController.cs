@@ -535,7 +535,9 @@ namespace SIIGPP.Configuracion.Controllers
             }
             try
             {
-                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.distritoCnx.ToString().ToUpper())).Options;
+                //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + model.distritoCnx.ToString().ToUpper())).Options;
+                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion")).Options;
+
                 using (var ctx = new DbContextSIIGPP(options))
                 {
                     var dsp = await ctx.DSPs.FirstOrDefaultAsync(a => a.IdDSP == model.IdDSP);
@@ -558,8 +560,6 @@ namespace SIIGPP.Configuracion.Controllers
                     dsp.StatusDSP = model.StatusDSP;
 
                     await ctx.SaveChangesAsync();
-
-
                 }
                 return Ok();
             }
@@ -570,6 +570,7 @@ namespace SIIGPP.Configuracion.Controllers
                 return result;
             }
         }
+
         // PUT: api/ModuloServicio/ActDesDSPxDis
         [Authorize(Roles = "Administrador")]
         [HttpPut("[action]/{idDSP}/{distritoCnx}")]
@@ -577,7 +578,9 @@ namespace SIIGPP.Configuracion.Controllers
         {
             try
             {
-                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + distritoCnx.ToString().ToUpper())).Options;
+                //var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("C-" + distritoCnx.ToString().ToUpper())).Options;
+                var options = new DbContextOptionsBuilder<DbContextSIIGPP>().UseSqlServer(_configuration.GetConnectionString("Conexion")).Options;
+
                 using (var ctx = new DbContextSIIGPP(options))
                 {
                     var dsp = await ctx.DSPs.FirstOrDefaultAsync(s => s.IdDSP == idDSP);
@@ -592,7 +595,6 @@ namespace SIIGPP.Configuracion.Controllers
                         dsp.StatusDSP = true;
                         await ctx.SaveChangesAsync();
                     }
-
                 }
                 return Ok();
             }
