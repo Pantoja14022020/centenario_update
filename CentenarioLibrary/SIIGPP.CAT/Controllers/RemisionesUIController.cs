@@ -406,9 +406,7 @@ namespace SIIGPP.CAT.Controllers
                 ModuloServicioId = a.ModuloServicioId,
                 AgenciaQueenvia = a.AgenciaQueenvia,
                 Nuc = a.Nuc
-
             });
-
         }
 
         //Nueva api para el 

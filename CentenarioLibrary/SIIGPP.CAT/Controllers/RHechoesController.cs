@@ -1759,7 +1759,7 @@ namespace SIIGPP.CAT.Controllers
         }
 
         // GET: api/RHechoes/ListarPorModuloCarpetas
-        [Authorize(Roles = "AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,Administrador")]
+        /*[Authorize(Roles = "AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,Administrador")]
         [HttpGet("[action]/{idModuloServicio}")]
         public async Task<IActionResult> ListarPorModuloCarpetas([FromRoute] Guid idModuloServicio)
         {
@@ -1837,97 +1837,97 @@ namespace SIIGPP.CAT.Controllers
                 result.StatusCode = 402;
                 return result;
             }
-        }
+        }*/
 
-
-
-
-        // GET: api/RHechoes/ListarPorModuloCarpetas2
+        // GET: api/RHechoes/ListarPorModuloCarpetas/{idModuloServicio}
         [Authorize(Roles = "AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,Administrador")]
         [HttpGet("[action]/{idModuloServicio}")]
-        public async Task<IActionResult> ListarPorModuloCarpetas2(
-            [FromRoute] Guid idModuloServicio,
-            [FromQuery] int page = 1,
-            [FromQuery] int pageSize = 20)
+        public async Task<IActionResult> ListarPorModuloCarpetas([FromRoute] Guid idModuloServicio)
         {
             try
             {
-                // Query base
-                var query = _context.RHechoes
-                    .Include(a => a.RAtencion)
-                    .Include(a => a.NUCs)
-                    .Where(a => a.NucId != null)
-                    .Where(a => a.ModuloServicioId == idModuloServicio);
-
-                // Total de registros
-                var totalRegistros = await query.CountAsync();
-
-                // Paginación
-                var carpetas = await query
+                var items = await _context.RHechoes
+                    .Where(a => a.NucId != null && a.ModuloServicioId == idModuloServicio)
                     .OrderByDescending(a => a.FechaElevaNuc2)
-                    .Skip((page - 1) * pageSize)
-                    .Take(pageSize)
+                    .Select(a => new ListarMisCarpetasViewModel
+                    {
+                        RHechoId = a.IdRHecho,
+                        Agenciaid = a.Agenciaid,
+                        RAtencionId = a.RAtencionId,
+                        u_Nombre = a.RAtencion.u_Nombre,
+                        u_Puesto = a.RAtencion.u_Puesto,
+                        u_Modulo = a.RAtencion.u_Modulo,
+                        Status = a.Status,
+                        nucId = a.NucId,
+                        nuc = a.NUCs.nucg,
+                        FechaElevaNuc = a.FechaElevaNuc,
+                        NDenunciaOficio = a.NDenunciaOficio,
+                        DistritoInicial = a.RAtencion.DistritoInicial,
+                        DirSubProcuInicial = a.RAtencion.DirSubProcuInicial,
+                        AgenciaInicial = a.RAtencion.AgenciaInicial,
+                        Victima = _context.RAPs
+                            .Where(r => r.RAtencionId == a.RAtencionId && r.PInicio)
+                            .Select(r => r.Persona.Nombre + " " + r.Persona.ApellidoPaterno + " " + r.Persona.ApellidoMaterno)
+                            .FirstOrDefault() ?? "Sin registrar V/I"
+                    })
                     .ToListAsync();
 
-                // Extraer los Ids de RAtencion para buscar víctimas en lote
-                var rAtencionIds = carpetas
-                    .Select(c => c.RAtencionId)
-                    .Distinct()
-                    .ToList();
-
-                // Buscar todas las víctimas asociadas en una sola consulta
-                var victimas = await _context.RAPs
-                    .Where(r => r.PInicio && rAtencionIds.Contains(r.RAtencionId))
-                    .Include(r => r.Persona)
-                    .GroupBy(r => r.RAtencionId)
-                    .Select(g => new {
-                        RAtencionId = g.Key,
-                        Victima = g.FirstOrDefault()
-                    })
-                    .ToDictionaryAsync(x => x.RAtencionId, x => x.Victima);
-
-                // Construcción del resultado
-                var items = carpetas.Select(a => new ListarMisCarpetasViewModel
-                {
-                    RHechoId = a.IdRHecho,
-                    Agenciaid = a.Agenciaid,
-                    RAtencionId = a.RAtencionId,
-                    u_Nombre = a.RAtencion.u_Nombre,
-                    u_Puesto = a.RAtencion.u_Puesto,
-                    u_Modulo = a.RAtencion.u_Modulo,
-                    DistritoInicial = a.RAtencion.DistritoInicial,
-                    DirSubProcuInicial = a.RAtencion.DirSubProcuInicial,
-                    AgenciaInicial = a.RAtencion.AgenciaInicial,
-                    Status = a.Status,
-                    nucId = a.NucId,
-                    nuc = a.NUCs?.nucg,
-                    FechaElevaNuc = a.FechaElevaNuc,
-                    NDenunciaOficio = a.NDenunciaOficio,
-                    Victima = victimas.ContainsKey(a.RAtencionId) && victimas[a.RAtencionId] != null
-                        ? $"{victimas[a.RAtencionId].Persona.Nombre} {victimas[a.RAtencionId].Persona.ApellidoPaterno} {victimas[a.RAtencionId].Persona.ApellidoMaterno}"
-                        : "Sin registrar V/I"
-                }).ToList();
-
-                return Ok(new
-                {
-                    data = items,
-                    total = totalRegistros
-                });
+                return Ok(items);
             }
             catch (Exception ex)
             {
-                var result = new ObjectResult(new
-                {
-                    mensaje = ex.Message,
-                    detail = ex.InnerException?.Message ?? "SIN EXCEPCION INTERNA",
-                    version = "version 1.6"
-                });
-                result.StatusCode = 500;
-                return result;
+                return StatusCode(500, new { mensaje = ex.Message });
             }
         }
 
+        // GET: api/RHechoes/DetalleCarpeta/{idRHecho}
+        [Authorize(Roles = "AMPO-AMP,Director,Coordinador,AMPO-AMP Mixto, AMPO-AMP Detenido,Administrador")]
+        [HttpGet("[action]/{idRHecho}")]
+        public async Task<IActionResult> DetalleCarpeta([FromRoute] Guid idRHecho)
+        {
+            try
+            {
+                var carpeta = await _context.RHechoes
+                    .Include(a => a.RAtencion)
+                    .Include(a => a.NUCs)
+                    .FirstOrDefaultAsync(a => a.IdRHecho == idRHecho);
 
+                if (carpeta == null)
+                    return NotFound();
+
+                var victima = await _context.RAPs
+                    .Where(a => a.RAtencionId == carpeta.RAtencionId && a.PInicio)
+                    .Include(a => a.Persona)
+                    .FirstOrDefaultAsync();
+
+                var items = new ListarMisCarpetasViewModel
+                {
+                    RHechoId = carpeta.IdRHecho,
+                    Agenciaid = carpeta.Agenciaid,
+                    RAtencionId = carpeta.RAtencionId,
+                    u_Nombre = carpeta.RAtencion.u_Nombre,
+                    u_Puesto = carpeta.RAtencion.u_Puesto,
+                    u_Modulo = carpeta.RAtencion.u_Modulo,
+                    DistritoInicial = carpeta.RAtencion.DistritoInicial,
+                    DirSubProcuInicial = carpeta.RAtencion.DirSubProcuInicial,
+                    AgenciaInicial = carpeta.RAtencion.AgenciaInicial,
+                    Status = carpeta.Status,
+                    nucId = carpeta.NucId,
+                    nuc = carpeta.NUCs.nucg,
+                    FechaElevaNuc = carpeta.FechaElevaNuc,
+                    NDenunciaOficio = carpeta.NDenunciaOficio,
+                    Victima = victima != null
+                        ? $"{victima.Persona.Nombre} {victima.Persona.ApellidoPaterno} {victima.Persona.ApellidoMaterno}"
+                        : "Sin registrar V/I"
+                };
+
+                return Ok(items);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { mensaje = ex.Message });
+            }
+        }
 
 
         // GET: api/RHechoes/ListarPorModuloRACSAdminDirector
