@@ -1,0 +1,123 @@
+services:
+  redis:
+    image: redis:7
+    container_name: redis
+    ports:
+      - "6379:6379"
+
+  siigpp.cat:
+    build:
+      context: .
+      dockerfile: ./SIIGPP.CAT/Dockerfile
+    container_name: siigpp.cat
+    ports:
+      - "44394:5000"
+    environment:
+      Redis__Configuration: "redis:6379"
+      Redis__InstanceName: "MyApp:"
+    depends_on:
+      - redis
+
+  siigpp.configuracion:
+    build:
+      context: .
+      dockerfile: ./SIIGPP.Configuracion/Dockerfile
+    container_name: siigpp.configuracion
+    ports:
+      - "44360:5000"
+    environment:
+      Redis__Configuration: "redis:6379"
+      Redis__InstanceName: "MyApp:"
+    depends_on:
+      - redis
+
+  siigpp.controlacceso:
+    build:
+      context: .
+      dockerfile: ./SIIGPP.ControlAcceso/Dockerfile
+    container_name: siigpp.controlacceso
+    ports:
+      - "44321:5000"
+    environment:
+      Redis__Configuration: "redis:6379"
+      Redis__InstanceName: "MyApp:"
+    depends_on:
+      - redis
+
+  siigpp.fedc:
+    build:
+      context: .
+      dockerfile: ./SIIGPP.FEDC/Dockerfile
+    container_name: siigpp.fedc
+    ports:
+      - "44348:5000"
+    environment:
+      Redis__Configuration: "redis:6379"
+      Redis__InstanceName: "MyApp:"
+    depends_on:
+      - redis
+
+  siigpp.il:
+    build:
+      context: .
+      dockerfile: ./SIIGPP.IL/Dockerfile
+    container_name: siigpp.il
+    ports:
+      - "44312:5000"
+    environment:
+      Redis__Configuration: "redis:6379"
+      Redis__InstanceName: "MyApp:"
+    depends_on:
+      - redis
+
+  siigpp.jr:
+    build:
+      context: .
+      dockerfile: ./SIIGPP.JR/Dockerfile
+    container_name: siigpp.jr
+    ports:
+      - "44309:5000"
+    environment:
+      Redis__Configuration: "redis:6379"
+      Redis__InstanceName: "MyApp:"
+    depends_on:
+      - redis
+
+  siigpp.pc:
+    build:
+      context: .
+      dockerfile: ./SIIGPP.PC/Dockerfile
+    container_name: siigpp.pc
+    ports:
+      - "5006:5000"
+    environment:
+      Redis__Configuration: "redis:6379"
+      Redis__InstanceName: "MyApp:"
+    depends_on:
+      - redis
+
+  siigpp.pi:
+    build:
+      context: .
+      dockerfile: ./SIIGPP.PI/Dockerfile
+    container_name: siigpp.pi
+    ports:
+      - "5007:5000"
+    environment:
+      Redis__Configuration: "redis:6379"
+      Redis__InstanceName: "MyApp:"
+    depends_on:
+      - redis
+
+  siigpp.sp:
+    build:
+      context: .
+      dockerfile: ./SIIGPP.SP/Dockerfile
+    container_name: siigpp.sp
+    ports:
+      - "5008:5000"
+    environment:
+      Redis__Configuration: "redis:6379"
+      Redis__InstanceName: "MyApp:"
+    depends_on:
+      - redis

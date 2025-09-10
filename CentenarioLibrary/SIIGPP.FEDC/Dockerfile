@@ -1,14 +1,18 @@
-FROM mcr.microsoft.com/dotnet/sdk:10.0.100-preview.3-windowsservercore-ltsc2022 AS windows-build
-WORKDIR /app
-COPY SIIGPP.FEDC.csproj .
-RUN dotnet restore "SIIGPP.FEDC.csproj"
-COPY . .
-RUN powershell -Command "New-Item -ItemType Directory -Path 'C:\\app\\Carpetas' -Force"
-RUN powershell -Command "dotnet clean 'SIIGPP.FEDC.csproj' -c Release; dotnet build 'SIIGPP.FEDC.csproj' -c Release; dotnet publish 'SIIGPP.FEDC.csproj' -c Release -o 'C:\\app\\publish'"
+FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
+WORKDIR /src
 
-FROM mcr.microsoft.com/dotnet/sdk:10.0.100-preview.3-windowsservercore-ltsc2022 AS windows-runtime
+COPY CentenarioLibrary/CentenarioLibrary.csproj CentenarioLibrary/
+COPY SIIGPP.FEDC/SIIGPP.FEDC.csproj SIIGPP.FEDC/
+
+RUN dotnet restore SIIGPP.FEDC/SIIGPP.FEDC.csproj
+
+COPY CentenarioLibrary/. CentenarioLibrary/
+COPY SIIGPP.FEDC/. SIIGPP.FEDC/
+
+RUN dotnet publish SIIGPP.FEDC/SIIGPP.FEDC.csproj -c Release -o /app/publish
+
+FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS runtime
 WORKDIR /app
-COPY --from=windows-build C:/app/publish .
-RUN powershell -Command "New-Item -ItemType Directory -Path 'C:\\app\\Carpetas' -Force"
-EXPOSE 44348
+COPY --from=build /app/publish .
+EXPOSE 5000
 ENTRYPOINT ["dotnet", "SIIGPP.FEDC.dll"]
