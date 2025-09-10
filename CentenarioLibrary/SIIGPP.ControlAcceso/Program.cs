@@ -42,7 +42,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     });
 
 // Configuración de Redis Cache
-builder.Configuration.AddEnvironmentVariables();
+/*builder.Configuration.AddEnvironmentVariables();
 
 var redisConfig = builder.Configuration.GetSection("Redis")["Configuration"];
 var redisInstance = builder.Configuration.GetSection("Redis")["InstanceName"];
@@ -62,7 +62,7 @@ builder.Services.AddCors(options =>
             .AllowAnyMethod());
 });
 
-builder.Services.AddSingleton<CentenarioLibrary.ResponseCacheMiddleware>();
+builder.Services.AddSingleton<CentenarioLibrary.ResponseCacheMiddleware>();*/
 
 var app = builder.Build();
 
@@ -79,7 +79,7 @@ app.UseStaticFiles(new StaticFileOptions
 app.UseHttpMetrics();
 app.UseAuthentication();
 app.UseAuthorization();
-app.UseMiddleware<ResponseCacheMiddleware>();
+//app.UseMiddleware<ResponseCacheMiddleware>();
 app.UseCors("AllowFrontend");
 app.MapControllers();
 app.MapMetrics();
